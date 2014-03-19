@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content = "IE-edge">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1">
+		<title>Smart-Two</title>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+		<link href = "/smart-css/bootstrap.min.css" rel = "stylesheet">
+		<link href = "/smart-css/main.css" rel = "stylesheet">
+		<link href = "/smart-css/datepicker.css" rel="stylesheet">
+		<link href = "/smart-css/devices.css" rel="stylesheet">
+
+
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    	<!--[if lt IE 9]>
+      		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+
+       	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->    	
+  		
+    </head>
+    <body>    	
+    	<div class = "container-fluid main" >
+    		<div class = "row">
+    			<div class = "col-md-12 header">
+    				<div id = "headerBar">
+    					<span id = "enjoy">Enjoy</span><span id ="relax"> Relax</span><span id = "ride"> Ride!</span>
+    					<span class = "graybar-line">Port Canavaral <img src = "/smart-images/to-from.png" height = 25 width = 25> Orlando International Airport </span>    				
+    					<p class = "graybar-subline">2014 Official Shuttle Co.</p>
+    				</div>
+    			</div>
+    		</div>
+    		<div class = "row top-section">    			
+    			<div class = "navigation-bar">
+    				
+    				<a href = "index.html" class = "current-page-home">HOME</a>
+    				<div class = "divider"><img src = "smart-images/divider.png" width = "1" height = "15"></div>
+
+    				<div class="dropdown dropdown-questions">
+					  <button class="btn btn-default" type="button" id="dropdown-button-questions" data-toggle="dropdown">
+					    QUESTIONS
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" id = "question-list" role="menu" aria-labelledby="dropdownMenu1">
+
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 1>What shuttle service does smart-two.com provide?</a></li>  
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 2>With 800 shuttle choices, why use smart-two.com?</a></li>	
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 3>What will you pick me up in?</a></li>			
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 4>When do I pay for the reservation?</a></li>			
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 5>When will you pick us up at our cruise?</a></li>			
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 6>When will you pick us up at the airport?</a></li>			
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 7>Does smart-two.com refund customers?</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 8>What if we want to book for more than two?</a></li>
+					  </ul>
+					</div>
+
+    				<div class = "divider"><img src = "smart-images/divider.png" width = "1" height = "15"></div>
+    				<a href = "about-us.html">ABOUT US</a>
+    				<div class = "divider"><img src = "smart-images/divider.png" width = "1" height = "15"></div>
+    				<a href = "contact-us.html">CONTACT US</a>
+
+    				<!-- <div id = "social-network">
+    					<img src = "/smart-images/youtube.png" />
+    					<img src = "/smart-images/facebook.png" />
+    					<img src = "/smart-images/twitter.png" />
+    					<img src = "/smart-images/instagram.png" />
+    				</div> -->
+    			</div>
+    			<div class = "header-section">
+
+    				<div id = "logo">
+    					<img src = "/smart-images/smart-two.png" />    					
+    				</div>
+    			</div>    			
+    		</div>
+	    	<div class = "row full-body" >
+	    		<div class = "col-md-3 col-sm-3 col-xs-3">
+		    		<div id = "reservationBar">
+		    			<h3 style = "font-size: 18px">Book a Shuttle For Two</h3>		    	
+		    			<h5>BETWEEN PORT CANAVERAL CRUISES AND ORLANDO INT'L AIRPORT</h5>
+		    			<hr class = "top">
+		    			<hr class = "bottom">
+		    			<div id = "reservationTypes">
+		    				<div class = "select">
+				    			<div class = "reservationBar subtitle">SELECT YOUR TRAVEL NEEDS</div>
+				    			<div id = "reservation-type">					    		
+					    			<div class="dropdown">
+									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-type" data-toggle="dropdown">
+									   One Way, Round Trip...
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" id = "travel-type" role="menu" aria-labelledby="dropdownMenu1">	
+									    <li role="presentation"><a role="menuitem" tabindex="-1">One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1">One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1">Round Trip (Between Orlando Int'l Airport and Port Canaveral)</a></li>
+									  </ul>
+									</div>
+
+									<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />
+								</div>
+				    		</div>				    				
+				    		<div class = "info flight">	
+				    			<hr class = "top">
+		    					<hr class = "bottom">
+
+				    			<div class = "reservationBar subtitle">PLEASE ENTER FLIGHT INFO</div>
+				    			<div class = "instructions">Select Pick Up Date From Airport</div>				    		
+
+				    			<div id = "airport-sold-out" style = "color: red;">Sorry this date is booked completely.  Please call 702-809-1436 for availability</div>
+
+				    			<div class="input-group" data-provide = "datepicker" id="dp3" data-date="12-02-2012">
+							        <input class="form-control" type="text" id="airport-date" placeholder = "MM/DD/YYYY" readonly>
+							       	<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>		        
+							    </div>   	
+
+							    <img class = "finished" tag = "2" style = "margin-top: -16px" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+
+							    <!-- <div class = "instructions">Select Pick Up Time From Airport</div> -->
+								<div class = "group-input">
+									<div class="dropdown">
+									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-airport" data-toggle="dropdown">
+									    Select Pick Up Time
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" id = "flight-time" role="menu" aria-labelledby="dropdownMenu1">
+
+									    <li role="presentation"><a role="menuitem" tabindex="-1">9:25  AM</a></li>  
+									    <li role="presentation"><a role="menuitem" tabindex="-1">11:55 AM</a></li>								    
+									  </ul>
+									</div>
+
+									<img class = "finished" tag = 3 src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+								</div>
+								<!-- <div class = "instructions">Select Your Airline</div> -->
+								<div class="dropdown">
+								  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-airline" data-toggle="dropdown">
+								    Select Your Airline
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" id = "airline-dropdown" role="menu" aria-labelledby="dropdownMenu1">
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Aer Lingus</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">AeroMexico</a></li>   
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Air Canada</a></li>	
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Air Jamaica</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Air Tran</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Air Transat</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Alaska</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">American</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Avianca</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Bahamasair</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">British Airways</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">CanJet</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Caribbean</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Continental</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Copa</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Delta</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Frontier</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Gol</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Jet Blue</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">LAN</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Lufthansa</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Southwest</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Spirit</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Sun Country</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Sun Wang</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">TAM</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">United</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">US Airways</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Virgin America</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Virgin Atlantic</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">Volaris</a></li>
+								    <li role="presentation"><a role="menuitem" tabindex="-1">West Jet</a></li>							    
+								  </ul>
+								</div>
+
+								<img class = "finished" src = "/smart-images/check-not-finished.png" tag = 4 height = 10 width = 10 />
+								<!-- <div class = "instructions">Enter Flight Number</div> -->
+
+								
+								<input class="form-control" type="text" id="flight-number" placeholder = "Enter Flight Number" style = "margin-top: 5px;">		
+
+								<img class = "finished" tag = 9 src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+							    				    							 
+				    		</div>		    				
+	    						    						    		
+			    		</div>			    	
+			    		
+		    			<div id = "reservationTypes">
+		    				<div class = "info cruise">	
+		    					<hr class = "top">
+		    					<hr class = "bottom">
+		    								    		
+				    			<div class = "reservationBar subtitle">PLEASE ENTER CRUISE INFO</div>
+				    			<div class = "instructions">Select Pick-Up Date From Cruise</div>
+			    			
+			    				<div id = "cruise-sold-out" style = "color: red;">Sorry this date is booked completely.  Please call 702-809-1436 for availability</div>
+
+			    				<div>
+				    			<div class="input-group" data-provide = "datepicker" id="dp4" data-date="12-02-2012" >
+							        <input id = "cruise-date" class="form-control" type="text" placeholder="MM/DD/YYYY" readonly >
+							        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>		        						    								  
+							    </div>
+
+							    <img class = "finished" tag = 6 style = "margin-top: -16px;" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+								</div>
+								<div class = "input-section">
+									<!-- <div class = "instructions">Select Pick Up Time From Cruise</div> -->
+									<div class="dropdown">
+									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-cruise" data-toggle="dropdown">
+									    Select Pick Up Time
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu" id = "cruise-time" aria-labelledby="dropdownMenu1">
+									    <li role="presentation"><a role="menuitem" tabindex="-1">8:05 AM</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1">10:35 AM</a></li>   
+									  </ul>
+									</div>
+
+									<img class = "finished" tag = 7 src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+							    </div>
+
+							    <div class = "input-section">
+									<!-- <div class = "instructions">Select Your Cruise Ship</div> -->
+									<div class="dropdown">
+									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-cruiseline" data-toggle="dropdown">
+									    Select Your Cruise Ship
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" id = "cruiseline-dropdown" role="menu" aria-labelledby="dropdownMenu1">
+									    <li role="presentation"><a role="menuitem" tabindex="-1">Carnival Sensation</a></li>			<li role="presentation"><a role="menuitem" tabindex="-1">Carnival Dream</a></li> 		
+									    <li role="presentation"><a role="menuitem" tabindex="-1">Royal Carribean Enchantment</a></li>
+									    <li role="presentation"><a role="menuitem" tabindex="-1">Royal Carribean Freedom</a></li>															   				   
+									  </ul>
+									</div>			    		
+									<img class = "finished" tag = 8 src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+								</div>
+			    		</div>
+			    		
+			    		<div id = "smart-price">
+			    			<div id = "price-tagline">
+			    				
+			    			</div>
+			    			<div id = "price">
+			    				
+			    			</div>
+			    		</div>
+			    		<div id = "book-it">
+		    				<form id = "firstData" action="https://checkout.globalgatewaye4.firstdata.com/payment" method="post"> 
+							  <input name="x_login" type="hidden"> 
+							  <input name="x_amount" type="hidden"> 
+							  <input name="x_fp_sequence"  type="hidden"> 
+							  <input name="x_fp_timestamp" type="hidden"> 
+							  <input name="x_fp_hash" type="hidden"> 
+							  <input name="x_currency_code" type="hidden"> 
+							  <input name="x_show_form" value="PAYMENT_FORM" type="hidden"> 						
+							  <div id = "book-now-button">
+							  	<input value="Book Now" type="submit" id = "smart-button" disabled> 
+							  </div>
+							</form>
+			    			
+			    		</div>
+		    		</div>
+	    		</div>
+	    		
+	    	</div>	
+	    	<div class = "col-md-7 col-sm-7 col-xs-7">
+				<div class = "tagline">
+					<img src = "/smart-images/Smart Quote-2.png" />
+				</div>
+				
+			</div>
+	  		  
+	   	</div>
+	   	<div class = "row">
+	   		<div class = "row">
+	   			<div>
+	   				<div id = "social-network">
+    					<img src = "/smart-images/youtube.png" />
+    					<img src = "/smart-images/facebook.png" />
+    					<img src = "/smart-images/twitter.png" />
+    					<img src = "/smart-images/instagram.png" />
+    				</div>
+	   			</div>
+	   			<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
+		    		<div class = "privacy-line"> 
+		    			2014 smart-two.com LLC is committed to your privacy. For details see our <a href = "privacy-policy.html">privacy policy</a>.
+		    		</div>
+		    	</div>
+	    	</div>
+	   	</div>
+	   	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		
+  		<script src="/smart-js/bootstrap.min.js"></script>
+		<script src="/smart-js/bootstrap-datepicker.js"></script>
+		<script src="/smart-js/jquery-dateFormat.min.js"></script>
+		<script src="/smart-js/setDate.js"></script>
+  		<script src="/smart-js/main.js"></script>
+  		<script src="/smart-js/md5.min.js"></script>
+  		<script src="/smart-js/questions.js"></script>
+  </body>
+
+</html>
+
+	
+
+</html>
