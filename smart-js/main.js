@@ -12,11 +12,12 @@ $(document).ready( function  () {
     var cruiselineSelected = false;   
     var flightNumberEntered = false; 
     var validated = false;
+
+
+    var travelType;
     var price;
     var boxes = [];
 
-    //These are the different options that can be selected for trip type
-    var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
 
     //Hide and show only the necessary information on load.
     $('.info.flight').hide();
@@ -26,6 +27,81 @@ $(document).ready( function  () {
     $('#cruise-sold-out').hide();
 
     $('.dropdown-toggle').dropdown();
+
+    var reservation = JSON.parse($.cookie('reservation'));
+
+    //These are the different options that can be selected for trip type
+    var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
+
+    reloadReservation(reservation);
+
+    function reloadReservation (reservation) {
+        changeTravelType(reservation.travelType); 
+
+        //Reload the page entirely as it was before the user left the price-tagline
+        //Cruise Info
+        $('#dropdown-button-cruise').text(reservation.cruiseTime);
+        $('#dropdown-button-cruiseline').text(reservation.cruiseShip);
+        $('#cruise-date').val(reservation.cruiseDate);
+
+        //Airline Info
+        $('#airport-date').val(reservation.airportDate);
+        $('#dropdown-button-flight').text(reservation.airportTime);
+        $('#dropdown-button-airline').text(reservation.airline);
+        $('#flight-number').val(reservation.flightNumber);
+    
+        //One way to airport
+        if (reservation.travelType == options[0])
+        {
+            //Cruise Validations
+            cruiseDateEntered = true;
+            cruiseTimeEntered = true;
+            cruiselineSelected = true;
+
+            moveToNextBox(6, 999);
+            moveToNextBox(7, 999);
+            moveToNextBox(8, 999);
+        }
+        else if (reservation.travelType == options[2])
+        {
+            //Cruise Validations
+            cruiseDateEntered = true
+            cruiseTimeEntered = true
+            cruiselineSelected = true
+
+            //Airport Validations
+            flightTimeEntered = true
+            flightDateEntered = true
+            airlineSelected = true            
+            flightNumberEntered = true
+
+            moveToNextBox(2, 999);
+            moveToNextBox(3, 999);
+            moveToNextBox(4, 999);
+            moveToNextBox(5, 999);
+            moveToNextBox(6, 999);
+            moveToNextBox(7, 999);
+            moveToNextBox(8, 999);
+            moveToNextBox(9, 999);
+        }
+        else if (reservation.travelType == options[1])
+        {
+            //Airport Validations
+            flightTimeEntered = true
+            flightDateEntered = true
+            airlineSelected = true            
+            flightNumberEntered = true
+
+            moveToNextBox(2, 999);
+            moveToNextBox(3, 999);
+            moveToNextBox(4, 999);
+            moveToNextBox(9, 999);
+        }
+
+        validated = true;
+        $('#smart-button').prop('disabled', false);
+        checkIfFinished();
+    }
 
     function reset () {
 
@@ -51,6 +127,7 @@ $(document).ready( function  () {
         $('#dropdown-button-airline').append('Select Your Airline<span class="caret"></span>');
 
         $('#flight-number').val('');
+        $('#smart-button').hide();
 
 
         roundTrip = false;
@@ -82,17 +159,17 @@ $(document).ready( function  () {
         };
     }
 
-    $('#travel-type li > a').click(function(e){
-    	
+
+    function changeTravelType (newTravelType) {
+        //Set the current travel type to the new one in order to have stored for later usage when saving the cookie.
+        travelType = newTravelType;
         //If this is a one way to airport
-        if (this.innerHTML == options[0])
-        {
+        if (newTravelType == options[0])
+        {         
             $('#dropdown-button-type').text( "Cruise Ship to Airport" );
 
             $('.info.flight').hide();
             $('.info.cruise').show();
-
-            reset();
 
             oneWayToAirport = true;
             roundTrip = false;
@@ -104,14 +181,12 @@ $(document).ready( function  () {
             moveToNextBox(1, 6);
         }
         //Round trip
-        else if (this.innerHTML == options[2])
-        {
+        else if (newTravelType == options[2])
+        {            
             $('#dropdown-button-type').text( "Round Trip" );
 
             $('.info.cruise').show();
             $('.info.flight').show(); 
-
-            reset();
 
             oneWayToAirport = false;
             roundTrip = true;
@@ -121,14 +196,12 @@ $(document).ready( function  () {
             $('#smart-button').prop('disabled', true);
         }
         //One way to cruise
-        else if (this.innerHTML == options[1])
-        {
+        else if (newTravelType == options[1])
+        {            
             $('#dropdown-button-type').text( "Airport to Cruise Ship" );
 
             $('.info.flight').show();
             $('.info.cruise').hide();
-
-            reset();
 
             oneWayToAirport = false;
             roundTrip = false;
@@ -137,7 +210,14 @@ $(document).ready( function  () {
             moveToNextBox(1,2);
             $('#smart-button').prop('disabled', true);
         }
+    }
 
+    $('#travel-type li > a').click(function(e){
+        reset();
+    	//Change the travel type variables and move onto the next circles showing whether or not something has been finished
+        changeTravelType(this.innerHTML);
+
+        //Reset all the inputs and the dropdown boxes to their default settings.        
     	$('#dropdown-button-type').append( '<span class="caret"></span>' );
 
 	});
@@ -332,40 +412,58 @@ $(document).ready( function  () {
 
     $('#smart-button').click( function  (response) {
 
-        var sequence = Math.random() * 10000;
-        var login = 'WSP-SMART-tAHsngAcIQ';
+        // var sequence = Math.random() * 10000;
+        // var login = 'WSP-SMART-tAHsngAcIQ';
         
-        sequence = Math.floor(Math.random() * 10000);
+        // sequence = Math.floor(Math.random() * 10000);
         
-        var timestamp = new Date();
-        timestamp = Math.floor(timestamp.getTime() / 1000);
-        var amount = price;
-        var currency = "USD";
+        // var timestamp = new Date();
+        // timestamp = Math.floor(timestamp.getTime() / 1000);
+        // var amount = price;
+        // var currency = "USD";
 
-        //First we create the string which contains the necessary data for the MCAH key
-        var data = login + '^' + sequence + '^' + timestamp + '^' + amount + '^USD';
-        var hash = md5(data, 'b~huCcMqqNm0W9wVdcHH');
+        // //First we create the string which contains the necessary data for the MCAH key
+        // var data = login + '^' + sequence + '^' + timestamp + '^' + amount + '^USD';
+        // var hash = md5(data, 'b~huCcMqqNm0W9wVdcHH');
 
-        $('input[name = x_login').val(login);
-        $('input[name = x_amount').val(amount);
-        $('input[name = x_fp_sequence').val(sequence);
-        $('input[name = x_fp_timestamp').val(timestamp);
-        $('input[name = x_fp_hash').val(hash);
-        $('input[name = x_currency_code').val(currency);
+        // $('input[name = x_login').val(login);
+        // $('input[name = x_amount').val(amount);
+        // $('input[name = x_fp_sequence').val(sequence);
+        // $('input[name = x_fp_timestamp').val(timestamp);
+        // $('input[name = x_fp_hash').val(hash);
+        // $('input[name = x_currency_code').val(currency);
 
-        var customerCode = createCode();
+        
 
         //We set the cruise date and the cruise times so that we can add them to the database
         var cruiseDate = $('#cruise-date').val();
         var cruiseTime = $('#dropdown-button-cruise').text();
         var airportDate = $('#airport-date').val();
         var airportTime = $('#dropdown-button-flight').text();
+        var cruiseShip = $('#dropdown-button-cruiseline').text();
+        var flightNumber = $('#flight-number').val();
+        var airline = $('#dropdown-button-airline').text();
+
+        //Create a dictionary that will be stored as a cookie
+        var reservation = {
+            cruiseDate    : cruiseDate,
+            cruiseTime    : cruiseTime,
+            airportDate   : airportDate,
+            airportTime   : airportTime, 
+            cruiseShip    : cruiseShip,
+            travelType    : travelType,
+            flightNumber  : flightNumber,
+            airline       : airline,
+            price         : price
+        };
+        //create a cookie storing the reservation information
+        $.cookie('reservation', JSON.stringify(reservation));
+
+        location.href = "customerinfo.html";   
 
         // if (endDate == 'MM/DD/YYYY') {
         //     endDate = '';
         // }
-
-        saveDataToMongo (airportDate, cruiseDate, airportTime, cruiseTime, customerCode, 'Valued Customer');
     });
 
     //We check to see here if all the required fields have been entered

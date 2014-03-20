@@ -128,7 +128,7 @@
 							    <!-- <div class = "instructions">Select Pick Up Time From Airport</div> -->
 								<div class = "group-input">
 									<div class="dropdown">
-									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-airport" data-toggle="dropdown">
+									  <button class="btn btn-default" style = "width: 100%;" type="button" id="dropdown-button-flight" data-toggle="dropdown">
 									    Select Pick Up Time
 									    <span class="caret"></span>
 									  </button>
@@ -254,20 +254,10 @@
 			    				
 			    			</div>
 			    		</div>
-			    		<div id = "book-it">
-		    				<form id = "firstData" action="https://checkout.globalgatewaye4.firstdata.com/payment" method="post"> 
-							  <input name="x_login" type="hidden"> 
-							  <input name="x_amount" type="hidden"> 
-							  <input name="x_fp_sequence"  type="hidden"> 
-							  <input name="x_fp_timestamp" type="hidden"> 
-							  <input name="x_fp_hash" type="hidden"> 
-							  <input name="x_currency_code" type="hidden"> 
-							  <input name="x_show_form" value="PAYMENT_FORM" type="hidden"> 						
-							  <div id = "book-now-button">
-							  	<input value="Book Now" type="submit" id = "smart-button" disabled> 
-							  </div>
-							</form>
-			    			
+			    		<div id = "book-it">						
+						  <div id = "book-now-button">
+						  	<input value="Book Now" type="submit" id = "smart-button" disabled> 
+						  </div>
 			    		</div>
 		    		</div>
 	    		</div>
@@ -308,6 +298,7 @@
   		<script src="/smart-js/main.js"></script>
   		<script src="/smart-js/md5.min.js"></script>
   		<script src="/smart-js/questions.js"></script>
+  		<script src="/smart-js/jquery-cookie/jquery.cookie.js"></script>
   </body>
 
 </html>
