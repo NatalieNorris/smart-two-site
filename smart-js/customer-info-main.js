@@ -36,9 +36,26 @@ $(document).ready( function  () {
         $('input[name = x_fp_hash').val(hash);
         $('input[name = x_currency_code').val(currency);
 
+        var e4json =  JSON.stringify( { 
+                        "thomas_smith106"           : "Daniel244", 
+                        "transaction_type"          : "34",
+                        "transaction_tag"           : "902006933",
+                        "authorization_num"         : "ET4653",
+                        "amount"                    : "15.75"
+                } ); 
+
+        $.ajax ({
+            url: "/e4",
+            type: "GET",
+            dataType: "json",
+            success: function  (response) {
+                alert('Successfuly called the e4 gateway api');
+            }
+        });
+
         var customerCode = createCode();
 
-        saveDataToMongo (reservation.airportDate, reservation.cruiseDate, reservation.airportTime, reservation.cruiseTime, confirmationCode, 'Valued Customer');
+        saveDataToMongo (reservation.airportDate, reservation.cruiseDate, reservation.airportTime, reservation.cruiseTime, customerCode, 'Valued Customer');
     });
 
     $('#first-name').change(function  () {

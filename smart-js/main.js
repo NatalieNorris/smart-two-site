@@ -28,12 +28,18 @@ $(document).ready( function  () {
 
     $('.dropdown-toggle').dropdown();
 
-    var reservation = JSON.parse($.cookie('reservation'));
+    var reservation;
+
+    if ($.cookie('reservation'))
+    {
+        reservation = JSON.parse($.cookie('reservation'));
+        reloadReservation(reservation);
+    }
 
     //These are the different options that can be selected for trip type
     var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
 
-    reloadReservation(reservation);
+    
 
     function reloadReservation (reservation) {
         changeTravelType(reservation.travelType); 

@@ -5,6 +5,7 @@ function start ()
 	var express = require('express');
 	var app = express();
 	var mongo = require("./mongo");
+	var e4 = require("./e4");
 
 	app.configure(function () {
 		app.use(express.bodyParser());
@@ -23,6 +24,13 @@ function start ()
 	app.post('/mongo/post/numberOfReservations', mongo.getNumberOfReservationsForDay);
 	app.get('/mongo/get', mongo.getData);
 	app.get('/mongo/get/datatable', mongo.getDataForDataTable);
+	app.get('/blog', function (request, response, next) {
+			response.setHeader('Content-Type', 'text/html');
+			response.setHeader('Content-Length',5);
+			response.write('hello');
+			response.end();
+	});
+	app.get('/e4', e4.executeTransaction)
 	app.post('/mongo/update', mongo.update);
 	app.use(express.static(__dirname));	
 	app.listen(process.env.PORT || 8080);
