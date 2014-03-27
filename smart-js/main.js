@@ -18,6 +18,8 @@ $(document).ready( function  () {
     var price;
     var boxes = [];
 
+    //These are the different options that can be selected for trip type
+    var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
 
     //Hide and show only the necessary information on load.
     $('.info.flight').hide();
@@ -35,11 +37,6 @@ $(document).ready( function  () {
         reservation = JSON.parse($.cookie('reservation'));
         reloadReservation(reservation);
     }
-
-    //These are the different options that can be selected for trip type
-    var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
-
-    
 
     function reloadReservation (reservation) {
         changeTravelType(reservation.travelType); 
@@ -449,6 +446,23 @@ $(document).ready( function  () {
         var cruiseShip = $('#dropdown-button-cruiseline').text();
         var flightNumber = $('#flight-number').val();
         var airline = $('#dropdown-button-airline').text();
+        
+        function getTraveType  () {
+            if (travelType == options[0])
+            {
+                return 0;
+            }
+            else if (travelType == options[1])
+            {
+                return 1;
+            }
+            else if (travelType == options[2])
+            {
+                return 2;
+            }
+        }
+
+        var travelTypeId = getTraveType();
 
         //Create a dictionary that will be stored as a cookie
         var reservation = {
@@ -457,13 +471,17 @@ $(document).ready( function  () {
             airportDate   : airportDate,
             airportTime   : airportTime, 
             cruiseShip    : cruiseShip,
-            travelType    : travelType,
+            travelType    : travelTypeId,
             flightNumber  : flightNumber,
             airline       : airline,
             price         : price
         };
+
+        //Make the expiration time five minutes from the current time
+        var expirationTime = new Date();
+        expirationTime = expirationTime.getMinutes() + (5 * 60000);
         //create a cookie storing the reservation information
-        $.cookie('reservation', JSON.stringify(reservation));
+        $.cookie('reservation', JSON.stringify(reservation), { expires : expirationTime } );
 
         location.href = "customerinfo.html";   
 

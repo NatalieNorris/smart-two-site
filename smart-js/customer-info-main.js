@@ -5,57 +5,61 @@ $(document).ready( function  () {
     var phoneNumberEntered = false;
     var emailEntered = false;
 
+    var creditCardNumberInputBox = $('#credit-card-number');
+    var csvNumberInputBox = $('#csv-number');
+    var firstNameInputBox = $('#first-name');
+    var lastNameInputBox = $('#last-name');
+    var phoneNumberInputBox = $('#phone-number');
+    var firstNameInputBox = $('#first-name');
+    var emailInputBox = $('#email');
+    var requestCommentsInputBox = $('#request-comments');
+    var expirationDateInputBox = $('#expiry-date');
+
+    //get the cookie containing the reservation information that was just entered
     var reservation = JSON.parse($.cookie('reservation'));    
 
     var boxes = [];
 
     for (var i = 1; i < 10; i++) {
         boxes[i] = "Not Selected";
-    };
+    };    
 
     $('#smart-button').click( function  (response) {
-
-        var sequence = Math.random() * 10000;
-        var login = 'WSP-SMART-tAHsngAcIQ';
         
-        sequence = Math.floor(Math.random() * 10000);
-        
-        var timestamp = new Date();
-        timestamp = Math.floor(timestamp.getTime() / 1000);
+        var fullName = firstNameInputBox.val() + ' ' + lastNameInputBox.val();
         var amount = reservation.price;
-        var currency = "USD";
-
-        //First we create the string which contains the necessary data for the MCAH key
-        var data = login + '^' + sequence + '^' + timestamp + '^' + amount + '^USD';
-        var hash = md5(data, 'b~huCcMqqNm0W9wVdcHH');
-
-        $('input[name = x_login').val(login);
-        $('input[name = x_amount').val(amount);
-        $('input[name = x_fp_sequence').val(sequence);
-        $('input[name = x_fp_timestamp').val(timestamp);
-        $('input[name = x_fp_hash').val(hash);
-        $('input[name = x_currency_code').val(currency);
-
-        var e4json =  JSON.stringify( { 
-                        "thomas_smith106"           : "Daniel244", 
-                        "transaction_type"          : "34",
-                        "transaction_tag"           : "902006933",
-                        "authorization_num"         : "ET4653",
-                        "amount"                    : "15.75"
-                } ); 
 
         $.ajax ({
             url: "/e4",
-            type: "GET",
+            type: "POST",
+            data : JSON.stringify({
+                cardholder_name : fullName,   
+                cc_number       : creditCardNumberInputBox.val(),
+                amount          : amount,
+                cc_expiry       : expirationDateInputBox.val(),                
+            }),
+            contentType : 'application/json',
             dataType: "json",
             success: function  (response) {
-                alert('Successfuly called the e4 gateway api');
+                //Check to see if the transaction was approved or not
+                if (response.transaction_approved == 1) {
+                 //   window.location = 'http://localhost:8080/smart-two-site/confirmation.html';
+                }
             }
         });
 
         var customerCode = createCode();
-
-        saveDataToMongo (reservation.airportDate, reservation.cruiseDate, reservation.airportTime, reservation.cruiseTime, customerCode, 'Valued Customer');
+        //Method in main.js which will save the information to the mongo database.
+        saveDataToMongo (reservation.airportDate, 
+            reservation.cruiseDate, 
+            reservation.airportTime, 
+            reservation.cruiseTime, 
+            customerCode, 
+            fullName, 
+            phoneNumberInputBox.val(),
+            emailInputBox.val(), 
+            reservation.travelType,
+            requestCommentsInputBox.val());
     });
 
     $('#first-name').change(function  () {

@@ -6,7 +6,7 @@ var MyModel;
 mongoose.plugin(DataTable.init);
 
 //var dbURI = 'mongodb://54.01.10.162/sswr';
-var dbURI = 'mongodb://localhost/thomas';
+var dbURI = 'mongodb://127.0.0.1/thomas';
 mongoose.connect(dbURI);
 var db = mongoose.connection;
 
@@ -27,20 +27,18 @@ db.once('open', function callback ()
 {
 	console.log('Connection has succesfully opened');
 	var Schema = mongoose.Schema;
-	
+
 	reservationsSchema = new Schema( 
 	{ 
 		reservation :
 		{
-			name : String,
-			cruiseInfo : {
-				date : String,
-				time : String
-			},
-			airportInfo : {
-				date : String,
-				time : String
-			},
+			name 			 : String,
+			email		 	 : String,
+			phoneNumber 	 : String,
+			specialRequest   : String,
+			travelType 		 : String,
+			date 			 : String,
+			time 			 : String,			
 			confirmationCode : String
 		}
 	});
@@ -103,43 +101,89 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 
 	response.send(200, JSON.stringify(  request.params));
 
-	console.log('Connected to port : ' + mongoose.connection.port);
-	console.log('Connected to host : ' + mongoose.connection.host);
-
 	if (reservations == undefined) {
 		console.log('A connection was not opened to mongo.  Make sure that the connection is valid, and that you have mongo installed on the machine.');
 	}
 
-	//Save the reservation to the database
-	console.log(request.body.reservation.confirmationCode);
+	//One Way to Cruise, One Way to Airport, Roundtrip
+	var travelTypeId = request.body.reservation.type;
+	var travelType = ''	;
+	var reservation;
 
-	//Get the cruise and airport information from the json data.
-	var cruiseDate = request.body.reservation.cruiseInfo.date;
-	var cruiseTime = request.body.reservation.cruiseInfo.time;
+	console.log('The Travel Type Id is : ' + travelTypeId);
+	
+	if (travelTypeId == 1)
+	{
+		travelType = 'One Way to Airport';
+		console.log('Travel type is : ' + travelType);
+		//Get the date and time information from the json data.
+		var date = request.body.reservation.airportInfo.date;
+		var time = request.body.reservation.airportInfo.time;
 
-	var airportDate = request.body.reservation.airportInfo.date;
-	var airportTime = request.body.reservation.airportInfo.time;
+		//Create a JSON document to be stored in mongo
+		reservation = getReservationDocument(date, time, travelType, request);
+		//Add this confirmation code to the date and time
+		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+	}
+	else if (travelTypeId == 0)
+	{
+		travelType = 'One Way to Cruise';
+		console.log('Travel Type is : ' + travelType);
+		var date = request.body.reservation.cruiseInfo.date;
+		var time = request.body.reservation.cruiseInfo.time;
 
+		//Create a JSON document to be stored in mongo
+		reservation = getReservationDocument(date, time, travelType, request);
+		//Add this confirmation code to the date and time
+		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+	}
+	else if (travelTypeId == 2)
+	{
+		travelType = "One Way to Airport";
+		console.log('Travel Type is : ' + travelType);
+		var date = request.body.reservation.airportInfo.date;
+		var time = request.body.reservation.airportInfo.time;
+		//Create a JSON document to be stored in mongo
+		reservation = getReservationDocument(date, time, travelType, request);		
+		//save to mongo
+		saveToMongo(reservation);	
+		//Add this confirmation code to the date and time
+		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+
+		travelType = "One Way to Cruise";
+
+		date = request.body.reservation.cruiseInfo.date;
+		time = request.body.reservation.cruiseInfo.time;
+
+		//Create a JSON document to be stored in mongo
+		reservation = getReservationDocument(date, time, travelType, request);		
+		//Add this confirmation code to the date and time
+		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+	}
+	
+	//save to mongo
+	saveToMongo(reservation);
+}
+//Returns a document made up of all the details needed for a reservation. ex: date, time, name etc.
+function getReservationDocument (date, time, type, request, specialRequest) {
 	//store a new reservation with all the specified details.
 	var reservation = new reservations({ 
 		reservation :
 		{
-			name 				: request.body.reservation.name, 
-			cruiseInfo 			: {
-				date: cruiseDate,
-				time: cruiseTime
-			},
-			airportInfo			: {
-				date: airportDate,
-				time: airportTime
-			},
+			name 				: request.body.reservation.name,
+			email				: request.body.reservation.email,
+			phoneNumber 		: request.body.reservation.phoneNumber, 
+			specialRequest 		: request.body.reservation.specialRequest,			
+			travelType 			: type,
+			date 				: date,
+			time 				: time,
 			confirmationCode 	: request.body.reservation.confirmationCode
 		}
 	}); 
-	
-	addDateDocument(request);
-	saveToMongo(reservation);
-};
+	console.log(reservation);
+
+	return reservation;
+}
 
 exports.updatePrice = function (request, response) {
 
@@ -159,33 +203,19 @@ exports.updatePrice = function (request, response) {
 
 //Now we are going to add a confirmation number to the array in the date document.
 //exports.addDateDocument = function addDateDocument (request, response) {
-function addDateDocument (request) {
+function addDateDocument (date, time, confirmationCode) {
 	
 	//response.send(200, JSON.stringify ( request.params ));
 
 	console.log('Connected to port : ' + mongoose.connection.port);
 	console.log('Connected to host : ' + mongoose.connection.host);
 
-	//Get the date and the confirmationCode from the request object
-	var cruiseDate = request.body.reservation.cruiseInfo.date;
-	var cruiseTime = request.body.reservation.cruiseInfo.time;
-	var airportDate = request.body.reservation.airportInfo.date;
-	var airportTime = request.body.reservation.airportInfo.time;
-	var confirmationCode = request.body.reservation.confirmationCode;
 	var dateModel = mongoose.model('dates', dateSchema);
 
 	//We check and see if either the start date or the end date is already contained within this document, 
 	//and then update the arrays holding the confirmation numbers accordingly
-	//If the dates are empty then we make sure that we don't store these dates.  We simply ignore them.
-	if (cruiseDate != "")
-	{
-		addConfirmationToDate(airportDate, airportTime, confirmationCode, dateModel);
-	}
-
-	if (airportDate != "")
-	{
-		addConfirmationToDate(cruiseDate, cruiseTime, confirmationCode, dateModel);
-	}
+	addConfirmationToDate(date, time, confirmationCode, dateModel);
+	
 };
 
 function addConfirmationToDate (date, time, confirmationCode, dateModel) {
@@ -360,7 +390,10 @@ exports.getDataForDataTable = function getDataForDataTable (request, response) {
 	//"type.typeName" : "Trolley"
 	//console.log("Get Request for Data Table made with data: ", request.query);
 
-	MyModel.dataTable(request.query, function  (err, data) {
+	console.log("The request query is : " + request.query);
+
+	
+	MyModel.dataTable(request.query, function  (err, data) {			
 		response.send(data);
 	});
 };

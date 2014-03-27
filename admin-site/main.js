@@ -40,45 +40,34 @@ $(document).ready(function () { //Begin ready function
     	"sAjaxSource" : '/mongo/get/datatable',
     	"aoColumns"	  : [
     				{ "mData" : "reservation.name" },
-    				{ "mData" : "reservation.cruiseInfo.date" },
-    				{ "mData" : "reservation.airportInfo.date" },
-    				{ "mData" : "reservation.confirmationCode" }
+    				{ "mData" : "reservation.email" },
+    				{ "mData" : "reservation.phoneNumber" },
+    				{ "mData" : "reservation.specialRequest" },
+    				{ "mData" : "reservation.confirmationCode" },
+    				{ "mData" : "reservation.date" },
+    				{ "mData" : "reservation.time"},
+    				{ "mData" : "reservation.travelType"}
     	],
     	"bDestroy"    : true
     });
 
     function formatDate (date) {
-	    var d_names = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+	   
+    	var month = date.getMonth() + 1;
 
-	    var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    	if (month < 10)
+    	{
+    		month = "0" + month;
+    	}    	
+    	var day = date.getDate();
+    	if (day < 10)
+    	{
+    		day = "0" + day;
+    	}
+    	var year = date.getYear();
+    	year = "20" + (year - 100);
+    	var formattedDate = month + "/" + day + "/" + year;
 
-	    var d = date;
-	    var curr_day = d.getDay();
-	    var curr_date = d.getDate();
-
-	    var sup = "";
-	    
-	    if (curr_date == 1 || curr_date == 21 || curr_date ==31)
-	    {
-	       sup = "st";
-	    }
-	  
-	    else if (curr_date == 2 || curr_date == 22)
-	    {
-	      sup = "nd";
-	    }
-	    else if (curr_date == 3 || curr_date == 23)
-	    {
-	      sup = "rd";
-	    }
-	    else
-	    {
-	      sup = "th";
-	    }
-	    var curr_month = d.getMonth();
-	    var curr_year = d.getFullYear();
-
-	    var formattedDate = d_names[curr_day] + " " + curr_date + sup + " " +  m_names[curr_month] + " " + curr_year;
 	    return formattedDate;
   };
 }); //end ready function

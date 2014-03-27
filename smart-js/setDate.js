@@ -26,7 +26,7 @@ function checkDate(date, callback) {
 }
 
 
-function saveDataToMongo (airportDate, cruiseDate, airportTime, cruiseTime, confirmationCode, name) {
+function saveDataToMongo (airportDate, cruiseDate, airportTime, cruiseTime, confirmationCode, name, phoneNumber, email, type, specialRequest) {
 
   var request = $.ajax({
       url: "http://localhost:8080/mongo/post/reservation",
@@ -36,12 +36,16 @@ function saveDataToMongo (airportDate, cruiseDate, airportTime, cruiseTime, conf
       data: JSON.stringify(
         { 
           reservation : {
+            type                 : type,
             name                 : name,
-            cruiseInfo           : { 
+            email                : email,
+            phoneNumber          : phoneNumber,
+            specialRequest       : specialRequest,
+            cruiseInfo : { 
               date : cruiseDate,
               time : cruiseTime
             },
-            airportInfo          : {
+            airportInfo : {
               date : airportDate,
               time : airportTime
             },

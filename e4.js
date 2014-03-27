@@ -75,16 +75,18 @@ function getHash  (body) {
 
 exports.executeTransaction = function (request, response) {
 	
-	var cardholder_name = request.body.cardholderName;
+	console.log('Request Body: ' + request.body);
+
+	var cardholder_name = request.body.cardholder_name;
 	var cc_number = request.body.cc_number;
 	var cc_expiry = request.body.cc_expiry;
 	var amount = request.body.amount;	
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
-                'cardholder_name'	  		    : cardholder_name
+                'cardholder_name'	  		    : cardholder_name,
                 'cc_number'         	   		: cc_number,
-                'amount'	       	        	: 14.0,
+                'amount'	       	        	: amount,
                 'cc_expiry'     	        	: cc_expiry,
                 'gateway_id'                    : 'AE3040-05',
                 'password'						: 'm07h8sji'
@@ -92,7 +94,7 @@ exports.executeTransaction = function (request, response) {
 	//Get the hash needed in order to login and execute the transaction
 	//getHash(body);
 
-	var response = requestify.request('https://api.demo.globalgatewaye4.firstdata.com/transaction/v11', {
+	var request = requestify.request('https://api.demo.globalgatewaye4.firstdata.com/transaction/v11', {
 		method: "POST",
 		body : body,
 		headers: {
@@ -100,15 +102,13 @@ exports.executeTransaction = function (request, response) {
 			'content-type' : 'application/json; charset=utf-8'
 		},
 		dataType : 'application/json'
-	}).then(function (response) {
-		response.getBody();
-		console.log(response.body);
-
-		return response.body;
+	}).then(function (requestifyResponse) {
+		console.log(requestifyResponse);
+		response.send(requestifyResponse.getBody());
+		response.end();
 	}, function (err) {
-		console.log(err);
+		console.log(err);		
 	});
 
-	console.log("Reached end of execute transaction");
-	return response; 
+
 };

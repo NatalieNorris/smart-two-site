@@ -30,7 +30,7 @@ function start ()
 			response.write('hello');
 			response.end();
 	});
-	app.get('/e4', e4.executeTransaction)
+	app.post('/e4', e4.executeTransaction)
 	app.post('/mongo/update', mongo.update);
 	app.use(express.static(__dirname));	
 	app.listen(process.env.PORT || 8080);
