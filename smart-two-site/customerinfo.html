@@ -94,46 +94,36 @@
 		    				<div class = "select">
 				    			<div class = "reservationBar subtitle"></div>
 				    			<div id = "contact-info">					    							    		
-				    				<!-- <div class = "instructions">Enter Flight Number</div> -->								
-
-									<input class="form-control" type="text" id="credit-card-number" placeholder = "Enter Your Credit Card Number" style = "margin-top: 5px;">		
+				    				<!-- <div class = "instructions">Enter Flight Number</div> -->
+			    					
+									<input class="form-control" id="credit-card-number" type="text" placeholder = "Enter Your Credit Card Number" style = "margin-top: 5px;">		
 									<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />
 
 									<input class="form-control" type="text" id="expiry-date" placeholder = "Enter Your Expiration Date" style = "margin-top: 5px;">		
-									<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />									
+									<img class = "finished" tag = "2" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />									
 
-									<input class="form-control" type="text" id="first-name" placeholder = "Enter Your First Name" style = "margin-top: 5px;">		
-									<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />
-
-									<input class="form-control" type="text" id="last-name" placeholder = "Enter Your Last Name" style = "margin-top: 5px;">		
-									<img class = "finished" tag = "2" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
-
-									<input class="form-control" type="text" id="phone-number" placeholder = "Enter Your Phone Number" style = "margin-top: 5px;">		
+									<input class="form-control" type="name" id="first-name" placeholder = "Enter Your First Name" style = "margin-top: 5px;">		
 									<img class = "finished" tag = "3" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
 
-									<input class="form-control" type="text" id="email" placeholder = "Enter Your Email" style = "margin-top: 5px;">		
+									<input class="form-control" type="name" id="last-name" placeholder = "Enter Your Last Name" style = "margin-top: 5px;">		
 									<img class = "finished" tag = "4" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+
+									<input class="form-control" type="phone-number" id="phone-number" placeholder = "Enter Your Phone Number" style = "margin-top: 5px;">		
+									<img class = "finished" tag = "5" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+
+									<input class="form-control" type="email" id="email" placeholder = "Enter Your Email" style = "margin-top: 5px;">		
+									<img class = "finished" tag = "6" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
 									<hr class ="top">
 									<hr class = "bottom">
 									Special Request or Comments
 									<textarea style = "resize: none; margin-top: 5px;" class="form-control" type="text" id="request-comments" placeholder = "Special Requests/Comments" style = "margin-top: 5px;" cols = "20" rows="5"></textarea>	
+									
 								</div>
 				    		</div>
-				    		<div id = "book-it">
-			    				<!-- <form id = "firstData" action="https://checkout.globalgatewaye4.firstdata.com/payment" method="post">  -->
-			    				<for id = "firstData" action = "#" method = "post" >
-								  <input name="x_login" type="hidden"> 
-								  <input name="x_amount" type="hidden"> 
-								  <input name="x_fp_sequence"  type="hidden"> 
-								  <input name="x_fp_timestamp" type="hidden"> 
-								  <input name="x_fp_hash" type="hidden"> 
-								  <input name="x_currency_code" type="hidden"> 
-								  <input name="x_show_form" value="PAYMENT_FORM" type="hidden"> 						
-								  <div id = "book-now-button">
+				    		<div id = "book-it">			    								
+								<div id = "book-now-button">
 								  	<input value="Book Now" type="submit" id = "smart-button" disabled> 
-								  </div>
-							</form>
-			    			
+								</div>										    			
 			    		</div>			    								    		
 		    		</div>
 	    		</div>
@@ -173,6 +163,7 @@
 		<script src="/smart-js/setDate.js"></script>
   		<script src="/smart-js/md5.min.js"></script>
   		<script src="/smart-js/questions.js"></script>
+  		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
   		<script src="/smart-js/jquery-cookie/jquery.cookie.js"></script>
   		<script src="/smart-js/customer-info-main.js"></script>
   </body>

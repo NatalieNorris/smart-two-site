@@ -54,7 +54,7 @@ $(document).ready( function  () {
         $('#flight-number').val(reservation.flightNumber);
     
         //One way to airport
-        if (reservation.travelType == options[0])
+        if (reservation.travelType == 0)
         {
             //Cruise Validations
             cruiseDateEntered = true;
@@ -65,7 +65,7 @@ $(document).ready( function  () {
             moveToNextBox(7, 999);
             moveToNextBox(8, 999);
         }
-        else if (reservation.travelType == options[2])
+        else if (reservation.travelType == 2)
         {
             //Cruise Validations
             cruiseDateEntered = true
@@ -87,7 +87,7 @@ $(document).ready( function  () {
             moveToNextBox(8, 999);
             moveToNextBox(9, 999);
         }
-        else if (reservation.travelType == options[1])
+        else if (reservation.travelType == 1)
         {
             //Airport Validations
             flightTimeEntered = true
@@ -101,6 +101,7 @@ $(document).ready( function  () {
             moveToNextBox(9, 999);
         }
 
+        changeBoxes('check-mark-green');
         validated = true;
         $('#smart-button').prop('disabled', false);
         checkIfFinished();
@@ -151,12 +152,12 @@ $(document).ready( function  () {
             boxes[i] = "Not Selected"
         };
 
-        clearAllBoxes();
+        changeBoxes('check-not-finished');
     }
 
-    function clearAllBoxes () {
+    function changeBoxes (image) {
         for (var i = 1; i < 10; i++) {
-            $(".finished[tag=" + i + "]").attr('src', "/smart-images/check-not-finished.png");
+            $(".finished[tag=" + i + "]").attr('src', "/smart-images/" + image + ".png");
             $(".finished[tag=" + i + "]").attr('height', 10);
             $(".finished[tag=" + i + "]").attr('width', 10);
         };

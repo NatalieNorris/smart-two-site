@@ -29,6 +29,9 @@ $(document).ready( function  () {
         var fullName = firstNameInputBox.val() + ' ' + lastNameInputBox.val();
         var amount = reservation.price;
 
+        // perform validation programmatically and return the result.
+        var result = inputs.data("validator").checkValidity();
+        
         $.ajax ({
             url: "/e4",
             type: "POST",
@@ -62,31 +65,50 @@ $(document).ready( function  () {
             requestCommentsInputBox.val());
     });
 
-    $('#first-name').change(function  () {
+    $('#credit-card-number').change(function  () {
         moveToNextBox(1, 2);
         firstNameEntered = true;
         checkIfFinished();
     });
 
-    $('#last-name').change(function  () {
+    $('#expiry-date').change(function  () {
         moveToNextBox(2, 3);
+        firstNameEntered = true;
+        checkIfFinished();
+    });
+
+    $('#first-name').change(function  () {
+        moveToNextBox(3, 4);
+        firstNameEntered = true;
+        checkIfFinished();
+    });
+
+    $('#last-name').change(function  () {
+        moveToNextBox(4, 5);
         lastNameEntered = true;
         checkIfFinished();
     });
 
     $('#phone-number').change(function  () {
-        moveToNextBox(3, 4);
+        moveToNextBox(5, 6);
         phoneNumberEntered = true;
         checkIfFinished();
     });
     $('#email').change(function  () {
-        moveToNextBox(4, 999); 
+        moveToNextBox(6, 999); 
         emailEntered = true;
         checkIfFinished();
     });
     $('#request-comments').change(function  () {
         
     });
+    //Make sure that the information entered is all in the correct format
+    var inputs = $('#contact-info :input').validator();
+
+     // Regular Expression to test whether the value is valid
+    // $.tools.validator.fn("[type=phone-number]", "Please supply a valid phone number", function(input, value) {
+    // return /^\d\d\d-\d\d\d-\d\d\d\d$/.test(value);
+    // });
 
     function checkIfFinished () {
         if (firstNameEntered && lastNameEntered && phoneNumberEntered && emailEntered)
