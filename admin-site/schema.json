@@ -1,0 +1,19 @@
+type { 
+	typeName : String,
+	type 
+	{ 
+		typeName : String,
+		type 
+		{ 
+			typeName : String,
+			part : 
+			[ { 
+				partName : String,
+				options : 
+				[ { 
+					optionName : String 
+				} ], 
+			} ],
+		},
+	},
+}
