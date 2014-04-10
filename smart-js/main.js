@@ -42,6 +42,10 @@ $(document).ready( function  () {
     $('.dropdown-toggle').dropdown();
 
 
+    $('#dropdown-button-flight').prop('disabled', true); 
+    $('#dropdown-button-cruise').prop('disabled', true); 
+
+
     function editMainScreen () {
         flightSection.hide();
         cruiseSection.show();
@@ -219,6 +223,9 @@ $(document).ready( function  () {
         };
 
         changeBoxes('check-not-finished');
+
+        $('#dropdown-button-flight').prop('disabled', true); 
+        $('#dropdown-button-cruise').prop('disabled', true); 
     }
 
     function changeBoxes (image) {
@@ -308,13 +315,13 @@ $(document).ready( function  () {
             //If the cruise time is not sold out
             if (cruiseTimeEntered)
             {
-                showBookingSuccessful(cruiseTimeSoldOut, 7, 8);
+                showBookingSuccessful(cruiseSoldOut, 7, 8);                
             }
             else {
                 priceSection.empty();
                 priceTaglineSection.empty();
 
-                changeStatusImage(7, 'Not Finished');
+                changeStatusImage(7, 'Not Finished');                
             }
         }
         else {
@@ -335,7 +342,7 @@ $(document).ready( function  () {
         if (flightDateEntered)
         {            
             //If a date is already selected then we want to see if this time and date is already sold out
-            flightTimeEntered = checkDateAndTimeAvailability (cruiseDate, cruiseTime, false);
+            flightTimeEntered = checkDateAndTimeAvailability (flightDate, flightTime, false);
             //If the cruise time is not sold out
             if (flightTimeEntered)
             {
@@ -372,10 +379,28 @@ $(document).ready( function  () {
     }
 
     function checkDateAndTimeAvailability (date, time, cruise) {
+
         //If the date and time is available then we return true
         var available;
+        var currentTravelTypeId;
+
+        var currentTravelTypeId;
+
+        //Make sure that we check the documents that have the correct travel type.  That way even if it's round trip
+        //we'll still check the correct travel type.
+        //For example - if this is One way to cruise, we'll check for all documents that have the matching id even though,
+        //the user has selected round trip.
+        if (cruise)
+        {
+            currentTravelTypeId = 0;
+        }
+        else
+        {
+            currentTravelTypeId = 1;
+        }
 
         checkDateAndTime(date, time, function (response) {
+                      
             //If the date and time is booked completely
             if (response != "Success")
             {
@@ -393,7 +418,7 @@ $(document).ready( function  () {
                 available = true;
             }
             
-        });
+        }, currentTravelTypeId);
 
         return available;
     }
@@ -402,9 +427,24 @@ $(document).ready( function  () {
     function checkDateAvailability (date, cruise) {
         //If the date is available then we return true
         var available;
+        var currentTravelTypeId;
+
+        //Make sure that we check the documents that have the correct travel type.  That way even if it's round trip
+        //we'll still check the correct travel type.
+        //For example - if this is One way to cruise, we'll check for all documents that have the matching id even though,
+        //the user has selected round trip.
+        if (cruise)
+        {
+            currentTravelTypeId = 0;
+        }
+        else
+        {
+            currentTravelTypeId = 1;
+        }
 
         //Check to see if we can have reservations on these dates.  If there is no more availabilities then display to the customer that this is the case.
         checkDate(date, function (response) {
+
             if (response != "Success")
             {
                 if (!cruise)
@@ -420,7 +460,7 @@ $(document).ready( function  () {
             else {
                 available = true;
             }
-        });
+        }, currentTravelTypeId);
 
         return available;
     }
@@ -468,13 +508,15 @@ $(document).ready( function  () {
             var imageTagToChange;
 
             //If the user has entered in a time already, then we need to check for availability on date and time
-            if (flightTimeEntered) {                
+            if (flightTimeEntered) { 
+                
+                           
                 flightDateEntered = checkDateAndTimeAvailability(flightDate, flightTime, false);
                 
                 //If both the time and date are available
                 if (flightDateEntered)
                 {
-                    showBookingSuccessful(airportSoldOut, 2, 999);
+                    showBookingSuccessful(airportSoldOut, 2, 999);                   
                 }
                 else {
                     //check to see if this date has openings.
@@ -502,12 +544,16 @@ $(document).ready( function  () {
                 if (flightDateEntered)
                 {
                     showBookingSuccessful(airportSoldOut, 2, 3);
+                     //Enable the ability to get the time
+                    $('#dropdown-button-flight').prop('disabled', false);
                 }
                 else {
                     priceSection.empty();
                     priceTaglineSection.empty();
 
-                    changeStatusImage(2, 'Not Finished');
+                    changeStatusImage(2, 'Not Finished');  
+                     //Enable the ability to get the time
+                    $('#dropdown-button-flight').prop('disabled', true);                  
                 }
             }
 
@@ -586,12 +632,17 @@ $(document).ready( function  () {
             if (cruiseDateEntered)
             {
                 showBookingSuccessful(cruiseSoldOut, imageTagToChange, secondImageTagToChange);
+
+                //Enable the ability to get the time
+                $('#dropdown-button-cruise').prop('disabled', false);
             }
             else {
                 priceSection.empty();
                 priceTaglineSection.empty();
 
                 changeStatusImage(imageTagToChange, 'Not Finished');
+                //Disable the ability to get the time
+                $('#dropdown-button-cruise').prop('disabled', true);
             }
         }
         

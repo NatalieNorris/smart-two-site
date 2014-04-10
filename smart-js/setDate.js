@@ -6,14 +6,15 @@ function createCode () {
   };
 
 //Check to make sure that the date does not have too many reservations already.
-function checkDate(date, callback) {
+function checkDate(date, callback, travelTypeId) {
   var request = $.ajax({
-      url: "http://localhost:8080/mongo/post/numberOfReservations",
+      url: "/mongo/post/numberOfReservations",
       type: 'POST',
       async: false,
       data: JSON.stringify(
         { 
-          "date.date" : date
+          "date.date" : date,
+          "date.travelTypeId" : travelTypeId
         }),
       contentType: 'application/json',
       success: function  (response) {
@@ -25,15 +26,16 @@ function checkDate(date, callback) {
   });
 }
 
-function checkDateAndTime (date, time, callback) {
+function checkDateAndTime (date, time, callback, travelTypeId) {
   var request = $.ajax({
-      url: "http://localhost:8080/mongo/post/numberOfReservationsForTime",
+      url: "/mongo/post/numberOfReservationsForTime",
       type: 'POST',
       async: false,
       data: JSON.stringify(
         { 
           "date" : date,
-          "time" : time
+          "time" : time,
+          "travelTypeId" : travelTypeId
         }),
       contentType: 'application/json',
       success: function  (response) {
@@ -49,7 +51,7 @@ function checkDateAndTime (date, time, callback) {
 function saveDataToMongo (airportDate, cruiseDate, airportTime, cruiseTime, confirmationCode, name, phoneNumber, email, type, specialRequest) {
 
   var request = $.ajax({
-      url: "http://localhost:8080/mongo/post/reservation",
+      url: "/mongo/post/reservation",
       type: 'POST',
       async: false,
       dataType: 'jsonp',

@@ -6,11 +6,11 @@ var MyModel;
 mongoose.plugin(DataTable.init);
 
 //var dbURI = 'mongodb://54.01.10.162/sswr';
-//var dbURI = 'mongodb://127.0.0.1/thomas';
-var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
+var dbURI = 'mongodb://127.0.0.1/thomas';
+//var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
 mongoose.connect(dbURI);
-var db = mongoose.connection;
 
+var db = mongoose.connection;
 var reservations;
 var dates;
 var times;
@@ -51,7 +51,8 @@ db.once('open', function callback ()
 			date  			 : String,
 			time  			 : String,
 			price 			 : Number,
-			confirmationCode : String
+			confirmationCode : String,
+			travelTypeId     : String
 		}
 	});
 
@@ -121,7 +122,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//Create a JSON document to be stored in mongo
 		reservation = getReservationDocument(date, time, travelType, request);
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
 	}
 	else if (travelTypeId == 0)
 	{
@@ -133,7 +134,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//Create a JSON document to be stored in mongo
 		reservation = getReservationDocument(date, time, travelType, request);
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
 	}
 	else if (travelTypeId == 2)
 	{
@@ -146,7 +147,8 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//save to mongo
 		saveToMongo(reservation);	
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+		travelTypeId = 0;
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
 
 		travelType = "One Way to Cruise";
 
@@ -156,7 +158,8 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//Create a JSON document to be stored in mongo
 		reservation = getReservationDocument(date, time, travelType, request);		
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode); 
+		travelTypeId = 1;
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
 	}
 	
 	//save to mongo
@@ -202,7 +205,7 @@ exports.updatePrice = function (request, response) {
 
 //Now we are going to add a confirmation number to the array in the date document.
 //exports.addDateDocument = function addDateDocument (request, response) {
-function addDateDocument (date, time, confirmationCode) {
+function addDateDocument (date, time, confirmationCode, travelTypeId) {
 	
 	//response.send(200, JSON.stringify ( request.params ));
 
@@ -213,12 +216,12 @@ function addDateDocument (date, time, confirmationCode) {
 
 	//We check and see if either the start date or the end date is already contained within this document, 
 	//and then update the arrays holding the confirmation numbers accordingly
-	addConfirmationToDate(date, time, confirmationCode, dateModel);
+	addConfirmationToDate(date, time, confirmationCode, dateModel, travelTypeId);
 	// addConfirmationToTime(date, time, confirmationCode, dateModel);
 	
 };
 
-function addConfirmationToDate (date, time, confirmationCode, dateModel) {
+function addConfirmationToDate (date, time, confirmationCode, dateModel, travelTypeId) {
 	// dateModel.update( 	
 	// 	{ 							 		 
 	// 		"date.date" : date,
@@ -248,7 +251,8 @@ function addConfirmationToDate (date, time, confirmationCode, dateModel) {
 			date : date,
 			time : time,
 			price : '48',
-			confirmationCode : confirmationCode
+			confirmationCode : confirmationCode,
+			travelTypeId : travelTypeId
 		}
 	});
 
@@ -371,10 +375,14 @@ exports.getData = function getData (request, response) {
 }
 
 exports.getNumberOfReservationsForTimeAndDay = function getNumberOfReservationsForTimeAndDay (request, response) {
-	console.log("Query: ", request.body );
+	console.log("Query - (Number of Reservations for Time and Day: ", request.body );
 
 	//Take the JSON query, and get the reservation corresponding to the sent date.
-	dates.find( { 'date.date' : request.body.date, 'date.time' : request.body.time }, 
+	dates.find( { 
+		'date.date' : request.body.date, 
+		'date.time' : request.body.time, 
+		'date.travelTypeId' : request.body.travelTypeId 
+	}, 
 		function (err, docs) 
 		{		
 			var success;
@@ -397,6 +405,7 @@ exports.getNumberOfReservationsForTimeAndDay = function getNumberOfReservationsF
 				success = 'Success';
 			}
 			
+			console.log(docs);
 			response.send( success );
 	 	});
 }
@@ -405,7 +414,7 @@ exports.getNumberOfReservationsForTimeAndDay = function getNumberOfReservationsF
 //exports.getNumberOfReservationsForDay = function (request, response) {
 exports.getNumberOfReservationsForDay = function getNumberOfReservationsForDay (request, response) {
 
-	console.log("Query: ", request.body );
+	console.log("Query - (Number of Reservations For Day: ", request.body );
 	//Take the JSON query, and get the reservation corresponding to the sent date.
 	dates.find( request.body, 
 		function (err, docs) 
@@ -428,7 +437,7 @@ exports.getNumberOfReservationsForDay = function getNumberOfReservationsForDay (
 			{
 				success = 'Success';
 			}
-			
+			console.log( docs );
 			response.send( success );
 	 	});
 };
