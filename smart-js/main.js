@@ -226,6 +226,8 @@ $(document).ready( function  () {
 
         $('#dropdown-button-flight').prop('disabled', true); 
         $('#dropdown-button-cruise').prop('disabled', true); 
+
+        earliestDate = new Date();
     }
 
     function changeBoxes (image) {

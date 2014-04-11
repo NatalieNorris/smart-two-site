@@ -23,6 +23,8 @@ $(document).ready( function  () {
     var cruiseTime;
     var travelTypeId;
 
+    var cookieAvailable = false;
+
     $('#dim').hide();
     $('#loading').hide();
 
@@ -49,8 +51,14 @@ $(document).ready( function  () {
 
     creditCardNumberInputBox.val('');
 
-    //get the cookie containing the reservation information that was just entered
-    var reservation = JSON.parse($.cookie('reservation'));    
+    if($.cookie('reservation'))
+    {
+        //get the cookie containing the reservation information that was just entered
+        var reservation = JSON.parse($.cookie('reservation'));    
+    }
+    else {
+        cookieAvailable = false;
+    }
 
     var boxes = [];
     //Go through each of the text boxes on the screen and set the image next to them to not selected
@@ -68,7 +76,11 @@ $(document).ready( function  () {
             $('#loading').show();
 
             var fullName = firstNameInputBox.val() + ' ' + lastNameInputBox.val();
-            var amount = reservation.price;
+
+            if (cookieAvailable)
+            {
+                amount = reservation.price;
+            }
             
             $.ajax ({
                 url: "/e4",
@@ -295,7 +307,8 @@ $(document).ready( function  () {
             cruiseDate = queryString['cruiseDate'];
             airportTime = queryString['airportTime'];
             cruiseTime = queryString['cruiseTime'];
-            travelTypeId = queryString['travelTypeId'];        
+            travelTypeId = queryString['travelTypeId'];   
+            amount = queryString['price'];     
         });     
     };
 

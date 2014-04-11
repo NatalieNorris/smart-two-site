@@ -82,19 +82,22 @@ exports.executeTransaction = function (request, response) {
 	var cc_expiry = request.body.cc_expiry;
 	var amount = request.body.amount;	
 
+    var gatewayId = 'B44629-01';
+    var password = '6pnktcw8';
+
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
                 'cardholder_name'	  		    : cardholder_name,
                 'cc_number'         	   		: cc_number,
                 'amount'	       	        	: amount,
                 'cc_expiry'     	        	: cc_expiry,
-                'gateway_id'                    : 'AE3040-05',
-                'password'						: 'm07h8sji'
+                'gateway_id'                    : gatewayId,
+                'password'						: password
 		});
 	//Get the hash needed in order to login and execute the transaction
 	//getHash(body);
 
-	var request = requestify.request('https://api.demo.globalgatewaye4.firstdata.com/transaction/v11', {
+	var request = requestify.request(' https://api.globalgatewaye4.firstdata.com/transaction/v11', {
 		method: "POST",
 		body : body,
 		headers: {
