@@ -307,28 +307,47 @@ $(document).ready( function  () {
 
         cruiseTime = this.innerHTML.trim();
 
-        //If the cruise date has already been entered then we check the date and the time, otherwise do nothing.
-        if (cruiseDateEntered)
+        getTimeAvailability (cruiseTime, cruiseDateEntered, cruiseTimeEntered, cruiseDate, cruiseTime, cruiseSoldOut, 7, true);
+
+    });
+
+    function getTimeAvailability (time, dateEntered, timeEntered, date, time, displaySoldOutSection, finishedImageTag, isCruise) {
+        //If the user has already entered the flight date information then we check to see if this particular date and time
+        //is available for booking, otherwise do nothing.
+
+        if (dateEntered)
         {            
             //If a date is already selected then we want to see if this time and date is already sold out
-            cruiseTimeEntered = checkDateAndTimeAvailability (cruiseDate, cruiseTime, true);
+            timeEntered = checkDateAndTimeAvailability (date, time, isCruise);
             //If the cruise time is not sold out
-            if (cruiseTimeEntered)
+            if (timeEntered)
             {
-                showBookingSuccessful(cruiseSoldOut, 7, 8);                
+                showBookingSuccessful(airportTimeSoldOut, finishedImageTag, finishedImageTag + 1);
             }
             else {
                 priceSection.empty();
                 priceTaglineSection.empty();
 
-                changeStatusImage(7, 'Not Finished');                
+                changeStatusImage(finishedImageTag, 'Not Finished');
             }
         }
         else {
-            showBookingSuccessful(cruiseTimeSoldOut, 7, 8);
-            cruiseTimeEntered = true;
+            //Display that as of right now we have not checked to see if you can book at this time
+            showBookingSuccessful(displaySoldOutSection, finishedImageTag, finishedImageTag + 1);
+            timeEntered = true;
         }
-    });
+
+        if (!isCruise)
+        {
+            flightTimeEntered = timeEntered;
+            flightDateEntered = dateEntered;       
+        }
+        else if (isCruise)
+        {
+            cruiseTimeEntered = timeEntered;
+            cruiseDateEntered = dateEntered;
+        }
+    }
 
     //Click on cruise time, and display the selected item
     $('#flight-time li > a').click(function(e){
@@ -337,29 +356,7 @@ $(document).ready( function  () {
         
         flightTime = this.innerHTML.trim();
 
-        //If the user has already entered the flight date information then we check to see if this particular date and time
-        //is available for booking, otherwise do nothing.
-        if (flightDateEntered)
-        {            
-            //If a date is already selected then we want to see if this time and date is already sold out
-            flightTimeEntered = checkDateAndTimeAvailability (flightDate, flightTime, false);
-            //If the cruise time is not sold out
-            if (flightTimeEntered)
-            {
-                showBookingSuccessful(airportTimeSoldOut, 3, 4);
-            }
-            else {
-                priceSection.empty();
-                priceTaglineSection.empty();
-
-                changeStatusImage(3, 'Not Finished');
-            }
-        }
-        else {
-            //Display that as of right now we have not checked to see if you can book at this time
-            showBookingSuccessful(airportTimeSoldOut, 3, 4);
-            flightTimeEntered = true;
-        }
+        getTimeAvailability (flightTime, flightDateEntered, flightTimeEntered, flightDate, flightTime, airportTimeSoldOut, 3, false);
     });
 
     function showBookingSuccessful (section, firstTag, secondTag) {
@@ -407,10 +404,12 @@ $(document).ready( function  () {
                 if (!cruise)
                 {
                     airportTimeSoldOut.show();
+                    airportSoldOut.hide();
                 }
                 else
                 {
                     cruiseTimeSoldOut.show();   
+                    cruiseSoldOut.hide();
                 }
                 available = false;            
             }
@@ -450,14 +449,27 @@ $(document).ready( function  () {
                 if (!cruise)
                 {
                     airportSoldOut.show();
+                    airportTimeSoldOut.hide();
+                    $('#dropdown-button-flight').prop('disabled', true);
                 }
                 else
                 {
-                    cruiseSoldOut.show();   
+                    cruiseSoldOut.show();
+                    cruiseTimeSoldOut.hide();
+                    //Disable the ability to get the time
+                    $('#dropdown-button-cruise').prop('disabled', true);
                 }
                 available = false;            
             }
             else {
+                if (!cruise)
+                {
+                    $('#dropdown-button-flight').prop('disabled', false);                         
+                }
+                else
+                {
+                    $('#dropdown-button-cruise').prop('disabled', false);   
+                }
                 available = true;
             }
         }, currentTravelTypeId);
@@ -505,57 +517,7 @@ $(document).ready( function  () {
             
             flightDate = $('#dp3 input').val();
 
-            var imageTagToChange;
-
-            //If the user has entered in a time already, then we need to check for availability on date and time
-            if (flightTimeEntered) { 
-                
-                           
-                flightDateEntered = checkDateAndTimeAvailability(flightDate, flightTime, false);
-                
-                //If both the time and date are available
-                if (flightDateEntered)
-                {
-                    showBookingSuccessful(airportSoldOut, 2, 999);                   
-                }
-                else {
-                    //check to see if this date has openings.
-                    flightDateEntered = checkDateAvailability(flightDate, false);
-
-                    //if just the date is available
-                    if (flightDateEntered) {                    
-                        showBookingSuccessful(airportSoldOut, 2, 999);       
-                    }
-                    //If entire date is unavailable
-                    else {
-                        imageToChange = 2;
-                    }
-
-                    priceSection.empty();
-                    priceTaglineSection.empty();
-
-                    changeStatusImage(3, 'Not Finished');
-                }
-            }
-            else {
-                //check to see if this date has openings.
-                flightDateEntered = checkDateAvailability(flightDate, false);
-
-                if (flightDateEntered)
-                {
-                    showBookingSuccessful(airportSoldOut, 2, 3);
-                     //Enable the ability to get the time
-                    $('#dropdown-button-flight').prop('disabled', false);
-                }
-                else {
-                    priceSection.empty();
-                    priceTaglineSection.empty();
-
-                    changeStatusImage(2, 'Not Finished');  
-                     //Enable the ability to get the time
-                    $('#dropdown-button-flight').prop('disabled', true);                  
-                }
-            }
+            getAvailability (flightTimeEntered, flightDateEntered, flightDate, flightTime, airportSoldOut, false, 2, $('#dropdown-button-flight'));
 
             //If this is a round trip then we make sure that the earliest date for the return date is later then the date just selected
             if (roundTrip)
@@ -569,6 +531,71 @@ $(document).ready( function  () {
                 
             $(this).datepicker('hide');   
 	}).data('datepicker');
+
+    function getAvailability (timeEntered, dateEntered, date, time, displaySoldOutSection, isCruise, finishedImageTag, timeDropdown) {
+        //If the user has entered in a time already, then we need to check for availability on date and time
+            if (timeEntered) {                 
+
+                //check to see if the date is available first                
+                dateEntered = checkDateAvailability(date, isCruise);
+
+                //If date is available then check the time
+                if (dateEntered)
+                {
+                    dateEntered = checkDateAndTimeAvailability(date, time, isCruise); 
+                    showBookingSuccessful(displaySoldOutSection, finishedImageTag, 999);
+
+                    //both date and time are good
+                    if (dateEntered)
+                    {
+                        showBookingSuccessful(displaySoldOutSection, finishedImageTag, 999);
+                    }
+                    else if (!dateEntered) //If the date is good, but not the time
+                    {
+                        priceSection.empty();
+                        priceTaglineSection.empty();
+
+                        changeStatusImage(finishedImageTag + 1, 'Not Finished');
+                    }
+                }
+                else {
+                    priceSection.empty();
+                    priceTaglineSection.empty();
+
+                    changeStatusImage(finishedImageTag, 'Not Finished');
+                }
+            }
+            else {
+                //check to see if this date has openings.
+                dateEntered = checkDateAvailability(date, isCruise);
+
+                if (dateEntered)
+                {
+                    showBookingSuccessful(displaySoldOutSection, finishedImageTag, finishedImageTag + 1);
+                     //Enable the ability to get the time
+                    timeDropdown.prop('disabled', false);
+                }
+                else {
+                    priceSection.empty();
+                    priceTaglineSection.empty();
+
+                    changeStatusImage(finishedImageTag, 'Not Finished');  
+                     //Enable the ability to get the time
+                    timeDropdown.prop('disabled', true);                  
+                }
+            }
+
+            if (!isCruise)
+            {
+                flightTimeEntered = timeEntered;
+                flightDateEntered = dateEntered;       
+            }
+            else if (isCruise)
+            {
+                cruiseTimeEntered = timeEntered;
+                cruiseDateEntered = dateEntered;
+            }
+    }
 
     //Get the return date information from the date picker that is displayed if the date is not sold out.
 	var returnDate = $('#dp4').datepicker(
@@ -590,61 +617,7 @@ $(document).ready( function  () {
         var imageTagToChange;
         var secondImageTagToChange;
 
-        //If the user has entered in a time already, then we need to check for availability on date and time
-        if (cruiseTimeEntered) {                
-            cruiseDateEntered = checkDateAndTimeAvailability(cruiseDate, cruiseTime, true);
-            
-            imageTagToChange = 6;
-            secondImageTagToChange = 999;
-            //If both the time and date are available
-            if (cruiseDateEntered)
-            {
-                showBookingSuccessful(cruiseSoldOut, 6, 999);
-            }
-            else {
-                //check to see if this date has openings.
-                cruiseDateEntered = checkDateAvailability(cruiseDate, true);
-
-                imageTagToChange = 6;
-                secondImageTagToChange = 7;
-                //if just the date is available
-                if (cruiseDateEntered) {                    
-                    showBookingSuccessful(cruiseSoldOut, 6, 999);       
-                    imageToChange = 7;
-                }
-                //If entire date is unavailable
-                else {
-                    imageToChange = 6;
-                }
-
-                priceSection.empty();
-                priceTaglineSection.empty();
-
-                changeStatusImage(7, 'Not Finished');
-            }
-        }
-        else {
-            imageTagToChange = 6;
-            secondImageTagToChange = 7;
-            //check to see if this date has openings.
-            cruiseDateEntered = checkDateAvailability(cruiseDate, true);
-
-            if (cruiseDateEntered)
-            {
-                showBookingSuccessful(cruiseSoldOut, imageTagToChange, secondImageTagToChange);
-
-                //Enable the ability to get the time
-                $('#dropdown-button-cruise').prop('disabled', false);
-            }
-            else {
-                priceSection.empty();
-                priceTaglineSection.empty();
-
-                changeStatusImage(imageTagToChange, 'Not Finished');
-                //Disable the ability to get the time
-                $('#dropdown-button-cruise').prop('disabled', true);
-            }
-        }
+        getAvailability (cruiseTimeEntered, cruiseDateEntered, cruiseDate, cruiseTime, cruiseSoldOut, true, 6, $('#dropdown-button-cruise'));
         
         $(this).datepicker('hide');        
 
