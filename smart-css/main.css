@@ -562,12 +562,13 @@ hr.bottom {
 
 #smart-button {
 
-	margin-left: 50%;
+	margin-left: 22%;
 	background-color: #506a88;
 	font-size: .8em;
 	padding: 8px 10px 8px 10px;
 	border-radius: 5px;
 	border-width: 0px;
+	width: 134px;
 }
 
 input[type="submit"]:disabled {

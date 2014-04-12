@@ -743,9 +743,10 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>').show();
                 price = '86.02';
+                price = '1';
                 $('#price').empty();
                 $('#price').val(price);
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included)  </p><p> (reg. price: 95.00 before tax)</p>').show();
+                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included)  </p><p> (reg. price: 95.00)</p>').show();
                 validated = true;
             }
         }
@@ -757,8 +758,9 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
                 price = '48.02';
+                price = '1';
                 $('#price').empty();
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00 before tax)</p>');
+                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
                 validated = true;
             }
         }
@@ -770,8 +772,9 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
                 price = '48.02';
+                price = '1';
                 $('#price').empty();
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00 before tax)</p>');
+                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
                 validated = true;
             }
         }

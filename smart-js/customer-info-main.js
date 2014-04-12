@@ -23,6 +23,8 @@ $(document).ready( function  () {
     var cruiseTime;
     var travelTypeId;
 
+    var amount;
+
     var cookieAvailable = false;
 
     $('#dim').hide();
@@ -36,6 +38,8 @@ $(document).ready( function  () {
 
     emptyTextBoxes();
     getParams();
+
+    
 
     function emptyTextBoxes () {
         creditCardNumberInputBox.val('');
@@ -67,14 +71,17 @@ $(document).ready( function  () {
     };    
 
     $('#smart-button').click( function  (response) {
+        //Remove the ability to press the button
+        $('#smart-button').prop('disabled', true); 
+
+        $('#dim').show();
+        $('#loading').show();
+
         //First we need to make sure that all the values inserted are valid
         var valid = inputs.data("validator").checkValidity();
 
         if (valid)
-        {
-            $('#dim').show();
-            $('#loading').show();
-
+        {            
             var fullName = firstNameInputBox.val() + ' ' + lastNameInputBox.val();
 
             if (cookieAvailable)
@@ -114,11 +121,25 @@ $(document).ready( function  () {
                             requestCommentsInputBox.val());
 
                             sendEmail();
-                            
-                            window.location = 'http://localhost:8080/confirmation.html?confirmation=' + customerCode;
+                                                        
+                            // if (travelTypeId == 0) //One way to airport
+                            // {
+                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?airportDate=' + airportDate + '?airportTime=' + airportTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;
+                            // }
+                            // else if (travelTypeId == 1) //One way to cruise
+                            // {
+                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?cruiseDate=' + cruiseDate + '?cruiseTime=' + cruiseTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;
+                            // }
+                            // else if (travelTypeId == 2) //Round trip
+                            // {
+                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?cruiseDate=' + cruiseDate + '?cruiseTime=' + cruiseTime + '?airportDate=' + airportDate + '?airportTime=' + airportTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;    
+                            // }    
+                            window.location = '/confirmation.html?confirmation=' + customerCode;
                         }
                         else {
                             $('#error').append('<div>' + 'Sorry your card was declined by the bank, please make sure you entered the information correctly' + '</div>');   
+                            //Remove the ability to press the button
+                            $('#smart-button').prop('disabled', false); 
                         }                        
                     }
                     else if (response.code == '400') {
@@ -135,7 +156,13 @@ $(document).ready( function  () {
                 }
             });
         }
-        
+        else {
+            //Remove the ability to press the button
+            $('#smart-button').prop('disabled', false); 
+
+            $('#dim').hide();
+            $('#loading').hide();
+        }
     });
 
     creditCardNumberInputBox.change(function  () {
@@ -308,7 +335,9 @@ $(document).ready( function  () {
             airportTime = queryString['airportTime'];
             cruiseTime = queryString['cruiseTime'];
             travelTypeId = queryString['travelTypeId'];   
-            amount = queryString['price'];     
+            amount = queryString['price'];    
+
+            $('#price').append(amount); 
         });     
     };
 

@@ -83,7 +83,7 @@ exports.executeTransaction = function (request, response) {
 	var amount = request.body.amount;	
 
     var gatewayId = 'B44629-01';
-    var password = '6pnktcw8';
+    var password = '9l1klnn3';
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
