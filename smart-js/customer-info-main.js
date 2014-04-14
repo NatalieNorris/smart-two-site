@@ -120,7 +120,7 @@ $(document).ready( function  () {
                             travelTypeId,
                             requestCommentsInputBox.val());
 
-                            sendEmail();
+                            sendEmail(customerCode);
                                                         
                             // if (travelTypeId == 0) //One way to airport
                             // {
@@ -140,12 +140,18 @@ $(document).ready( function  () {
                             $('#error').append('<div>' + 'Sorry your card was declined by the bank, please make sure you entered the information correctly' + '</div>');   
                             //Remove the ability to press the button
                             $('#smart-button').prop('disabled', false); 
+
+                            $('#dim').hide();
+                            $('#loading').hide();
                         }                        
                     }
                     else if (response.code == '400') {
                         $('#error').empty();
                         //Get the user friendly error message from the JSON file containing the non user friendly error messages as keys
-                        $('#error').append('<div>' + responseJSON[response.body] + '</div>');    
+                        $('#error').append('<div>' + responseJSON[response.body] + '</div>'); 
+
+                        $('#dim').hide();
+                        $('#loading').hide();   
                     }
                     //Don't show the dim screen so that it doesn't just roll around forever
                     $('#dim').hide();
@@ -153,6 +159,9 @@ $(document).ready( function  () {
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(errorThrown);
+
+                    $('#dim').hide();
+                    $('#loading').hide();
                 }
             });
         }
@@ -337,11 +346,14 @@ $(document).ready( function  () {
             travelTypeId = queryString['travelTypeId'];   
             amount = queryString['price'];    
 
-            $('#price').append(amount); 
+            $('#price-tagline').empty();
+            $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');                
+            $('#price').empty();
+            $('#price').append('<span>$' + amount + ' USD</span>');                
         });     
     };
 
-    function sendEmail () {
+    function sendEmail (confirmationNumber) {
         var emailed;
 
         $.ajax ({
@@ -351,7 +363,14 @@ $(document).ready( function  () {
             contentType : 'application/json',
             dataType: "json",
             data : JSON.stringify({
-                email : emailInputBox.val()
+                email : emailInputBox.val(),
+                travelTypeId : travelTypeId,
+                confirmationNumber : confirmationNumber,
+                price : amount,
+                cruiseDate : cruiseDate,
+                cruiseTime : cruiseTime,
+                flightDate : airportDate,
+                flightTime : airportTime
             }),
             success: function  (response) {
                 alert(response);

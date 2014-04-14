@@ -4,8 +4,34 @@ var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill(api_key);
 
 exports.sendEmail = function sendEmail (request, response) {
+
+	var details = [];
+	var travelTypeId = request.body.travelType;
+
+	if (travelTypeId == 0)
+	{
+		details[0] = request.body.cruiseDate;
+		details[1] = request.body.cruiseTime;
+	}
+	else if (travelTypeId == 1)
+	{
+		details[0] = request.body.flightDate;
+		details[1] = request.body.flightTime;
+	}
+	else if (travelTypeId == 2)
+	{
+		details[0] = request.body.cruiseDate;
+		details[1] = request.body.cruiseTime;
+		details[2] = request.body.flightDate;
+		details[3] = request.body.flightTime;
+	}
+
+	var confirmationNumber = request.body.confirmationNumber;
+	var price = request.body.price;
+
+	var travelOverview = getTravelOverviewInfo(travelType, details, confirmationNumber, price);
 	//Get an HTML document which is the body of the actual email
-	var html = getHTMLDocument();
+	var html = getHTMLDocument(travelOverview);
 	var from_email = 'customercare@smart-two.com';
 	var from_name = 'Smart-Two';
 	console.log(request.body);
@@ -68,7 +94,49 @@ exports.sendEmail = function sendEmail (request, response) {
 
 }
 
-function getHTMLDocument () {
+function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price) {
+
+	if (travelTypeId == 0)  //One way to airport
+	{
+		var cruiseDate = details[0];
+		var cruiseTime = details[1];
+
+		var tripType = "One Way to Airport";
+
+		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +
+			"<p><b>Cruise to Airport Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
+			"<p><b>Reservation for: </b>" + name + "</p>" +
+			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
+			"<p><b>Total Cost: </b>$" + price + "</p>"
+	}
+	else if (travelTypeId == 1) //One way to Cruise
+	{
+		var flightDate = details[0];
+		var flightTime = details[1];
+
+		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +
+			"<p><b>Cruise to Airport Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
+			"<p><b>Reservation for: </b>" + name + "</p>" +
+			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
+			"<p><b>Total Cost: </b>$" + price + "</p>"
+	}
+	else if (travelTypeId == 2) //Roundtrip
+	{ 
+		var cruiseDate = details[0];
+		var cruiseTime = details[1]; 
+		var flightDate = details[2];
+		var flightTime = details[3];
+
+		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +
+				"<p><b>Airport to Cruise Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
+				"<p><b>Cruise to Airport Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
+				"<p><b>Reservation for: </b>" + name + "</p>" +
+				"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
+				"<p><b>Total Cost: </b>$" + price + "</p>"
+	}
+}
+
+function getHTMLDocument (travelOverview) {
 	var html = '<html>' +	
 					'<head>' +
 						'<style>' +
@@ -78,7 +146,7 @@ function getHTMLDocument () {
 								'height: 810px;' +
 							'}' +
 							'#wrapper {' +
-								'width: 600px;' +
+								
 							'}' +
 							'#blue {' +
 								'color: #7ba7de;' +
@@ -103,6 +171,12 @@ function getHTMLDocument () {
 							'#sub-steps1 {' +
 								'margin-left: 70px;' +
 							'}' +
+							'#trip-overview {' +
+								'background-color: #edf3f9;' +
+							'}' +
+							'#trip-overview-header {' +
+	 							'background-color: #79a6e0;' +
+							'}' +
 							'#yellow {' +
 								'color: #ffbf00;' +
 							'}' +
@@ -113,13 +187,22 @@ function getHTMLDocument () {
 						'<div id = "header">' +
 							'<b><i>Hello and welcome from the <span id="blue">smart-</span><span id="yellow">two</span><span id = "blue">.</span><span id = "red">com</span> team,</i></b>' +
 						'</div>' +
+						"<div id = 'trip-overview'>" +
+							"<div id = 'trip-overview-header'>" +
+								"<h2 style = 'color: white;'>Trip Overview</h2>" +
+							"</div>" +
+							travelOverview + 
+							"<div id = 'trip-overview-header' style = 'background-color: #79a6e0;'>" +
+								"<h2 style = 'color: white;'>Important Travel Information</h2>" +
+							"</div>" +
+						"</div>" +
 						'<!-- End Header Line -->' + 
 						'<!-- Begin Header Area -->' + 
-						'<p id="line1">At smart-two.com we are going to make getting to your destination simple, stress-free and all at </p>' + 
+						'<p id="line1">At smart-two.com we are going to make getting to your destination simple, stress-free and all at ' + 
 
-						'<p id="line2">a great value. Included in this e-mail are important shuttle tips on what to expect at the airport and/</p>' + 
+						'a great value. Included in this e-mail are important shuttle tips on what to expect at the airport and/' + 
 
-						'<p id="line3">or cruise terminal. Please carefully review the instructions below to find us at your location.</p>' + 
+						'or cruise terminal. Please carefully review the instructions below to find us at your location.</p>' + 
 						'<!-- End Header Area -->' + 
 
 						'<!-- Section 1 -->' + 
@@ -156,15 +239,15 @@ function getHTMLDocument () {
 						'<p><b>Step 3</b>: At the designated shuttle waiting area, you’ll see your driver holding a blue smart-two.com sign and we invite you to come on over to our shuttle. Please arrive 10 minutes prior to your scheduled leave time.</p>' + 
 						'<!-- End Section 2 -->' + 
 
-						'<p id="line1">If you have questions or concerns at the airport or cruise terminal, please feel free to call your </p>' + 
+						'<p id="line1">If you have questions or concerns at the airport or cruise terminal, please feel free to call your ' + 
 
-						'<p>driver at 855-200-7678 and select option 2 or 3, depending on your location. You can also email </p>' + 
+						'driver at 855-200-7678 and select option 2 or 3, depending on your location. You can also email ' + 
 
-						'<p>us at customercare@smart-two.com if you have any questions or concerns that are not addressed </p>' + 
+						'us at customercare@smart-two.com if you have any questions or concerns that are not addressed ' + 
 
-						'<p>in the instructions provided above. Thank you for choosing smart-two.com! We look forward to </p>' + 
+						'in the instructions provided above. Thank you for choosing smart-two.com! We look forward to ' + 
 
-						'<p>meeting each and every one of you!</p>' + 
+						'meeting each and every one of you!</p>' + 
 
 						'<div align="center">' + 
 							'<p id = "last-line"><b><i><u>Please Print and Save</u></i></b></p>' + 

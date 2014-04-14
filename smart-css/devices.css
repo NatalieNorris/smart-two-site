@@ -28,7 +28,7 @@
 
 
 
-media all and (max-width: 1000px),
+media all and (min-width: 1000px),
 	all and (max-device-width: 1000px) {
 
 		#reservationBar {
@@ -40,6 +40,11 @@ media all and (max-width: 1000px),
 
 }
 
+media all and (min-width: 700px), all and (max-device-width : 1000) {
+	.full-body {
+		background-size: 800px 700px;
+	}
+}
 
 @media all and (max-width: 415),
 	all and (max-device-width: 415) {
