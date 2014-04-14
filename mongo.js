@@ -6,8 +6,8 @@ var MyModel;
 mongoose.plugin(DataTable.init);
 
 //var dbURI = 'mongodb://54.01.10.162/sswr';
-var dbURI = 'mongodb://127.0.0.1/thomas';
-//var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
+//var dbURI = 'mongodb://127.0.0.1/thomas';
+var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
 mongoose.connect(dbURI);
 
 var db = mongoose.connection;
@@ -397,7 +397,7 @@ exports.getNumberOfReservationsForTimeAndDay = function getNumberOfReservationsF
 			// {
 			// 	success = 'Success';
 			// }
-			else if (docs.length > 1) 
+			else if (docs.length > 16) 
 			{
 				success = 'Booked up';
 			}
@@ -429,7 +429,7 @@ exports.getNumberOfReservationsForDay = function getNumberOfReservationsForDay (
 			// {
 			// 	success = 'Success';
 			// }
-			else if (docs.length > 2)
+			else if (docs.length > 32)
 			{
 				success = 'Booked up';
 			}
