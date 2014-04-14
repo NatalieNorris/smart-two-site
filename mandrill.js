@@ -6,7 +6,7 @@ var mandrill_client = new mandrill.Mandrill(api_key);
 exports.sendEmail = function sendEmail (request, response) {
 
 	var details = [];
-	var travelTypeId = request.body.travelType;
+	var travelTypeId = request.body.travelTypeId;
 
 	if (travelTypeId == 0)
 	{
@@ -28,8 +28,9 @@ exports.sendEmail = function sendEmail (request, response) {
 
 	var confirmationNumber = request.body.confirmationNumber;
 	var price = request.body.price;
+	var name = request.body.name;
 
-	var travelOverview = getTravelOverviewInfo(travelType, details, confirmationNumber, price);
+	var travelOverview = getTravelOverviewInfo(travelTypeId, details, confirmationNumber, price, name);
 	//Get an HTML document which is the body of the actual email
 	var html = getHTMLDocument(travelOverview);
 	var from_email = 'customercare@smart-two.com';
@@ -94,7 +95,7 @@ exports.sendEmail = function sendEmail (request, response) {
 
 }
 
-function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price) {
+function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price, name) {
 
 	if (travelTypeId == 0)  //One way to airport
 	{
@@ -114,8 +115,10 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 		var flightDate = details[0];
 		var flightTime = details[1];
 
+		var tripType = "One Way to Cruise Ship";
+
 		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +
-			"<p><b>Cruise to Airport Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
+			"<p><b>Airport to Cruise Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
 			"<p><b>Reservation for: </b>" + name + "</p>" +
 			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
 			"<p><b>Total Cost: </b>$" + price + "</p>"
@@ -127,9 +130,11 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 		var flightDate = details[2];
 		var flightTime = details[3];
 
-		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +
-				"<p><b>Airport to Cruise Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
-				"<p><b>Cruise to Airport Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
+		var tripType = "Roundtrip";
+
+		return	"<p><b>Trip Type:</b> " + tripType + "</p>" +				
+				"<p><b>Airport to Cruise Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
+				"<p><b>Cruise to Airport Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
 				"<p><b>Reservation for: </b>" + name + "</p>" +
 				"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
 				"<p><b>Total Cost: </b>$" + price + "</p>"
@@ -155,7 +160,7 @@ function getHTMLDocument (travelOverview) {
 								'font-size: 18px;' +
 							'}' +
 							'#line1 {' +
-								'margin-left: 40px;' +
+								'margin-left: 0px;' +
 							'}' +
 							'#please-note {' +
 								'color: gray;' +

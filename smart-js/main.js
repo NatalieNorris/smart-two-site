@@ -113,6 +113,10 @@ $(document).ready( function  () {
             $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included) </p><p> (reg. price: 55.00 before tax)</p>');
             validated = true;
             travelType = options[0];
+
+            flightSection.hide();
+            cruiseSection.show();
+            $('#dropdown-button-cruise').prop('disabled', false);
         }
         else if (reservation.travelType == 2)
         {
@@ -146,6 +150,11 @@ $(document).ready( function  () {
             $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included)  </p><p> (reg. price: 95.00 before tax)</p>').show();
             validated = true;
             travelType = options[2];
+
+            flightSection.show();
+            cruiseSection.show();
+            $('#dropdown-button-flight').prop('disabled', false);
+            $('#dropdown-button-cruise').prop('disabled', false);
         }
         else if (reservation.travelType == 1)
         {
@@ -169,6 +178,10 @@ $(document).ready( function  () {
             $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included) </p><p> (reg. price: 55.00 before tax)</p>');
             validated = true;
             travelType = options[1];
+
+            flightSection.show();
+            cruiseSection.hide();
+            $('#dropdown-button-flight').prop('disabled', false);
         }
 
         changeBoxes('check-mark-green');
@@ -743,7 +756,7 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>').show();
                 price = '86.02';
-                price = '1';
+                //price = '1';
                 $('#price').empty();
                 $('#price').val(price);
                 $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included)  </p><p> (reg. price: 95.00)</p>').show();
@@ -758,7 +771,7 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
                 price = '48.02';
-                price = '1';
+                //price = '1';
                 $('#price').empty();
                 $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
                 validated = true;
@@ -772,7 +785,7 @@ $(document).ready( function  () {
                 $('#price-tagline').empty();
                 $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
                 price = '48.02';
-                price = '1';
+                //price = '1';
                 $('#price').empty();
                 $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
                 validated = true;

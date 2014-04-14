@@ -106,10 +106,10 @@
 											<input class="form-control" type="text" name="expiry-date" placeholder = "Enter Your Expiration Date" style = "margin-top: 5px;" maxlength="4">		
 											<img class = "finished" tag = "2" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />									
 
-											<input class="form-control" type="text" name="first-name" placeholder = "Enter Your First Name" style = "margin-top: 5px;" pattern="[a-zA-Z ]{5,}" maxlength="30" data-message='Name must not contain any numbers or special characters'>		
+											<input class="form-control" type="text" name="first-name" placeholder = "Enter Your First Name" style = "margin-top: 5px;" pattern="[a-zA-Z ]{2,}" maxlength="30" data-message='Name must not contain any numbers or special characters and be longer than 1 character'>		
 											<img class = "finished" tag = "3" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
 
-											<input class="form-control" name="last-name" placeholder = "Enter Your Last Name" style = "margin-top: 5px;" type="text" pattern="[a-zA-Z ]{5,}" maxlength="30" data-message='Name must not contain any numbers or special characters'>		
+											<input class="form-control" name="last-name" placeholder = "Enter Your Last Name" style = "margin-top: 5px;" type="text" pattern="[a-zA-Z ]{1,}" maxlength="30" data-message='Name must not contain any numbers or special characters and be longer than 1 character'>		
 											<img class = "finished" tag = "4" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
 
 											<input class = "form-control" type="phone-number" required = 'required' name = "phone-number" placeholder = "Enter Your Phone Number" style = "margin-top: 5px;" />	
@@ -146,7 +146,7 @@
 	    		</div>	    		
 	    		<div class = "col-md-7 col-sm-7 col-xs-7">
 					<div class = "tagline">
-						<img src = "/smart-images/Smart Quote-2.png" />
+						<img id = 'image-tagline' src = "/smart-images/Smart Quote-2.png" />
 					</div>	
 					<div id = 'loading'>
 						<img src = "/smart-images/ajax-loader.gif" />
@@ -187,6 +187,7 @@
   		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
   		<script src="/smart-js/jquery-cookie/jquery.cookie.js"></script>
   		<script src="/smart-js/customer-info-main.js"></script>
+  		<script src="/smart-js/rotating-quote.js"></script>  	
   		
   </body>
 

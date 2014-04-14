@@ -121,19 +121,7 @@ $(document).ready( function  () {
                             requestCommentsInputBox.val());
 
                             sendEmail(customerCode);
-                                                        
-                            // if (travelTypeId == 0) //One way to airport
-                            // {
-                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?airportDate=' + airportDate + '?airportTime=' + airportTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;
-                            // }
-                            // else if (travelTypeId == 1) //One way to cruise
-                            // {
-                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?cruiseDate=' + cruiseDate + '?cruiseTime=' + cruiseTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;
-                            // }
-                            // else if (travelTypeId == 2) //Round trip
-                            // {
-                            //     window.location = '/confirmation.html?confirmation=' + customerCode + '?name=' + fullName + '?cruiseDate=' + cruiseDate + '?cruiseTime=' + cruiseTime + '?airportDate=' + airportDate + '?airportTime=' + airportTime + '?travelTypeId=' + travelTypeId + '?amount=' + amount;    
-                            // }    
+                        
                             window.location = '/confirmation.html?confirmation=' + customerCode;
                         }
                         else {
@@ -152,16 +140,19 @@ $(document).ready( function  () {
 
                         $('#dim').hide();
                         $('#loading').hide();   
+                        $('#smart-button').prop('disabled', false); 
                     }
                     //Don't show the dim screen so that it doesn't just roll around forever
                     $('#dim').hide();
                     $('#loading').hide();
+                    $('#smart-button').prop('disabled', false); 
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(errorThrown);
 
                     $('#dim').hide();
                     $('#loading').hide();
+                    $('#smart-button').prop('disabled', false); 
                 }
             });
         }
@@ -349,12 +340,14 @@ $(document).ready( function  () {
             $('#price-tagline').empty();
             $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');                
             $('#price').empty();
-            $('#price').append('<span>$' + amount + ' USD</span>');                
+            $('#price').append('<span>$' + amount + ' USD</span>');  
+
         });     
     };
 
     function sendEmail (confirmationNumber) {
         var emailed;
+        var fullName = firstNameInputBox.val() + ' ' + lastNameInputBox.val();
 
         $.ajax ({
             url: "/mandrill/sendEmail",
@@ -370,7 +363,8 @@ $(document).ready( function  () {
                 cruiseDate : cruiseDate,
                 cruiseTime : cruiseTime,
                 flightDate : airportDate,
-                flightTime : airportTime
+                flightTime : airportTime,
+                name : fullName
             }),
             success: function  (response) {
                 alert(response);

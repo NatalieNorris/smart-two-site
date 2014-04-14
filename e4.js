@@ -82,6 +82,9 @@ exports.executeTransaction = function (request, response) {
 	var cc_expiry = request.body.cc_expiry;
 	var amount = request.body.amount;	
 
+    //Demo purposes
+    
+
     var gatewayId = 'B44629-01';
     var password = '9l1klnn3';
 

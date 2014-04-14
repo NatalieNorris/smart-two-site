@@ -11,39 +11,71 @@
 ================================================== */
 
 
-@media all and (max-width: 415px),
-	all and (max-device-width: 415px) {
+@media all and (max-width: 415px), all and (max-device-width: 415px) {
 
-		#reservationBar {
-			
-		}
-		.container-fluid {
-			margin-left: 0%;
-			margin-right: 0%;
-		}
-		.main {
-			margin: 0;
-		}
-}
-
-
-
-media all and (min-width: 1000px),
-	all and (max-device-width: 1000px) {
-
-		#reservationBar {
-			html, body {
-				margin-left: 5%;
-				margin-right: 5%;
-			}			
-		}
-
-}
-
-media all and (min-width: 700px), all and (max-device-width : 1000) {
 	.full-body {
-		background-size: 800px 700px;
+		background-size: 850px 700px;
+		min-height: 700px;
+		height: 700px
 	}
+
+	html, body {
+		min-width: 768px;
+	}
+
+	.main {
+		min-width: 768px;
+	}
+
+	.tagline img {
+		/*width: 70%;
+		height: 75%;*/
+		width: 270px;
+		margin-top: 30px;
+	}
+	.graybar-line {
+		margin-left: 285px;
+	}
+
+	.graybar-subline {
+		margin-left: 590px;
+	}
+
+	.container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	.full-body {
+		background-size: 850px 700px;
+		min-height: 700px;
+		height: 700px
+	}
+
+	html, body {
+		min-width: 768px;
+	}
+
+	.main {
+		min-width: 768px;
+	}
+
+	.tagline img {
+		/*width: 70%;
+		height: 75%;*/
+		width: 270px;
+		margin-top: 30px;
+	}
+	.graybar-line {
+		margin-left: 285px;
+	}
+
+	.graybar-subline {
+		margin-left: 590px;
+	}
+
 }
 
 @media all and (max-width: 415),
