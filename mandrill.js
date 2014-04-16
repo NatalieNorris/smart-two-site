@@ -49,7 +49,7 @@ exports.sendEmail = function sendEmail (request, response) {
 			type    : 'to'
 		}],
 		'headers' : {
-			'Reply-To'	: 'adeiji@yahoo.com'
+			'Reply-To'	: from_email
 		},
 		 "important": false,
 	    "track_opens": null,
@@ -108,7 +108,7 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 			"<p><b>Cruise to Airport Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
 			"<p><b>Reservation for: </b>" + name + "</p>" +
 			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
-			"<p><b>Total Cost: </b>$" + price + "</p>"
+			"<p><b>Total Cost (2 Passengers): </b>$" + price + "</p>"
 	}
 	else if (travelTypeId == 1) //One way to Cruise
 	{
@@ -170,7 +170,7 @@ function getHTMLDocument (travelOverview) {
 							'}' +
 							'#subheading {' +
 								'margin-left: 70px;' +
-								'font-size: 18px;' +
+								'font-size: 22px;' +
 								'font-weight: 600;' +
 							'}' +
 							'#sub-steps1 {' +

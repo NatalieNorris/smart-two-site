@@ -70,7 +70,8 @@ $(document).ready( function  () {
         boxes[i] = "Not Selected";
     };    
 
-    $('#smart-button').click( function  (response) {
+    $('#smart-button').click( function  (response) {        
+
         //Remove the ability to press the button
         $('#smart-button').prop('disabled', true); 
 
@@ -92,12 +93,12 @@ $(document).ready( function  () {
             $.ajax ({
                 url: "/e4",
                 type: "POST",
-                async: false,
+                async: true,
                 data : JSON.stringify({
                     cardholder_name : fullName,   
                     cc_number       : creditCardNumberInputBox.val(),
-                    amount          : amount,
-                    cc_expiry       : expirationDateInputBox.val(),                
+                    cc_expiry       : expirationDateInputBox.val(),  
+                    travelTypeId    : travelTypeId,              
                 }),
                 contentType : 'application/json',
                 dataType: "json",
@@ -126,21 +127,12 @@ $(document).ready( function  () {
                         }
                         else {
                             $('#error').append('<div>' + 'Sorry your card was declined by the bank, please make sure you entered the information correctly' + '</div>');   
-                            //Remove the ability to press the button
-                            $('#smart-button').prop('disabled', false); 
-
-                            $('#dim').hide();
-                            $('#loading').hide();
                         }                        
                     }
                     else if (response.code == '400') {
                         $('#error').empty();
                         //Get the user friendly error message from the JSON file containing the non user friendly error messages as keys
                         $('#error').append('<div>' + responseJSON[response.body] + '</div>'); 
-
-                        $('#dim').hide();
-                        $('#loading').hide();   
-                        $('#smart-button').prop('disabled', false); 
                     }
                     //Don't show the dim screen so that it doesn't just roll around forever
                     $('#dim').hide();
@@ -166,111 +158,82 @@ $(document).ready( function  () {
     });
 
     creditCardNumberInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=1]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=1]").attr('height', 10);
-            $(".finished[tag=1]").attr('width', 10);            
 
-            flightNumberEntered = false;            
-            //Remove the ability to press the button
-            $('#smart-button').prop('disabled', true);        
-        }
-        else
-        {
-            moveToNextBox(1, 2);
-            firstNameEntered = true;
-            checkIfFinished();
-        }
+        handleInputChange(1, 2, $(this));
     });
+
+    creditCardNumberInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(1, 2, $(this));
+        }
+    });    
 
     expirationDateInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=2]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=2]").attr('height', 10);
-            $(".finished[tag=2]").attr('width', 10);            
-
-            flightNumberEntered = false;            
-            //Remove the ability to press the button
-            $('#smart-button').prop('disabled', true);        
-        }
-        else
-        {
-            moveToNextBox(2, 3);
-            firstNameEntered = true;
-            checkIfFinished();
-        }
+        handleInputChange(2, 3, $(this));
     });
+
+    expirationDateInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(2, 3, $(this));
+        }
+    });    
 
     firstNameInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=3]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=3]").attr('height', 10);
-            $(".finished[tag=3]").attr('width', 10);            
-
-            flightNumberEntered = false;            
-            //Remove the ability to press the button
-            $('#smart-button').prop('disabled', true);        
-        }
-        else
-        {
-            moveToNextBox(3, 4);
-            firstNameEntered = true;
-            checkIfFinished();
-        }
+        handleInputChange(3, 4, $(this));
     });
+
+    firstNameInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(3, 4, $(this));
+        }
+    });    
 
     lastNameInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=4]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=4]").attr('height', 10);
-            $(".finished[tag=4]").attr('width', 10);            
-
-            flightNumberEntered = false;            
-            //Remove the ability to press the button
-            $('#smart-button').prop('disabled', true);        
-        }
-        else
-        {
-            moveToNextBox(4, 5);
-            lastNameEntered = true;
-            checkIfFinished();
-        }
+        handleInputChange(4, 5, $(this));
     });
+
+    lastNameInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(4, 5, $(this));
+        }
+    });    
 
     phoneNumberInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=5]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=5]").attr('height', 10);
-            $(".finished[tag=5]").attr('width', 10);            
-
-            flightNumberEntered = false;            
-            //Remove the ability to press the button
-            $('#smart-button').prop('disabled', true);        
-        }
-        else
-        {
-            moveToNextBox(5, 6);
-            phoneNumberEntered = true;
-            checkIfFinished();
-        }
+        handleInputChange(5, 6, $(this));
     });
+
+    phoneNumberInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(5, 6, $(this));
+        }
+    });    
+
     emailInputBox.change(function  () {
-        if ($(this).val().length == 0) {
-            $(".finished[tag=6]").attr('src', "/smart-images/check-required.png");
-            $(".finished[tag=6]").attr('height', 10);
-            $(".finished[tag=6]").attr('width', 10);            
+        handleInputChange(6, 999, $(this));
+    });
 
-            flightNumberEntered = false;            
+    emailInputBox.keypress(function (e) {
+        if(e.keyCode === 13) {
+            handleInputChange(6, 999, $(this));
+        }
+    });    
+
+    function handleInputChange (tag, nextTag, inputBox) {
+        if ($(inputBox).val().length == 0) {
+            $(".finished[tag=" + tag + "]").attr('src', "/smart-images/check-required.png");
+            $(".finished[tag=" + tag + "]").attr('height', 10);
+            $(".finished[tag=" + tag + "]").attr('width', 10);            
+
             //Remove the ability to press the button
             $('#smart-button').prop('disabled', true);        
         }
         else
         {
-            moveToNextBox(6, 999); 
-            emailEntered = true;
+            moveToNextBox(tag, nextTag);
             checkIfFinished();
         }
-    });
+    }
+
     requestCommentsInputBox.change(function  () {
         
     });

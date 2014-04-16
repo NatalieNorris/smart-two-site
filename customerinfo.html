@@ -100,7 +100,7 @@
 				    				<!-- <div class = "instructions">Enter Flight Number</div> -->
 			    					<div id = "customer-info-form">
 			    						
-											<input class="form-control" name="credit-card-number" type="text" placeholder = "Enter Your Credit Card Number" style = "margin-top: 5px;" maxlength="18" >		
+											<input class="form-control" name="credit-card-number" type="text" placeholder = "Enter Your CC Number" style = "margin-top: 5px;" maxlength="18" >		
 											<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />
 
 											<input class="form-control" type="text" name="expiry-date" placeholder = "Enter Your Expiration Date" style = "margin-top: 5px;" maxlength="4">		
@@ -133,11 +133,9 @@
 
 											<div id = "book-it">			    								
 												<div id = "book-now-button">
-								  					<input value="Pay Now & Confirm" type = 'submit' id = "smart-button"> 
+								  					<input value="Pay Now & Confirm" type = 'submit' id = "smart-button" > 
 												</div>										    			
-			    							</div>	
-
-										
+			    							</div>											
 									</div>									
 								</div>
 				    		</div>		
@@ -154,27 +152,29 @@
 				</div>
 	    	</div>	
 	    	
-	  		  
-	   	</div>
-	   	<div class = "row">
-	   			<div class = "row">
-	   				<div id = "social-network">
-    					<img src = "/smart-images/youtube.png" />
-    					<a target = "_blank" href="https://twitter.com/smarttwodotcom" data-show-count="false">
-    						<img src = "/smart-images/twitter.png" />
-    					</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-							</script>
-    					<a target="_blank" title="find us on Facebook" href="http://www.facebook.com/smarttwodotcom"><img src = "/smart-images/facebook.png" /></a>
-    				</div>
-	   				<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
-		    			<div class = "privacy-line"> 
-		    				2014 smart-two.com LLC is committed to your privacy. For details see our <a href = "privacy-policy.html">privacy policy</a>.
-		    			</div>
-		    		</div>
-	    		</div>
-	    	</div>
+	  		<div class = "row">
+		   		<div class = "row">
+		   			<div>
+		   				<div id = "social-network">
+	    					<img src = "/smart-images/youtube.png" />
+	    					<a target = "_blank" href="https://twitter.com/smarttwodotcom" data-show-count="false">
+	    						<img src = "/smart-images/twitter.png" />
+	    					</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+								</script>
+	    					<a target="_blank" title="find us on Facebook" href="http://www.facebook.com/smarttwodotcom"><img src = "/smart-images/facebook.png" /></a>    				
+	    				</div>
+		   			</div>
+		   			<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
+			    		<div class = "privacy-line"> 
+			    			2014 smart-two.com LLC is committed to your privacy. For details see our <a href = "privacy-policy.html">privacy policy</a>.
+			    		</div>
+			    	</div>
+		    	</div>
+		   	</div>
 
+	   	</div>
+	   	
 	   	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		
@@ -188,6 +188,7 @@
   		<script src="/smart-js/jquery-cookie/jquery.cookie.js"></script>
   		<script src="/smart-js/customer-info-main.js"></script>
   		<script src="/smart-js/rotating-quote.js"></script>  	
+  		<script src="/smart-js/placeholder-fix.js"></script>  	
   		
   </body>
 
