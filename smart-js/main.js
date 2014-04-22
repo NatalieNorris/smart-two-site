@@ -320,10 +320,10 @@ $(document).ready( function  () {
         $('#dropdown-button-cruise').text( this.innerHTML + " " );
         $('#dropdown-button-cruise').append( '<span class="caret"></span>' );
 
-        cruiseTime = this.innerHTML.trim();
+        cruiseTime = this.innerHTML;
 
         getTimeAvailability (cruiseTime, cruiseDateEntered, cruiseTimeEntered, cruiseDate, cruiseTime, cruiseSoldOut, 7, true);
-
+        checkIfFinished();
     });
 
     function getTimeAvailability (time, dateEntered, timeEntered, date, time, displaySoldOutSection, finishedImageTag, isCruise) {
@@ -369,9 +369,10 @@ $(document).ready( function  () {
         $('#dropdown-button-flight').text( this.innerHTML + " " );
         $('#dropdown-button-flight').append( '<span class="caret"></span>' );
         
-        flightTime = this.innerHTML.trim();
+        flightTime = this.innerHTML;
 
         getTimeAvailability (flightTime, flightDateEntered, flightTimeEntered, flightDate, flightTime, airportTimeSoldOut, 3, false);
+        checkIfFinished();
     });
 
     function showBookingSuccessful (section, firstTag, secondTag) {
@@ -534,6 +535,7 @@ $(document).ready( function  () {
 
             getAvailability (flightTimeEntered, flightDateEntered, flightDate, flightTime, airportSoldOut, false, 2, $('#dropdown-button-flight'));
 
+            checkIfFinished();
             //If this is a round trip then we make sure that the earliest date for the return date is later then the date just selected
             if (roundTrip)
             {
@@ -634,7 +636,8 @@ $(document).ready( function  () {
 
         getAvailability (cruiseTimeEntered, cruiseDateEntered, cruiseDate, cruiseTime, cruiseSoldOut, true, 6, $('#dropdown-button-cruise'));
         
-        $(this).datepicker('hide');        
+        $(this).datepicker('hide');  
+        checkIfFinished();      
 
     }).data('datepicker');
 
@@ -642,7 +645,11 @@ $(document).ready( function  () {
     //and update the UI accordingly.  But if this text box is changed to empty then we want to make sure
     //that we update the UI accordingly and make sure the user cannot advance.
     $('#flight-number').change(function  () {
+        $(this).val($(this).val().toUpperCase());    
+        handleFlightNumberInput($(this));    
+    });
 
+    function handleFlightNumberInput (flightNumberInput) {
         flightNumberEntered = true;
         //Enable the button.
         smartButton.prop('disabled', false);
@@ -652,7 +659,7 @@ $(document).ready( function  () {
         $(".finished[tag=9]").attr('width', 15);
 
         //IF they change the value back to empty then we need to make note of that
-        if ($(this).val().length == 0) {
+        if ($(flightNumberInput).val().length == 0) {
             $(".finished[tag=9]").attr('src', "/smart-images/check-required.png");
             $(".finished[tag=9]").attr('height', 10);
             $(".finished[tag=9]").attr('width', 10);            
@@ -664,15 +671,31 @@ $(document).ready( function  () {
         else {
             moveToNextBox(9, 5);
         } 
-
+        
         $('#flight-number').blur();               
+    }
+
+    $('#flight-number').focus(function() {
+      var input = $(this);
+      if (input.val() == input.attr('placeholder')) {
+        input.val('');
+        input.removeClass('placeholder');
+      }
+    }).blur(function() {
+    var input = $(this);
+      if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.addClass('placeholder');
+        input.val(input.attr('placeholder'));
+      }
+    }).blur();  
+
+    $('#flight-number').keypress(function (e) {
+        if(e.keyCode === 13) {
+            $(this).val($(this).val().toUpperCase());
+            handleFlightNumberInput($(this));
+        }
     });
 
-    $('#flight-number').keyup( function () {
-        $('#flight-number').val(function  () {
-            return $(this).val().toUpperCase();
-        })
-    })
 
     $('#cruise-date').keydown(function () {
         //don't allow the user to enter in any text with the keyboard
@@ -709,12 +732,12 @@ $(document).ready( function  () {
     smartButton.click( function  (response) {        
         //We set the cruise date and the cruise times so that we can add them to the database
         var cruiseDate = $('#cruise-date').val();
-        var cruiseTime = $('#dropdown-button-cruise').text().trim();
+        var cruiseTime = $('#dropdown-button-cruise').innerHTML;
         var airportDate = $('#airport-date').val();
-        var airportTime = $('#dropdown-button-flight').text().trim();
-        var cruiseShip = $('#dropdown-button-cruiseline').text().trim();
+        var airportTime = $('#dropdown-button-flight').innerHTML;
+        var cruiseShip = $('#dropdown-button-cruiseline').innerHTML;
         var flightNumber = $('#flight-number').val();
-        var airline = $('#dropdown-button-airline').text().trim();
+        var airline = $('#dropdown-button-airline').innerHTML;
 
         //Create a dictionary that will be stored as a cookie
         var reservation = {

@@ -114,9 +114,11 @@ span.input-group-addon {
 
 #reservationBar.about-us-page {
 	background-color: #7ed1ff;
-	height: 375px;
+	height: 450px;
 	font-size: 1.1em;
 	text-align: justify;
+	word-wrap: break-word;
+	width: 255px;
 }
 
 #reservationBar.about-us-page hr {
@@ -448,6 +450,8 @@ select {
 	background-image: url('/smart-images/HiRes.jpg');
 	background-position: 0px 0px;
 	background-size: 1000px 700px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/smart-images/HiRes.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/smart-images/HiRes.jpg',sizingMethod='scale')";
 	background-repeat: no-repeat;
 	background-color: #f0f6ff;
 	min-height : 720px;
@@ -570,6 +574,16 @@ hr.bottom {
 	border-radius: 5px;
 	border-width: 0px;
 	width: 134px;
+}
+
+#social-network img {
+	height: 35px;
+	width: 35px;
+}
+
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a
+{
+	background-color: #c8eafd;
 }
 
 input[type="submit"]:disabled {

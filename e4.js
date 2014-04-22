@@ -79,14 +79,22 @@ exports.executeTransaction = function (request, response) {
 
 	var cardholder_name = request.body.cardholder_name;
 	var cc_number = request.body.cc_number;
-	var cc_expiry = request.body.cc_expiry;
-	var amount = request.body.amount;	
+	var cc_expiry = request.body.cc_expiry;	
+    var travelTypeId = request.body.travelTypeId;
+
+    if (travelTypeId == 1 || travelTypeId == 0) {
+        amount = '48.02';
+    }
+    else if (travelTypeId == 0)
+    {
+        amount = '86.02';
+    }
 
     //Demo purposes
-    
+
 
     var gatewayId = 'B44629-01';
-    var password = '9l1klnn3';
+    var password = 'f4108p2r';
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",

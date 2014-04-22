@@ -29,7 +29,7 @@ function displayAnswer () {
 
         var button = "<div class = 'make-reservation get-quote' style = 'margin-top: 130px; margin-left: -10px'>" +
 		    									"<a href = 'index.html'>" +
-		    										"<input value='Get a Quote' type='button' id = 'smart-button'>" +
+		    										"<input onClick=\"window.location='index.html'\" value='Get a Quote' type='button' id = 'smart-button'>" +
 		    									"</a>" +
 		    								"</div>";
 

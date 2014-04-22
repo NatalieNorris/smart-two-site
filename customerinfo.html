@@ -9,10 +9,10 @@
 		<!--Bootstrap-->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
-		<link href = "/smart-css/bootstrap.min.css" rel = "stylesheet">
-		<link href = "/smart-css/main.css" rel = "stylesheet">
-		<link href = "/smart-css/datepicker.css" rel="stylesheet">
-		<link href = "/smart-css/devices.css" rel="stylesheet">
+		<link href = "smart-css/bootstrap.min.css" rel = "stylesheet">
+		<link href = "smart-css/main.css" rel = "stylesheet">
+		<link href = "smart-css/datepicker.css" rel="stylesheet">
+		<link href = "smart-css/devices.css" rel="stylesheet">
 
 
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -36,7 +36,7 @@
     			<div class = "col-md-12 header">
     				<div id = "headerBar">
     					<span id = "enjoy">Enjoy</span><span id ="relax"> Relax</span><span id = "ride"> Ride!</span>
-    					<span class = "graybar-line">Port Canavaral <img src = "/smart-images/to-from.png" height = 25 width = 25> Orlando International Airport </span>    				
+    					<span class = "graybar-line">Port Canavaral <img src = "smart-images/to-from.png" height = 25 width = 25> Orlando International Airport </span>    				
     					<p class = "graybar-subline">2014 Official Shuttle Co.</p>
     				</div>
     			</div>
@@ -80,7 +80,7 @@
     			<div class = "header-section">
 
     				<div id = "logo">
-    					<img src = "/smart-images/smart-two.png" />    					
+    					<img src = "smart-images/smart-two.png" />    					
     				</div>
     			</div>    			
     		</div>
@@ -89,7 +89,7 @@
 		    		<div id = "reservationBar">
 		    			<h3 style = "font-size: 17px">Payment and Info Screen</h3>		    	
 		    			<h5>You're almost done!  Please enter all information below to complete your reservation and receive your confirmation number and email.</h5>
-		    			<h5>*We will also need best contact phone number to reach you at your selected pickup location.Thank you.</h5>
+		    			<h5>Please Note: If necessary, please enter an additional contact number phone in the field below where you can be reached at your pick up location.</h5>
 		    			<hr class = "top">
 		    			<hr class = "bottom">
 		    			<div id = "reservationTypes">
@@ -100,23 +100,23 @@
 				    				<!-- <div class = "instructions">Enter Flight Number</div> -->
 			    					<div id = "customer-info-form">
 			    						
-											<input class="form-control" name="credit-card-number" type="text" placeholder = "Enter Your Credit Card Number" style = "margin-top: 5px;" maxlength="18" >		
-											<img class = "finished" tag = "1" src = "/smart-images/check-current.png" height = 10 width = 10 />
+											<input class="form-control" name="credit-card-number" type="text" placeholder = "Enter Your CC Number" style = "margin-top: 5px;" maxlength="18" >		
+											<img class = "finished" tag = "1" src = "smart-images/check-current.png" height = 10 width = 10 />
 
 											<input class="form-control" type="text" name="expiry-date" placeholder = "Enter Your Expiration Date" style = "margin-top: 5px;" maxlength="4">		
-											<img class = "finished" tag = "2" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />									
+											<img class = "finished" tag = "2" src = "smart-images/check-not-finished.png" height = 10 width = 10 />									
 
 											<input class="form-control" type="text" name="first-name" placeholder = "Enter Your First Name" style = "margin-top: 5px;" pattern="[a-zA-Z ]{2,}" maxlength="30" data-message='Name must not contain any numbers or special characters and be longer than 1 character'>		
-											<img class = "finished" tag = "3" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+											<img class = "finished" tag = "3" src = "smart-images/check-not-finished.png" height = 10 width = 10 />
 
 											<input class="form-control" name="last-name" placeholder = "Enter Your Last Name" style = "margin-top: 5px;" type="text" pattern="[a-zA-Z ]{1,}" maxlength="30" data-message='Name must not contain any numbers or special characters and be longer than 1 character'>		
-											<img class = "finished" tag = "4" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+											<img class = "finished" tag = "4" src = "smart-images/check-not-finished.png" height = 10 width = 10 />
 
 											<input class = "form-control" type="phone-number" required = 'required' name = "phone-number" placeholder = "Enter Your Phone Number" style = "margin-top: 5px;" />	
-											<img class = "finished" tag = "5" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+											<img class = "finished" tag = "5" src = "smart-images/check-not-finished.png" height = 10 width = 10 />
 
 											<input class="form-control" type="email" name="email" required="required" placeholder = "Enter Your Email" style = "margin-top: 5px;" />		
-											<img class = "finished" tag = "6" src = "/smart-images/check-not-finished.png" height = 10 width = 10 />
+											<img class = "finished" tag = "6" src = "smart-images/check-not-finished.png" height = 10 width = 10 />
 											<hr class ="top">
 											<hr class = "bottom">
 											Comments
@@ -133,11 +133,9 @@
 
 											<div id = "book-it">			    								
 												<div id = "book-now-button">
-								  					<input value="Pay Now & Confirm" type = 'submit' id = "smart-button"> 
+								  					<input value="Pay Now & Confirm" type = 'submit' id = "smart-button" > 
 												</div>										    			
-			    							</div>	
-
-										
+			    							</div>											
 									</div>									
 								</div>
 				    		</div>		
@@ -149,45 +147,50 @@
 						<img id = 'image-tagline' src = "/smart-images/Smart Quote-2.png" />
 					</div>	
 					<div id = 'loading'>
-						<img src = "/smart-images/ajax-loader.gif" />
+						<img src = "smart-images/ajax-loader.gif" />
 					</div>			
 				</div>
 	    	</div>	
 	    	
-	  		  
-	   	</div>
-	   	<div class = "row">
-	   			<div class = "row">
-	   				<div id = "social-network">
-    					<img src = "/smart-images/youtube.png" />
-    					<a target = "_blank" href="https://twitter.com/smarttwodotcom" data-show-count="false">
-    						<img src = "/smart-images/twitter.png" />
-    					</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-							</script>
-    					<a target="_blank" title="find us on Facebook" href="http://www.facebook.com/smarttwodotcom"><img src = "/smart-images/facebook.png" /></a>
-    				</div>
-	   				<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
-		    			<div class = "privacy-line"> 
-		    				2014 smart-two.com LLC is committed to your privacy. For details see our <a href = "privacy-policy.html">privacy policy</a>.
-		    			</div>
-		    		</div>
-	    		</div>
-	    	</div>
+	  		<div class = "row">
+		   		<div class = "row">
+		   			<div>
+		   				<div id = "social-network">
+	    					<a target = "_blank" href= "https://www.youtube.com/watch?v=auTnuYH6hzI">
+    							<img src = "smart-images/youtube.png" />
+    						</a>
+	    					<a target = "_blank" href="https://twitter.com/smarttwodotcom" data-show-count="false">
+	    						<img src = "smart-images/twitter.png" />
+	    					</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+								</script>
+	    					<a target="_blank" title="find us on Facebook" href="http://www.facebook.com/smarttwodotcom"><img src = "smart-images/facebook.png" /></a>    				
+	    				</div>
+		   			</div>
+		   			<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
+			    		<div class = "privacy-line"> 
+			    			2014 smart-two.com LLC is committed to your privacy. For details see our <a href = "privacy-policy.html">privacy policy</a>.
+			    		</div>
+			    	</div>
+		    	</div>
+		   	</div>
 
+	   	</div>
+	   	
 	   	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		
-  		<script src="/smart-js/bootstrap.min.js"></script>
-		<script src="/smart-js/bootstrap-datepicker.js"></script>
-		<script src="/smart-js/jquery-dateFormat.min.js"></script>
-		<script src="/smart-js/setDate.js"></script>
-  		<script src="/smart-js/md5.min.js"></script>
-  		<script src="/smart-js/questions.js"></script>
+  		<script src="smart-js/bootstrap.min.js"></script>
+		<script src="smart-js/bootstrap-datepicker.js"></script>
+		<script src="smart-js/jquery-dateFormat.min.js"></script>
+		<script src="smart-js/setDate.js"></script>
+  		<script src="smart-js/md5.min.js"></script>
+  		<script src="smart-js/questions.js"></script>
   		<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-  		<script src="/smart-js/jquery-cookie/jquery.cookie.js"></script>
-  		<script src="/smart-js/customer-info-main.js"></script>
-  		<script src="/smart-js/rotating-quote.js"></script>  	
+  		<script src="smart-js/jquery-cookie/jquery.cookie.js"></script>
+  		<script src="smart-js/customer-info-main.js"></script>
+  		<script src="smart-js/rotating-quote.js"></script>  	
+  		<script src="smart-js/placeholder-fix.js"></script>  	
   		
   </body>
 

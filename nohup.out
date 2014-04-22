@@ -1,0 +1,3066 @@
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Mon, 14 Apr 2014 10:32:58 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1360',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"29965e6b34c53b4517bff11bc664d0cd"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': 'eabcba49175e95e912fd181a85ad8f88',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/314961572',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0354480","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 48.02 USD\\n\\nCARDHOLDER NAME : Thomas Smith\\nCARD NUMBER     : ############5674\\nDATE/TIME       : 14 Apr 14 06:32:56\\nREFERENCE #     : 001 0354480 T\\nAUTHOR. #       : 07737B\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":48.02,"transaction_tag":314961572,"authorization_num":"07737B","cc_expiry":"0216","cardholder_name":"Thomas Smith","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"8212089357615674","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  1st live reservation 
+{ _id: 534bb941d145955b75000001,
+  reservation: 
+   { name: 'Thomas Smith',
+     email: 'thomas@smart-two.com',
+     phoneNumber: '3212584133',
+     specialRequest: '1st live reservation ',
+     travelType: 'One Way to Cruise',
+     date: '04/16/2014',
+     time: '10:35 AM',
+     confirmationCode: '42FFF30' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'thomas@smart-two.com',
+  travelTypeId: '0',
+  confirmationNumber: '42FFF30',
+  price: '48.02',
+  cruiseDate: '04/16/2014',
+  cruiseTime: '10:35 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Thomas Smith' }
+Time to send :Sat Jan 04 2014 10:32:33 GMT+0000 (UTC)
+[ { email: 'thomas@smart-two.com',
+    status: 'sent',
+    _id: '01c523a3d0d74f2f87d6e0ed027192ed',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+The request query is : [object Object]
+Query: { sEcho: '1',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '0',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503500990' }
+{ sEcho: '1',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '0',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503500990' }
+Search Criteria builded: { options: {},
+  pageStart: [33m0[39m,
+  pageSize: [33m10[39m,
+  nbColumns: [33m8[39m,
+  search: [90mundefined[39m,
+  fields: 
+   [ { index: [33m0[39m,
+       path: [32m'reservation.name'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: { dir: [32m'asc'[39m, precedence: [33m0[39m },
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m1[39m,
+       path: [32m'reservation.email'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m2[39m,
+       path: [32m'reservation.phoneNumber'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m3[39m,
+       path: [32m'reservation.specialRequest'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m4[39m,
+       path: [32m'reservation.confirmationCode'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m5[39m,
+       path: [32m'reservation.date'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m6[39m,
+       path: [32m'reservation.time'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m7[39m,
+       path: [32m'reservation.travelType'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m } ],
+  select: 
+   { [32m'reservation.name'[39m: [33m1[39m,
+     [32m'reservation.email'[39m: [33m1[39m,
+     [32m'reservation.phoneNumber'[39m: [33m1[39m,
+     [32m'reservation.specialRequest'[39m: [33m1[39m,
+     [32m'reservation.confirmationCode'[39m: [33m1[39m,
+     [32m'reservation.date'[39m: [33m1[39m,
+     [32m'reservation.time'[39m: [33m1[39m,
+     [32m'reservation.travelType'[39m: [33m1[39m },
+  sort: { [32m'reservation.name'[39m: [32m'asc'[39m },
+  conditions: [90mundefined[39m,
+  populate: [] }
+Data: { sEcho: [32m'1'[39m,
+  iTotalRecords: [33m13[39m,
+  iTotalDisplayRecords: [33m13[39m,
+  aaData: 
+   [ { _id: 5346e329ce01ea0f56000001,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8987877484'[39m,
+          specialRequest: [32m''[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'443B237'[39m } },
+     { _id: 5346e374ce01ea0f56000003,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8394838484'[39m,
+          specialRequest: [32m'Hey where\'s my email.'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'ABF0344'[39m } },
+     { _id: 53431896ab8453c23a000001,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8948384848'[39m,
+          specialRequest: [32m''[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'4648953'[39m } },
+     { _id: 53431a57ab8453c23a000003,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8498387483'[39m,
+          specialRequest: [32m'TESTING THIS MESS'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'A8B80E8'[39m } },
+     { _id: 53431a10ab8453c23a000002,
+       reservation: 
+        { name: [32m'Adebayo ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'989898098098'[39m,
+          specialRequest: [32m'THIS IS IT'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'376E679'[39m } },
+     { _id: 53486a84715d7d5464000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'3rd res'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/18/2014'[39m,
+          time: [32m'11:55 AM'[39m,
+          confirmationCode: [32m'D150A07'[39m } },
+     { _id: 534898f1f700f8a165000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'Thanks ade'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/12/2014'[39m,
+          time: [32m'9:25  AM'[39m,
+          confirmationCode: [32m'AED4629'[39m } },
+     { _id: 534898f1f700f8a165000003,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'Thanks ade'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/23/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'AED4629'[39m } },
+     { _id: 534860bdc012521163000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'1st res'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'8CBD402'[39m } },
+     { _id: 53486704c012521163000003,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'2nd res'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'9:25  AM'[39m,
+          confirmationCode: [32m'708D21B'[39m } } ] }
+The request query is : [object Object]
+Query: { sEcho: '2',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '10',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503550450' }
+{ sEcho: '2',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '10',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503550450' }
+Search Criteria builded: { options: {},
+  pageStart: [33m10[39m,
+  pageSize: [33m10[39m,
+  nbColumns: [33m8[39m,
+  search: [90mundefined[39m,
+  fields: 
+   [ { index: [33m0[39m,
+       path: [32m'reservation.name'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: { dir: [32m'asc'[39m, precedence: [33m0[39m },
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m1[39m,
+       path: [32m'reservation.email'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m2[39m,
+       path: [32m'reservation.phoneNumber'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m3[39m,
+       path: [32m'reservation.specialRequest'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m4[39m,
+       path: [32m'reservation.confirmationCode'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m5[39m,
+       path: [32m'reservation.date'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m6[39m,
+       path: [32m'reservation.time'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m7[39m,
+       path: [32m'reservation.travelType'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m } ],
+  select: 
+   { [32m'reservation.name'[39m: [33m1[39m,
+     [32m'reservation.email'[39m: [33m1[39m,
+     [32m'reservation.phoneNumber'[39m: [33m1[39m,
+     [32m'reservation.specialRequest'[39m: [33m1[39m,
+     [32m'reservation.confirmationCode'[39m: [33m1[39m,
+     [32m'reservation.date'[39m: [33m1[39m,
+     [32m'reservation.time'[39m: [33m1[39m,
+     [32m'reservation.travelType'[39m: [33m1[39m },
+  sort: { [32m'reservation.name'[39m: [32m'asc'[39m },
+  conditions: [90mundefined[39m,
+  populate: [] }
+Data: { sEcho: [32m'2'[39m,
+  iTotalRecords: [33m13[39m,
+  iTotalDisplayRecords: [33m13[39m,
+  aaData: 
+   [ { _id: 534860bdc012521163000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'1st res'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'8CBD402'[39m } },
+     { _id: 534bb941d145955b75000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'1st live reservation '[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/16/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'42FFF30'[39m } },
+     { _id: 53486704c012521163000003,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'2nd res'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'9:25  AM'[39m,
+          confirmationCode: [32m'708D21B'[39m } } ] }
+The request query is : [object Object]
+Query: { sEcho: '3',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '0',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503556501' }
+{ sEcho: '3',
+  iColumns: '8',
+  sColumns: '',
+  iDisplayStart: '0',
+  iDisplayLength: '10',
+  mDataProp_0: 'reservation.name',
+  mDataProp_1: 'reservation.email',
+  mDataProp_2: 'reservation.phoneNumber',
+  mDataProp_3: 'reservation.specialRequest',
+  mDataProp_4: 'reservation.confirmationCode',
+  mDataProp_5: 'reservation.date',
+  mDataProp_6: 'reservation.time',
+  mDataProp_7: 'reservation.travelType',
+  sSearch: '',
+  bRegex: 'false',
+  sSearch_0: '',
+  bRegex_0: 'false',
+  bSearchable_0: 'true',
+  sSearch_1: '',
+  bRegex_1: 'false',
+  bSearchable_1: 'true',
+  sSearch_2: '',
+  bRegex_2: 'false',
+  bSearchable_2: 'true',
+  sSearch_3: '',
+  bRegex_3: 'false',
+  bSearchable_3: 'true',
+  sSearch_4: '',
+  bRegex_4: 'false',
+  bSearchable_4: 'true',
+  sSearch_5: '',
+  bRegex_5: 'false',
+  bSearchable_5: 'true',
+  sSearch_6: '',
+  bRegex_6: 'false',
+  bSearchable_6: 'true',
+  sSearch_7: '',
+  bRegex_7: 'false',
+  bSearchable_7: 'true',
+  iSortCol_0: '0',
+  sSortDir_0: 'asc',
+  iSortingCols: '1',
+  bSortable_0: 'true',
+  bSortable_1: 'true',
+  bSortable_2: 'true',
+  bSortable_3: 'true',
+  bSortable_4: 'true',
+  bSortable_5: 'true',
+  bSortable_6: 'true',
+  bSortable_7: 'true',
+  _: '1397503556501' }
+Search Criteria builded: { options: {},
+  pageStart: [33m0[39m,
+  pageSize: [33m10[39m,
+  nbColumns: [33m8[39m,
+  search: [90mundefined[39m,
+  fields: 
+   [ { index: [33m0[39m,
+       path: [32m'reservation.name'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: { dir: [32m'asc'[39m, precedence: [33m0[39m },
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m1[39m,
+       path: [32m'reservation.email'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m2[39m,
+       path: [32m'reservation.phoneNumber'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m3[39m,
+       path: [32m'reservation.specialRequest'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m4[39m,
+       path: [32m'reservation.confirmationCode'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m5[39m,
+       path: [32m'reservation.date'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m6[39m,
+       path: [32m'reservation.time'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m },
+     { index: [33m7[39m,
+       path: [32m'reservation.travelType'[39m,
+       searchable: [33mtrue[39m,
+       search: [90mundefined[39m,
+       sortable: [33mtrue[39m,
+       sort: [90mundefined[39m,
+       selectable: [33mtrue[39m,
+       type: [32m'String'[39m,
+       ref: [90mundefined[39m,
+       refType: [90mundefined[39m,
+       arrayType: [90mundefined[39m,
+       base: [90mundefined[39m,
+       arrayPath: [90mundefined[39m } ],
+  select: 
+   { [32m'reservation.name'[39m: [33m1[39m,
+     [32m'reservation.email'[39m: [33m1[39m,
+     [32m'reservation.phoneNumber'[39m: [33m1[39m,
+     [32m'reservation.specialRequest'[39m: [33m1[39m,
+     [32m'reservation.confirmationCode'[39m: [33m1[39m,
+     [32m'reservation.date'[39m: [33m1[39m,
+     [32m'reservation.time'[39m: [33m1[39m,
+     [32m'reservation.travelType'[39m: [33m1[39m },
+  sort: { [32m'reservation.name'[39m: [32m'asc'[39m },
+  conditions: [90mundefined[39m,
+  populate: [] }
+Data: { sEcho: [32m'3'[39m,
+  iTotalRecords: [33m13[39m,
+  iTotalDisplayRecords: [33m13[39m,
+  aaData: 
+   [ { _id: 5346e329ce01ea0f56000001,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8987877484'[39m,
+          specialRequest: [32m''[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'443B237'[39m } },
+     { _id: 5346e374ce01ea0f56000003,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8394838484'[39m,
+          specialRequest: [32m'Hey where\'s my email.'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'ABF0344'[39m } },
+     { _id: 53431896ab8453c23a000001,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8948384848'[39m,
+          specialRequest: [32m''[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'4648953'[39m } },
+     { _id: 53431a57ab8453c23a000003,
+       reservation: 
+        { name: [32m'Adebayo Ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'8498387483'[39m,
+          specialRequest: [32m'TESTING THIS MESS'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'A8B80E8'[39m } },
+     { _id: 53431a10ab8453c23a000002,
+       reservation: 
+        { name: [32m'Adebayo ijidakinro'[39m,
+          email: [32m'adebayoiji@gmail.com'[39m,
+          phoneNumber: [32m'989898098098'[39m,
+          specialRequest: [32m'THIS IS IT'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/08/2014'[39m,
+          time: [32m'8:05 AM'[39m,
+          confirmationCode: [32m'376E679'[39m } },
+     { _id: 53486a84715d7d5464000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'3rd res'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/18/2014'[39m,
+          time: [32m'11:55 AM'[39m,
+          confirmationCode: [32m'D150A07'[39m } },
+     { _id: 534898f1f700f8a165000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'Thanks ade'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/12/2014'[39m,
+          time: [32m'9:25  AM'[39m,
+          confirmationCode: [32m'AED4629'[39m } },
+     { _id: 534898f1f700f8a165000003,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'Thanks ade'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/23/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'AED4629'[39m } },
+     { _id: 534860bdc012521163000001,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'1st res'[39m,
+          travelType: [32m'One Way to Cruise'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'10:35 AM'[39m,
+          confirmationCode: [32m'8CBD402'[39m } },
+     { _id: 53486704c012521163000003,
+       reservation: 
+        { name: [32m'Thomas Smith'[39m,
+          email: [32m'thomas@smart-two.com'[39m,
+          phoneNumber: [32m'3212584133'[39m,
+          specialRequest: [32m'2nd res'[39m,
+          travelType: [32m'One Way to Airport'[39m,
+          date: [32m'04/17/2014'[39m,
+          time: [32m'9:25  AM'[39m,
+          confirmationCode: [32m'708D21B'[39m } } ] }
+Query - (Number of Reservations For Day:  { 'date.date': '06/04/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '06/04/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '06/12/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '06/12/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Request Body: [object Object]
+{ code: 400,
+  headers: 
+   { server: 'nginx',
+     date: 'Mon, 14 Apr 2014 20:01:27 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '45',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     'cache-control': 'no-cache',
+     'x-request-id': '815679d52c9d1f8fa4c384fa6cbed3a1',
+     'x-rack-cache': 'invalidate, pass',
+     status: '400' },
+  body: 'Bad Request (22) - Invalid Credit Card Number' }
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/07/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/07/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/10/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/10/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/02/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/02/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Mon, 14 Apr 2014 20:25:38 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1351',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"ad1788be17e082ace04bf99d2edd238f"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '15159a73aceadc20753393cfcc4909f3',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315480530',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0795460","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 1.00 USD\\n\\nCARDHOLDER NAME : Ian Gober\\nCARD NUMBER     : ############3639\\nDATE/TIME       : 14 Apr 14 16:25:37\\nREFERENCE #     : 001 0795460 T\\nAUTHOR. #       : 082516\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":1.0,"transaction_tag":315480530,"authorization_num":"082516","cc_expiry":"0315","cardholder_name":"Ian Gober","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7461262424373639","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  fake reservation
+{ _id: 534c4429b27792fc78000001,
+  reservation: 
+   { name: 'Ian Gober',
+     email: 'igober@cfl.rr.com',
+     phoneNumber: '3214325117',
+     specialRequest: 'fake reservation',
+     travelType: 'One Way to Cruise',
+     date: '05/02/2014',
+     time: '8:05 AM',
+     confirmationCode: 'F560529' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'igober@cfl.rr.com',
+  travelTypeId: '0',
+  confirmationNumber: 'F560529',
+  price: '48.02',
+  cruiseDate: '05/02/2014',
+  cruiseTime: '8:05 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Ian Gober' }
+Time to send :Sat Jan 04 2014 20:25:13 GMT+0000 (UTC)
+[ { email: 'igober@cfl.rr.com',
+    status: 'sent',
+    _id: '0409bee6ea7445aaac1c47d8ddfad852',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '11:55 AM', travelTypeId: 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '06/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '06/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/05/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/05/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/01/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/01/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Mon, 14 Apr 2014 21:10:42 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1357',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"a8cb36a3e529e07d413e11f3024d730a"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '5a33e373921aad66ad39ea3918081748',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315524759',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0354481","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 1.00 USD\\n\\nCARDHOLDER NAME : Thomas smith\\nCARD NUMBER     : ############2958\\nDATE/TIME       : 14 Apr 14 17:10:41\\nREFERENCE #     : 001 0354481 T\\nAUTHOR. #       : 021017\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":1.0,"transaction_tag":315524759,"authorization_num":"021017","cc_expiry":"0815","cardholder_name":"Thomas smith","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7744645280862958","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  ViktoriaReservation testing  android
+{ _id: 534c4eb9b27792fc78000003,
+  reservation: 
+   { name: 'Thomas smith',
+     email: 'viktoria.smarttwo@gmail.com',
+     phoneNumber: '3212584133',
+     specialRequest: 'ViktoriaReservation testing  android',
+     travelType: 'One Way to Cruise',
+     date: '04/15/2014',
+     time: '8:05 AM',
+     confirmationCode: 'FB58136' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'viktoria.smarttwo@gmail.com',
+  travelTypeId: '0',
+  confirmationNumber: 'FB58136',
+  price: '48.02',
+  cruiseDate: '04/15/2014',
+  cruiseTime: '8:05 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Thomas smith' }
+Time to send :Sat Jan 04 2014 21:10:17 GMT+0000 (UTC)
+[ { email: 'viktoria.smarttwo@gmail.com',
+    status: 'sent',
+    _id: '421502849c854d7c91c15bff488d9973',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '06/06/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Mon, 14 Apr 2014 21:27:41 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1357',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"731fb484d96edff40883502f3d6c73e8"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': 'd661aba7ed3280a315383878788f3bf3',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315541208',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0795461","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 1.00 USD\\n\\nCARDHOLDER NAME : Thomas Smith\\nCARD NUMBER     : ############2958\\nDATE/TIME       : 14 Apr 14 17:27:41\\nREFERENCE #     : 001 0795461 T\\nAUTHOR. #       : 012717\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":1.0,"transaction_tag":315541208,"authorization_num":"012717","cc_expiry":"0815","cardholder_name":"Thomas Smith","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7744645280862958","credit_card_type":"Visa"}' }
+The Travel Type Id is : 1
+Travel type is : One Way to Airport
+Special Request :  Dummy res
+{ _id: 534c52b5b27792fc78000005,
+  reservation: 
+   { name: 'Thomas Smith',
+     email: 'thomas@smart-two.com',
+     phoneNumber: '3212584133',
+     specialRequest: 'Dummy res',
+     travelType: 'One Way to Airport',
+     date: '04/16/2014',
+     time: '11:55 AM',
+     confirmationCode: 'A7622BA' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'thomas@smart-two.com',
+  travelTypeId: '1',
+  confirmationNumber: 'A7622BA',
+  price: '48.02',
+  cruiseDate: 'MM/DD/YYYY',
+  cruiseTime: 'Select Pick Up Time',
+  flightDate: '04/16/2014',
+  flightTime: '11:55 AM',
+  name: 'Thomas Smith' }
+Time to send :Sat Jan 04 2014 21:27:17 GMT+0000 (UTC)
+[ { email: 'thomas@smart-two.com',
+    status: 'sent',
+    _id: '803fc0aa3a9746c9a73bb960827cec60',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/25/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/25/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Request Body: [object Object]
+{ code: 400,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 00:08:59 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '45',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     'cache-control': 'no-cache',
+     'x-request-id': '8ba85a0e6b537289a251609902171fdd',
+     'x-rack-cache': 'invalidate, pass',
+     status: '400' },
+  body: 'Bad Request (22) - Invalid Credit Card Number' }
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 00:22:00 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1354',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"d5ef47f1b260c0601d99e2516d355204"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '1e0caae4918fe4433a8656d3a0458f72',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315684113',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0311660","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 48.02 USD\\n\\nCARDHOLDER NAME : Ian gober\\nCARD NUMBER     : ############3639\\nDATE/TIME       : 14 Apr 14 20:21:59\\nREFERENCE #     : 001 0311660 T\\nAUTHOR. #       : 002220\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":48.02,"transaction_tag":315684113,"authorization_num":"002220","cc_expiry":"0915","cardholder_name":"Ian gober","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7461262424373639","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  Fake reservation-testing
+{ _id: 534c7b8fb7684e317c000001,
+  reservation: 
+   { name: 'Ian gober',
+     email: 'wgober@cfl.rr.com',
+     phoneNumber: '3214325117',
+     specialRequest: 'Fake reservation-testing',
+     travelType: 'One Way to Cruise',
+     date: '04/17/2014',
+     time: '8:05 AM',
+     confirmationCode: '44A05DD' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'wgober@cfl.rr.com',
+  travelTypeId: '0',
+  confirmationNumber: '44A05DD',
+  price: '48.02',
+  cruiseDate: '04/17/2014',
+  cruiseTime: '8:05 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Ian gober' }
+Time to send :Sun Jan 05 2014 00:21:35 GMT+0000 (UTC)
+[ { email: 'wgober@cfl.rr.com',
+    status: 'sent',
+    _id: '203d963600ab44f4a1e2c4259e2ad9ac',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/20/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 00:23:17 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1354',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"7cbeafdccbc49c5cfdba3afe223bd95e"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '8b636ac38aeb2ec1523c304235b79602',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315685094',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0949014","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 48.02 USD\\n\\nCARDHOLDER NAME : Ian Gober\\nCARD NUMBER     : ############3639\\nDATE/TIME       : 14 Apr 14 20:23:16\\nREFERENCE #     : 001 0949014 T\\nAUTHOR. #       : 072320\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":48.02,"transaction_tag":315685094,"authorization_num":"072320","cc_expiry":"0915","cardholder_name":"Ian Gober","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7461262424373639","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  fake reservation
+{ _id: 534c7bdcb7684e317c000003,
+  reservation: 
+   { name: 'Ian Gober',
+     email: 'wgober@cfl.rr.com',
+     phoneNumber: '3214325117',
+     specialRequest: 'fake reservation',
+     travelType: 'One Way to Cruise',
+     date: '04/20/2014',
+     time: '8:05 AM',
+     confirmationCode: 'B126F59' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'wgober@cfl.rr.com',
+  travelTypeId: '0',
+  confirmationNumber: 'B126F59',
+  price: '48.02',
+  cruiseDate: '04/20/2014',
+  cruiseTime: '8:05 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Ian Gober' }
+Time to send :Sun Jan 05 2014 00:22:52 GMT+0000 (UTC)
+[ { email: 'wgober@cfl.rr.com',
+    status: 'sent',
+    _id: 'acd24e3775c24cc39b2c11469fbada19',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/15/2014', 'date.travelTypeId': 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/15/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+[ { _id: 534c4eb9b27792fc78000004,
+    __v: 0,
+    date: 
+     { date: '04/15/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: 'FB58136',
+       travelTypeId: '0' } } ]
+Request Body: [object Object]
+{ code: 400,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 00:27:12 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '45',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     'cache-control': 'no-cache',
+     'x-request-id': '128aac446595e366127e8798b89620e5',
+     'x-rack-cache': 'invalidate, pass',
+     status: '400' },
+  body: 'Bad Request (22) - Invalid Credit Card Number' }
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 00:27:36 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1354',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"26e62e666c2b02ade41e7f72f0e76c1e"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '32319394dea5a73f6a9a1fbbee09cbeb',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/315688649',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0720787","avs":"Q","retrieval_ref_no":"140414","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 48.02 USD\\n\\nCARDHOLDER NAME : Ian Gober\\nCARD NUMBER     : ############3639\\nDATE/TIME       : 14 Apr 14 20:27:35\\nREFERENCE #     : 001 0720787 T\\nAUTHOR. #       : 052720\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":48.02,"transaction_tag":315688649,"authorization_num":"052720","cc_expiry":"0915","cardholder_name":"Ian Gober","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"7461262424373639","credit_card_type":"Visa"}' }
+The Travel Type Id is : 0
+Travel Type is : One Way to Cruise
+Special Request :  fake res
+{ _id: 534c7cdeb7684e317c000005,
+  reservation: 
+   { name: 'Ian Gober',
+     email: 'wgober@cfl.rr.com',
+     phoneNumber: '3214827345',
+     specialRequest: 'fake res',
+     travelType: 'One Way to Cruise',
+     date: '04/15/2014',
+     time: '8:05 AM',
+     confirmationCode: '33BC41C' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'wgober@cfl.rr.com',
+  travelTypeId: '0',
+  confirmationNumber: '33BC41C',
+  price: '48.02',
+  cruiseDate: '04/15/2014',
+  cruiseTime: '8:05 AM',
+  flightDate: 'MM/DD/YYYY',
+  flightTime: 'Select Pick Up Time',
+  name: 'Ian Gober' }
+Time to send :Sun Jan 05 2014 00:27:10 GMT+0000 (UTC)
+[ { email: 'wgober@cfl.rr.com',
+    status: 'sent',
+    _id: 'd6a9391e17144f3fb9aa6f68d5f79a92',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } },
+  { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '11:55 AM', travelTypeId: 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '11:55 AM', travelTypeId: 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } } ]
+Request Body: [object Object]
+{ code: 400,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 17:15:43 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '45',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     'cache-control': 'no-cache',
+     'x-request-id': 'f55a48b8bc82fcc5e9a044db1a87e1f3',
+     'x-rack-cache': 'invalidate, pass',
+     status: '400' },
+  body: 'Bad Request (22) - Invalid Credit Card Number' }
+Request Body: [object Object]
+{ code: 201,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 17:16:19 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '1360',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     etag: '"d902a76db3e56e43019c7daa7af3b2b9"',
+     'cache-control': 'max-age=0, private, must-revalidate',
+     'x-request-id': '20963403f81ac940aee097091c4dae16',
+     'x-rack-cache': 'invalidate, pass',
+     location: 'https://api.globalgatewaye4.firstdata.com/transaction/v11/316352474',
+     status: '201',
+     'strict-transport-security': 'max-age=315360000; includeSubdomains' },
+  body: '{"transaction_error":0,"transaction_approved":1,"exact_resp_code":"00","exact_message":"Transaction Normal","bank_resp_code":"100","bank_message":"Approved","sequence_no":"0660672","avs":"Q","retrieval_ref_no":"140415","merchant_name":"SMART-TWO.COM","merchant_address":"3751 S HOPKINS AVE 6B","merchant_city":"TITUSVILLE","merchant_province":"Florida","merchant_country":"United States","merchant_postal":"32780","merchant_url":"SMARTSHUTTLE.COM","ctr":"=========== TRANSACTION RECORD ==========\\nSMART-TWO.COM\\n3751 S HOPKINS AVE 6B\\nTITUSVILLE, FL 32780\\nUnited States\\nSMARTSHUTTLE.COM\\n\\nTYPE: Purchase\\n\\nACCT: Visa  $ 48.02 USD\\n\\nCARDHOLDER NAME : Thomas Smith\\nCARD NUMBER     : ############5674\\nDATE/TIME       : 15 Apr 14 13:16:19\\nREFERENCE #     : 001 0660672 T\\nAUTHOR. #       : 08597B\\nTRANS. REF.     : \\n\\n    Approved - Thank You 100\\n\\n\\nPlease retain this copy for your records.\\n\\nCardholder will pay above amount to card\\nissuer pursuant to cardholder agreement.\\n=========================================","gateway_id":"B44629-01","transaction_type":"00","amount":48.02,"transaction_tag":316352474,"authorization_num":"08597B","cc_expiry":"0216","cardholder_name":"Thomas Smith","cvd_presence_ind":0,"client_ip":"54.82.160.2","currency_code":"USD","partial_redemption":0,"transarmor_token":"8212089357615674","credit_card_type":"Visa"}' }
+The Travel Type Id is : 1
+Travel type is : One Way to Airport
+Special Request :  4 suit cases dummy reservation 
+{ _id: 534d6949b7684e317c000007,
+  reservation: 
+   { name: 'Thomas Smith',
+     email: 'thomas@smart-two.com',
+     phoneNumber: '3212584133',
+     specialRequest: '4 suit cases dummy reservation ',
+     travelType: 'One Way to Airport',
+     date: '04/18/2014',
+     time: '11:55 AM',
+     confirmationCode: '27FEFAE' } }
+Connected to port : 27017
+Connected to host : 127.0.0.1
+Saved information succesfully
+Saved information succesfully
+{ email: 'thomas@smart-two.com',
+  travelTypeId: '1',
+  confirmationNumber: '27FEFAE',
+  price: '48.02',
+  cruiseDate: 'MM/DD/YYYY',
+  cruiseTime: 'Select Pick Up Time',
+  flightDate: '04/18/2014',
+  flightTime: '11:55 AM',
+  name: 'Thomas Smith' }
+Time to send :Sun Jan 05 2014 17:15:53 GMT+0000 (UTC)
+[ { email: 'thomas@smart-two.com',
+    status: 'sent',
+    _id: '9112c54d749d4faa9f634324353906cc',
+    reject_reason: null } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 1 }
+[ { _id: 534c52b5b27792fc78000006,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'A7622BA',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/16/2014', 'date.travelTypeId': 0 }
+[ { _id: 534bb941d145955b75000002,
+    __v: 0,
+    date: 
+     { date: '04/16/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '42FFF30',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/16/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Request Body: [object Object]
+{ code: 400,
+  headers: 
+   { server: 'nginx',
+     date: 'Tue, 15 Apr 2014 22:03:38 GMT',
+     'content-type': 'application/json; charset=utf-8',
+     'content-length': '45',
+     connection: 'keep-alive',
+     'x-ua-compatible': 'IE=Edge,chrome=1',
+     'cache-control': 'no-cache',
+     'x-request-id': 'cd2756eecbd0c9aa33e07d98071fa5db',
+     'x-rack-cache': 'invalidate, pass',
+     status: '400' },
+  body: 'Bad Request (22) - Invalid Credit Card Number' }
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } },
+  { _id: 534d6949b7684e317c000008,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: '27FEFAE',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/19/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/19/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } },
+  { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '10:35 AM', travelTypeId: 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } },
+  { _id: 534d6949b7684e317c000008,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: '27FEFAE',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '9:25  AM', travelTypeId: 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/30/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/14/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/30/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '9:25  AM', travelTypeId: 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } },
+  { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } },
+  { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '05/15/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/15/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '9:25  AM', travelTypeId: 1 }
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+[ { _id: 53486704c012521163000004,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '708D21B',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/17/2014', 'date.travelTypeId': 0 }
+[ { _id: 534860bdc012521163000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '8CBD402',
+       travelTypeId: '0' } },
+  { _id: 53489af8f700f8a165000008,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: '2C33D2E',
+       travelTypeId: '0' } },
+  { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/17/2014', time: '8:05 AM', travelTypeId: 0 }
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+[ { _id: 534c7b8fb7684e317c000002,
+    __v: 0,
+    date: 
+     { date: '04/17/2014',
+       time: '8:05 AM',
+       price: 48,
+       confirmationCode: '44A05DD',
+       travelTypeId: '0' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/28/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/28/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } },
+  { _id: 534d6949b7684e317c000008,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: '27FEFAE',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/18/2014', 'date.travelTypeId': 1 }
+[ { _id: 53486a84715d7d5464000002,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: 'D150A07',
+       travelTypeId: '1' } },
+  { _id: 534d6949b7684e317c000008,
+    __v: 0,
+    date: 
+     { date: '04/18/2014',
+       time: '11:55 AM',
+       price: 48,
+       confirmationCode: '27FEFAE',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/18/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/25/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/25/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Connection has succesfully opened
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '05/26/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '05/26/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/25/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/19/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/25/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/25/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '9:25  AM', travelTypeId: 1 }
+[ { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+[ { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/21/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/26/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/26/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/21/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/20/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/20/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/20/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/21/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/30/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/30/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '8:05 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/29/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/29/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/30/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/30/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/22/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/22/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/25/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/25/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 1 }
+[ { _id: 534898f1f700f8a165000004,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '10:35 AM',
+       price: 48,
+       confirmationCode: 'AED4629',
+       travelTypeId: '1' } },
+  { _id: 534c5a73a3e1341c7a000002,
+    __v: 0,
+    date: 
+     { date: '04/23/2014',
+       time: '9:25  AM',
+       price: 48,
+       confirmationCode: '993E510',
+       travelTypeId: '1' } } ]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '11:55 AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/24/2014', 'date.travelTypeId': 1 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/24/2014', time: '9:25  AM', travelTypeId: 1 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '03/01/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '03/01/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '03/01/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
+Query - (Number of Reservations For Day:  { 'date.date': '04/23/2014', 'date.travelTypeId': 0 }
+[]
+Query - (Number of Reservations for Time and Day:  { date: '04/23/2014', time: '10:35 AM', travelTypeId: 0 }
+[]
+[]
