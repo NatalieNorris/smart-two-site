@@ -1,5 +1,13 @@
 $(document).ready( function  () {
 
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-50393215-1', 'smart-two.com');
+    ga('send', 'pageview');
+
     //Initialize all of our variables
     var roundTrip = false;
     var oneWayToCruise = false;
@@ -732,12 +740,12 @@ $(document).ready( function  () {
     smartButton.click( function  (response) {        
         //We set the cruise date and the cruise times so that we can add them to the database
         var cruiseDate = $('#cruise-date').val();
-        var cruiseTime = $('#dropdown-button-cruise').innerHTML;
+        var cruiseTime = $('#dropdown-button-cruise').text();
         var airportDate = $('#airport-date').val();
-        var airportTime = $('#dropdown-button-flight').innerHTML;
-        var cruiseShip = $('#dropdown-button-cruiseline').innerHTML;
+        var airportTime = $('#dropdown-button-flight').text();
+        var cruiseShip = $('#dropdown-button-cruiseline').text();
         var flightNumber = $('#flight-number').val();
-        var airline = $('#dropdown-button-airline').innerHTML;
+        var airline = $('#dropdown-button-airline').text();
 
         //Create a dictionary that will be stored as a cookie
         var reservation = {

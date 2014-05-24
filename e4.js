@@ -94,7 +94,7 @@ exports.executeTransaction = function (request, response) {
 
 
     var gatewayId = 'B44629-01';
-    var password = 'f4108p2r';
+    var password = 'e79b8duh';
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
