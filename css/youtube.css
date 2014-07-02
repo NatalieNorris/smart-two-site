@@ -1,0 +1,32 @@
+.videos {
+    margin: 20px auto;
+    width: 500px;
+    background: #f7f7f7;
+    border: 1px solid# ccc;
+    padding: 5px;
+    display: block;
+}
+.videos.youtube - video {
+    float: left;
+    height: 90px;
+    width: 120px;
+    border: solid 1px# dedede;
+    padding: 5px;
+}
+.videos.youtube - video img {
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.videos h6 {
+    color:#3B5998;
+    padding:0;
+    margin:0;
+    font-size:11px;
+    font-weight:bold;
+}
+.videos p.link, .videos p.desc {
+    color:#999;
+    padding:0;
+    margin:0;
+    font-size:11px;
+    padding:3px;
+}

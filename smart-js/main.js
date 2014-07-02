@@ -1,5 +1,13 @@
 $(document).ready( function  () {
 
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-50393215-1', 'smart-two.com');
+    ga('send', 'pageview');
+
     //Initialize all of our variables
     var roundTrip = false;
     var oneWayToCruise = false;
@@ -11,11 +19,13 @@ $(document).ready( function  () {
     var airlineSelected = false;
     var cruiselineSelected = false;   
     var flightNumberEntered = false; 
+    var numOfTravelersSelected = false;
     var validated = false;
 
     var travelType;
     var travelTypeId;
     var price;
+    var originalPrice;
     var boxes = [];    
 
     var flightSection = $('.info.flight');
@@ -32,6 +42,9 @@ $(document).ready( function  () {
     var flightTime;
     var cruiseDate;
     var flightDate;
+
+    var numOfTravelers;
+    var strNumOfTravelers;
 
     //These are the different options that can be selected for trip type
     var options = ["One Way (Port Canaveral Cruise Ship to Orlando Int'l Airport)", "One Way (Orlando Int'l Airport to Port Canaveral Cruise Ship)", "Round Trip (Between Orlando Int'l Airport and Port Canaveral)"];      
@@ -73,6 +86,63 @@ $(document).ready( function  () {
         reloadReservation(reservation);
     }
 
+    function getPrice () {
+        switch (numOfTravelers) {
+            case 2:
+                if (!roundTrip)
+                {
+                    price = 48.02;
+                    originalPrice = 55;
+                }
+                else {
+                    price = 86.02;
+                    originalPrice = 95;
+                }
+
+                strNumOfTravelers = "TWO";
+                break;
+            case 4:
+                if (!roundTrip)
+                {
+                    price = 88.02;
+                    originalPrice = 95;
+                }
+                else {
+                    price = 166.02;
+                    originalPrice = 185;
+                }
+
+                strNumOfTravelers = "FOUR";
+                break;
+            case 6:
+                if (!roundTrip)
+                {
+                    price = 128.02;
+                    originalPrice = 145;
+                }
+                else {
+                    price = 246.02;
+                    originalPrice = 275;
+                }
+
+                strNumOfTravelers = "SIX";
+                break;
+            case 8:
+                if (!roundTrip)
+                {
+                    price = 168.02;
+                    originalPrice = 195;
+                }
+                else {
+                    price = 326.02;
+                    originalPrice = 365;
+                }
+
+                strNumOfTravelers = "EIGHT";
+                break;
+        }
+    }
+
     function reloadReservation (reservation) {
         changeTravelType(reservation.travelType); 
 
@@ -91,7 +161,14 @@ $(document).ready( function  () {
 
         travelTypeId = reservation.travelType;
         price = reservation.price;
-    
+        numOfTravelers = reservation.numOfTravelers;
+
+        moveToNextBox(0, 1);
+        moveToNextBox(1, 2);
+        numOfTravelersSelected = true;
+
+        $('#traveler-amount-box').text(numOfTravelers + " Travelers ");
+
         //One way to airport
         if (reservation.travelType == 0)
         {
@@ -106,17 +183,16 @@ $(document).ready( function  () {
 
             $('#dropdown-button-type').text('One Way to Airport');
 
-            $('#price-tagline').empty();
-            $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
-            price = '48.02';
-            $('#price').empty();
-            $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included) </p><p> (reg. price: 55.00 before tax)</p>');
+            displayPrice();
+
             validated = true;
             travelType = options[0];
 
             flightSection.hide();
             cruiseSection.show();
             $('#dropdown-button-cruise').prop('disabled', false);
+
+            oneWayToAirport = true;
         }
         else if (reservation.travelType == 2)
         {
@@ -142,12 +218,7 @@ $(document).ready( function  () {
 
             $('#dropdown-button-type').text('Roundtrip');
 
-            $('#price-tagline').empty();
-            $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>').show();
-            price = '86.02';
-            $('#price').empty();
-            $('#price').val(price);
-            $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included)  </p><p> (reg. price: 95.00 before tax)</p>').show();
+
             validated = true;
             travelType = options[2];
 
@@ -155,6 +226,9 @@ $(document).ready( function  () {
             cruiseSection.show();
             $('#dropdown-button-flight').prop('disabled', false);
             $('#dropdown-button-cruise').prop('disabled', false);
+
+            displayPrice();
+            roundTrip = true;
         }
         else if (reservation.travelType == 1)
         {
@@ -171,17 +245,16 @@ $(document).ready( function  () {
 
             $('#dropdown-button-type').text('One Way to Cruise');
 
-            $('#price-tagline').empty();
-            $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
-            price = '48.02';
-            $('#price').empty();
-            $('#price').append('<span>$' + price + '* USD</span><p> *special rate (taxes included) </p><p> (reg. price: 55.00 before tax)</p>');
             validated = true;
             travelType = options[1];
 
             flightSection.show();
             cruiseSection.hide();
             $('#dropdown-button-flight').prop('disabled', false);
+
+            displayPrice();
+
+            oneWayToCruise = true;
         }
 
         changeBoxes('check-mark-green');
@@ -305,6 +378,15 @@ $(document).ready( function  () {
         }
     }
 
+    $('#traveler-amount li > a').click(function (e) {
+        $('#traveler-amount-box').text( this.innerHTML );        
+
+        numOfTravelers = parseInt(this.innerHTML.substring(0, 1));
+        moveToNextBox(0, 1);
+        numOfTravelersSelected = true;
+        checkIfFinished();
+    });
+
     $('#travel-type li > a').click(function(e){
         reset();
     	//Change the travel type variables and move onto the next circles showing whether or not something has been finished
@@ -320,10 +402,10 @@ $(document).ready( function  () {
         $('#dropdown-button-cruise').text( this.innerHTML + " " );
         $('#dropdown-button-cruise').append( '<span class="caret"></span>' );
 
-        cruiseTime = this.innerHTML.trim();
+        cruiseTime = this.innerHTML;
 
         getTimeAvailability (cruiseTime, cruiseDateEntered, cruiseTimeEntered, cruiseDate, cruiseTime, cruiseSoldOut, 7, true);
-
+        checkIfFinished();
     });
 
     function getTimeAvailability (time, dateEntered, timeEntered, date, time, displaySoldOutSection, finishedImageTag, isCruise) {
@@ -369,9 +451,10 @@ $(document).ready( function  () {
         $('#dropdown-button-flight').text( this.innerHTML + " " );
         $('#dropdown-button-flight').append( '<span class="caret"></span>' );
         
-        flightTime = this.innerHTML.trim();
+        flightTime = this.innerHTML;
 
         getTimeAvailability (flightTime, flightDateEntered, flightTimeEntered, flightDate, flightTime, airportTimeSoldOut, 3, false);
+        checkIfFinished();
     });
 
     function showBookingSuccessful (section, firstTag, secondTag) {
@@ -534,6 +617,7 @@ $(document).ready( function  () {
 
             getAvailability (flightTimeEntered, flightDateEntered, flightDate, flightTime, airportSoldOut, false, 2, $('#dropdown-button-flight'));
 
+            checkIfFinished();
             //If this is a round trip then we make sure that the earliest date for the return date is later then the date just selected
             if (roundTrip)
             {
@@ -634,7 +718,8 @@ $(document).ready( function  () {
 
         getAvailability (cruiseTimeEntered, cruiseDateEntered, cruiseDate, cruiseTime, cruiseSoldOut, true, 6, $('#dropdown-button-cruise'));
         
-        $(this).datepicker('hide');        
+        $(this).datepicker('hide');  
+        checkIfFinished();      
 
     }).data('datepicker');
 
@@ -642,7 +727,11 @@ $(document).ready( function  () {
     //and update the UI accordingly.  But if this text box is changed to empty then we want to make sure
     //that we update the UI accordingly and make sure the user cannot advance.
     $('#flight-number').change(function  () {
+        $(this).val($(this).val().toUpperCase());    
+        handleFlightNumberInput($(this));    
+    });
 
+    function handleFlightNumberInput (flightNumberInput) {
         flightNumberEntered = true;
         //Enable the button.
         smartButton.prop('disabled', false);
@@ -652,7 +741,7 @@ $(document).ready( function  () {
         $(".finished[tag=9]").attr('width', 15);
 
         //IF they change the value back to empty then we need to make note of that
-        if ($(this).val().length == 0) {
+        if ($(flightNumberInput).val().length == 0) {
             $(".finished[tag=9]").attr('src', "/smart-images/check-required.png");
             $(".finished[tag=9]").attr('height', 10);
             $(".finished[tag=9]").attr('width', 10);            
@@ -664,15 +753,31 @@ $(document).ready( function  () {
         else {
             moveToNextBox(9, 5);
         } 
-
+        
         $('#flight-number').blur();               
+    }
+
+    $('#flight-number').focus(function() {
+      var input = $(this);
+      if (input.val() == input.attr('placeholder')) {
+        input.val('');
+        input.removeClass('placeholder');
+      }
+    }).blur(function() {
+    var input = $(this);
+      if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.addClass('placeholder');
+        input.val(input.attr('placeholder'));
+      }
+    }).blur();  
+
+    $('#flight-number').keypress(function (e) {
+        if(e.keyCode === 13) {
+            $(this).val($(this).val().toUpperCase());
+            handleFlightNumberInput($(this));
+        }
     });
 
-    $('#flight-number').keyup( function () {
-        $('#flight-number').val(function  () {
-            return $(this).val().toUpperCase();
-        })
-    })
 
     $('#cruise-date').keydown(function () {
         //don't allow the user to enter in any text with the keyboard
@@ -709,12 +814,13 @@ $(document).ready( function  () {
     smartButton.click( function  (response) {        
         //We set the cruise date and the cruise times so that we can add them to the database
         var cruiseDate = $('#cruise-date').val();
-        var cruiseTime = $('#dropdown-button-cruise').text().trim();
+        var cruiseTime = $('#dropdown-button-cruise').text();
         var airportDate = $('#airport-date').val();
-        var airportTime = $('#dropdown-button-flight').text().trim();
-        var cruiseShip = $('#dropdown-button-cruiseline').text().trim();
+        var airportTime = $('#dropdown-button-flight').text();
+        var cruiseShip = $('#dropdown-button-cruiseline').text();
         var flightNumber = $('#flight-number').val();
-        var airline = $('#dropdown-button-airline').text().trim();
+        var airline = $('#dropdown-button-airline').text();
+        var numTravelers = numOfTravelers;
 
         //Create a dictionary that will be stored as a cookie
         var reservation = {
@@ -726,7 +832,8 @@ $(document).ready( function  () {
             travelType    : travelTypeId,
             flightNumber  : flightNumber,
             airline       : airline,
-            price         : price
+            price         : price,
+            numOfTravelers: numTravelers
         };
 
         //Make the expiration time five minutes from the current time
@@ -741,64 +848,63 @@ $(document).ready( function  () {
             "&cruiseTime=" + reservation.cruiseTime + "&airportDate=" + reservation.airportDate + 
             "&airportTime=" + reservation.airportTime + "&cruiseShip=" + reservation.cruiseShip +
             "&travelTypeId=" + reservation.travelType + "&flightNumber=" + reservation.flightNumber +
-            "&airline=" + reservation.airline + "&price=" + price;   
+            "&airline=" + reservation.airline + "&price=" + price + "&numOfTravelers=" + numOfTravelers;   
     });
 
     //We check to see here if all the required fields have been entered
     function checkIfFinished () {
-        if (roundTrip == true)
+        //Make sure that the number of travelers has been put in then check for the rest
+        if (numOfTravelersSelected)
         {
-            //If all fields are filled out
-            if (flightDateEntered == true && flightTimeEntered == true && 
-                cruiseDateEntered == true && cruiseTimeEntered == true &&
-                cruiselineSelected == true && airlineSelected == true)
+            if (roundTrip == true)
             {
-                $('#price-tagline').empty();
-                $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>').show();
-                price = '86.02';
-                //price = '1';
-                $('#price').empty();
-                $('#price').val(price);
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included)  </p><p> (reg. price: 95.00)</p>').show();
-                validated = true;
+                //If all fields are filled out
+                if (flightDateEntered == true && flightTimeEntered == true && 
+                    cruiseDateEntered == true && cruiseTimeEntered == true &&
+                    cruiselineSelected == true && airlineSelected == true)
+                {
+                    displayPrice();
+                    validated = true;
+                }
+            }
+            else if (oneWayToCruise == true)
+            {
+                //If the flight information is filled out
+                if (flightDateEntered == true && flightTimeEntered == true && airlineSelected == true)
+                {
+                    displayPrice();
+                    validated = true;
+                }
+            }
+            else if (oneWayToAirport == true)
+            {
+                //If the cruise information is filled out
+                if (cruiseDateEntered == true && cruiseTimeEntered == true && cruiselineSelected == true)
+                {
+                    displayPrice();
+                    validated = true;
+                }
+            }
+            if (validated)
+            {
+                smartButton.show();
+            }
+            //If we have validated that this worked, then we execute the following code
+            if (validated && roundTrip == true)
+            {            
+                $("html, body").animate({ scrollTop: 200 }, 'slow');            
             }
         }
-        else if (oneWayToCruise == true)
-        {
-            //If the flight information is filled out
-            if (flightDateEntered == true && flightTimeEntered == true && airlineSelected == true)
-            {
-                $('#price-tagline').empty();
-                $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
-                price = '48.02';
-                //price = '1';
-                $('#price').empty();
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
-                validated = true;
-            }
-        }
-        else if (oneWayToAirport == true)
-        {
-            //If the cruise information is filled out
-            if (cruiseDateEntered == true && cruiseTimeEntered == true && cruiselineSelected == true)
-            {
-                $('#price-tagline').empty();
-                $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');
-                price = '48.02';
-                //price = '1';
-                $('#price').empty();
-                $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: 55.00)</p>');
-                validated = true;
-            }
-        }
-        if (validated)
-        {
-            smartButton.show();
-        }
-        //If we have validated that this worked, then we execute the following code
-        if (validated && roundTrip == true)
-        {            
-            $("html, body").animate({ scrollTop: 200 }, 'slow');            
-        }
+        
+    }
+
+    function displayPrice () {
+        getPrice();
+
+        $('#price-tagline').empty();
+        $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR ' + strNumOfTravelers + ':</span>');
+        //price = '1';
+        $('#price').empty();
+        $('#price').append('<span>$' + price + '* USD</span><p> *special rate (all fees included) </p><p> (reg. price: '+ originalPrice +')</p>');
     }
 });

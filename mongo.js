@@ -6,8 +6,8 @@ var MyModel;
 mongoose.plugin(DataTable.init);
 
 //var dbURI = 'mongodb://54.01.10.162/sswr';
-//var dbURI = 'mongodb://127.0.0.1/thomas';
-var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
+var dbURI = 'mongodb://127.0.0.1/thomas';
+//var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
 mongoose.connect(dbURI);
 
 var db = mongoose.connection;
@@ -40,7 +40,8 @@ db.once('open', function callback ()
 			travelType 		 : String,
 			date 			 : String,
 			time 			 : String,			
-			confirmationCode : String
+			confirmationCode : String,
+			numberOfTravelers: String
 		}
 	});
 
@@ -52,7 +53,8 @@ db.once('open', function callback ()
 			time  			 : String,
 			price 			 : Number,
 			confirmationCode : String,
-			travelTypeId     : String
+			travelTypeId     : String,
+			numberOfTravelers: String
 		}
 	});
 
@@ -108,6 +110,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 	var travelTypeId = request.body.reservation.type;
 	var travelType = ''	;
 	var reservation;
+	var numberOfTravelers = request.body.reservation.numberOfTravelers;
 
 	console.log('The Travel Type Id is : ' + travelTypeId);
 	
@@ -122,7 +125,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//Create a JSON document to be stored in mongo
 		reservation = getReservationDocument(date, time, travelType, request);
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 	}
 	else if (travelTypeId == 0)
 	{
@@ -134,7 +137,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		//Create a JSON document to be stored in mongo
 		reservation = getReservationDocument(date, time, travelType, request);
 		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 	}
 	else if (travelTypeId == 2)
 	{
@@ -148,7 +151,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		saveToMongo(reservation);	
 		//Add this confirmation code to the date and time
 		travelTypeId = 0;
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 
 		travelType = "One Way to Cruise";
 
@@ -159,7 +162,7 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 		reservation = getReservationDocument(date, time, travelType, request);		
 		//Add this confirmation code to the date and time
 		travelTypeId = 1;
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId); 
+		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 	}
 	
 	//save to mongo
@@ -179,7 +182,8 @@ function getReservationDocument (date, time, type, request, specialRequest) {
 			travelType 			: type,
 			date 				: date,
 			time 				: time,
-			confirmationCode 	: request.body.reservation.confirmationCode
+			confirmationCode 	: request.body.reservation.confirmationCode,
+			numberOfTravelers   : request.body.reservation.numberOfTravelers
 		}
 	}); 
 	console.log(reservation);
@@ -205,7 +209,7 @@ exports.updatePrice = function (request, response) {
 
 //Now we are going to add a confirmation number to the array in the date document.
 //exports.addDateDocument = function addDateDocument (request, response) {
-function addDateDocument (date, time, confirmationCode, travelTypeId) {
+function addDateDocument (date, time, confirmationCode, travelTypeId, numberOfTravelers) {
 	
 	//response.send(200, JSON.stringify ( request.params ));
 
@@ -216,35 +220,12 @@ function addDateDocument (date, time, confirmationCode, travelTypeId) {
 
 	//We check and see if either the start date or the end date is already contained within this document, 
 	//and then update the arrays holding the confirmation numbers accordingly
-	addConfirmationToDate(date, time, confirmationCode, dateModel, travelTypeId);
+	addConfirmationToDate(date, time, confirmationCode, dateModel, travelTypeId, numberOfTravelers);
 	// addConfirmationToTime(date, time, confirmationCode, dateModel);
 	
 };
 
-function addConfirmationToDate (date, time, confirmationCode, dateModel, travelTypeId) {
-	// dateModel.update( 	
-	// 	{ 							 		 
-	// 		"date.date" : date,
-	// 		"date.times.time" : time 
-	// 	}, 
-	// 	{ $push : 
-	// 		{ 
-	// 			"date.confirmations" : confirmationCode 
-	// 		}, 
-	// 		"date.price" : "15", 
-	// 		 "date.times.time" : time,
-	// 		$push :
-	// 		{
-	// 			"date.times.confirmations" : confirmationCode 
-	// 		} 
-	// 	},
-	// 	{ upsert : false }, 
-	// 	function (err, numAffected, rawResponse) {
-	// 		if (err) return "contact addMsg error: " + err;
-
-	// 			console.log('The number of updated documents was %d', numAffected);
-	// 			console.log('The raw response from Mongo was ', rawResponse);			
-	// } );
+function addConfirmationToDate (date, time, confirmationCode, dateModel, travelTypeId, numberOfTravelers) {
 
 	var date = new dates({
 		date : {
@@ -252,27 +233,13 @@ function addConfirmationToDate (date, time, confirmationCode, dateModel, travelT
 			time : time,
 			price : '48',
 			confirmationCode : confirmationCode,
-			travelTypeId : travelTypeId
+			travelTypeId : travelTypeId,
+			numberOfTravelers : numberOfTravelers
 		}
 	});
 
 	saveToMongo(date);
 }
-
-// function addConfirmationToDate(date, confirmationCode, dateModel) {
-// 	dateModel.update( 	
-// 		{ 							 		 
-// 				"date.date" : date 
-// 			}, 
-// 		{ $push : { "date.confirmations" : confirmationCode }, "date.price" : "15" },
-// 		{ upsert : true }, 
-// 		function (err, numAffected, rawResponse) {
-// 			if (err) return response.send("contact addMsg error: " + err);
-
-// 				console.log('The number of updated documents was %d', numAffected);
-// 				console.log('The raw response from Mongo was ', rawResponse);			
-// 	} );
-// }
 
 //Update the model
 exports.update = function update (request,respone) {

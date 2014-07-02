@@ -29,18 +29,26 @@ function displayAnswer () {
 
         var button = "<div class = 'make-reservation get-quote' style = 'margin-top: 130px; margin-left: -10px'>" +
 		    									"<a href = 'index.html'>" +
-		    										"<input value='Get a Quote' type='button' id = 'smart-button'>" +
+		    										"<input onClick=\"window.location='index.html'\" value='Get a Quote' type='button' id = 'smart-button'>" +
 		    									"</a>" +
 		    								"</div>";
 
         if (queryString["question"] != null) {	
     		if (queryString["question"] == "1") {
-        		$("#questions").append("<h2 class = 'subtitle'>What shuttle service does smart-two.com provide?</h2>" +
+        		/*$("#questions").append("<h2 class = 'subtitle'>What shuttle service does smart-two.com provide?</h2>" +
 											"<p>We help groups of two get between their Port Canaveral cruise ship and flight at Orlando Int'l Airport. Enjoy any of these three services:</p>" +
 											"<p>1. Round trip (from your flight to cruise ship and then from your cruise ship to flight)</p>" +
 											"<p>2. One Way trip (from your flight to your cruise ship)</p>" +
 			 								"<p>3. One Way trip (from your cruise ship to your flight)</p>");
+        		$("#reservationBar").append(button);*/				
+				$("#questions").append("<h2 class = 'subtitle'>What shuttle services does smart-two.com provide?</h2>" +
+											"<div style='overflow-y: scroll; height:380px; padding-right:5px'><p>We help groups of two, with a maximum of 8 individuals per vehicle, get between their Port Canaveral cruise ship and flight at the Orlando International Airport. Enjoy any of these three services:</p>" +
+											"<p>1. Round trip (from your flight to cruise ship and then from your cruise ship to flight)</p>" +
+											"<p>2. One Way trip (from your flight to your cruise ship)</p>" +
+			 								"<p>3. One Way trip (from your cruise ship to your flight)</p>" +
+											"<p>We also provide transportation services for special events within Central Florida such as wedding parties, proms, family reunions, sports teams, etc as well as shuttle services to locations in Cocoa, Cocoa Beach, Merritt Island, Rockledge, and Titusville. Please contact a smart-two.com team member at 855-200-7678 for these additional services to book for your specific shuttle needs.</p></div>");
         		$("#reservationBar").append(button);
+				
 			}					
 			if (queryString["question"] == "2") {
 				$("#questions").append("<h2 class = 'subtitle'>With 800 shuttle choices, why use smart-two.com?</h2>" +					

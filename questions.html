@@ -4,15 +4,15 @@
 		<meta charset = "utf-8">
 		<meta http-equiv="X-UA-Compatible" content = "IE-edge">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1">
-		<title>Questions</title>
+		<title>Port Canaveral-Orlando Int'l Airport Cruise Shuttle Company | Questions</title>
 
 		<!--Bootstrap-->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
-		<link href = "/smart-css/bootstrap.min.css" rel = "stylesheet">
-		<link href = "/smart-css/main.css" rel = "stylesheet">
-		<link href = "/smart-css/datepicker.css" rel="stylesheet">
-		<link href = "/smart-css/devices.css" rel="stylesheet">
+		<link href = "smart-css/bootstrap.min.css" rel = "stylesheet">
+		<link href = "smart-css/main.css" rel = "stylesheet">
+		<link href = "smart-css/datepicker.css" rel="stylesheet">
+		<link href = "smart-css/devices.css" rel="stylesheet">
 
 
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -35,7 +35,7 @@
     			<div class = "col-md-12 header">
     				<div id = "headerBar">
     					<span id = "enjoy">Enjoy</span><span id ="relax"> Relax</span><span id = "ride"> Ride!</span>
-    					<span class = "graybar-line">Port Canavaral <img src = "/smart-images/to-from.png" height = 25 width = 25> Orlando International Airport </span>
+    					<span class = "graybar-line">Port Canavaral <img src = "smart-images/to-from.png" height = 25 width = 25> Orlando International Airport </span>
     					<p class = "graybar-subline">2014 Official Shuttle Co.</p>
     				</div>
     			</div>
@@ -53,14 +53,14 @@
 					  </button>
 					  <ul class="dropdown-menu" id = "question-list" role="menu" aria-labelledby="dropdownMenu1">
 
-					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 1>What shuttle service does smart-two.com provide?</a></li>  
+					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 1>What shuttle services does smart-two.com provide?</a></li>  
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 2>With 800 shuttle choices, why use smart-two.com?</a></li>	
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 3>What will you pick me up in?</a></li>			
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 4>When do I pay for the reservation?</a></li>			
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 5>When will you pick us up at our cruise?</a></li>			
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 6>When will you pick us up at the airport?</a></li>			
 					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 7>Does smart-two.com refund customers?</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" question = 8>What if we want to book for more than two?</a></li>
+					    <!--<li role="presentation"><a role="menuitem" tabindex="-1" question = 8>What if we want to book for more than two?</a></li>-->
 					  </ul>
 					</div>
 
@@ -79,7 +79,7 @@
     			</div>
     			<div class = "header-section">
     				<div id = "logo">
-    					<img src = "/smart-images/smart-two.png" />    					
+    					<img src = "smart-images/smart-two.png" />    					
     				</div>
     			</div>    			
     		</div>
@@ -90,17 +90,17 @@
 		    				
 						</div>		
 						<div id = "shuttle-image" style = "margin-top: -50px; margin-left: 43px">						
-							<img src = "/smart-images/shuttle-photo.JPG" height = "165" width = "110" style = "cursor:-webkit-zoom-in" onclick="showImage('/smart-images/shuttle-photo.JPG');" />
+							<img src = "smart-images/shuttle-photo.JPG" height = "165" width = "110" style = "cursor:-webkit-zoom-in" onClick="showImage('smart-images/shuttle-photo.JPG');" />
 						</div>
 
-						<div id="largeImgPanel" onclick="hideMe(this);">
+						<div id="largeImgPanel" onClick="hideMe(this);">
              				<img id="largeImg" style="height: 100%; margin: 0; padding: 0;" />
 				         </div>
 		    		</div>
 	    		</div>
 	    		<div class = "col-md-7 col-sm-7 col-xs-7">
 					<div class = "tagline">
-						<img id = 'image-tagline' src = "/smart-images/Smart Quote-2.png" />
+						<img id = 'image-tagline' src = "smart-images/Smart Quote-2.png" />
 					</div>
 					<!-- <div class = "sun">
 						<img src = "/smart-images/Sun.png" />
@@ -119,11 +119,16 @@
 	   			<div class = "row">
 	   				<div>
 		   				<div id = "social-network">
-	    					<img src = "/smart-images/youtube.png" />
-	    					<img src = "/smart-images/facebook.png" />
-	    					<img src = "/smart-images/twitter.png" />
-	    					<img src = "/smart-images/instagram.png" />
-	    				</div>
+    					<a target = "_blank" href= "https://www.youtube.com/watch?v=auTnuYH6hzI">
+    						<img src = "smart-images/youtube.png" />
+    					</a>
+    					<a target = "_blank" href="https://twitter.com/smarttwodotcom" data-show-count="false">
+    						<img src = "smart-images/twitter.png" />
+    					</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+							</script>
+    					<a target="_blank" title="find us on Facebook" href="http://www.facebook.com/smarttwodotcom"><img src = "smart-images/facebook.png" /></a>
+    				</div>
     				</div>
 	   				<div class = "col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-8 col-xs-offset-4">
 		    			<div class = "privacy-line"> 
@@ -137,12 +142,12 @@
 	   	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		
-  		<script src="/smart-js/bootstrap.min.js"></script>
-		<script src="/smart-js/bootstrap-datepicker.js"></script>
-		<script src="/smart-js/jquery-dateFormat.min.js"></script>  		
-  		<script src="/smart-js/md5.min.js"></script>
-  		<script src="/smart-js/questions.js"></script>
-  		<script src="/smart-js/rotating-quote.js"></script>  	
+  		<script src="smart-js/bootstrap.min.js"></script>
+		<script src="smart-js/bootstrap-datepicker.js"></script>
+		<script src="smart-js/jquery-dateFormat.min.js"></script>  		
+  		<script src="smart-js/md5.min.js"></script>
+  		<script src="smart-js/questions.js"></script>
+  		<script src="smart-js/rotating-quote.js"></script>  	
 
   		<script type="text/javascript">
   			$(document).ready(function () {
@@ -167,6 +172,22 @@
                  obj.style.visibility = 'hidden';
              }
          </script>
+
+         <script>
+
+		 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+		 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+		 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+		 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		 ga('create', 'UA-50393215-1', 'smart-two.com');
+
+		 ga('send', 'pageview');
+
+		</script>
   </body>
 
 </html>

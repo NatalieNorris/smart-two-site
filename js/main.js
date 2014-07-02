@@ -23,7 +23,6 @@ $(document).ready( function  () {
 
     $('.dropdown-toggle').dropdown();
 
-
     $('#travel-type li > a').click(function(e){
 
     	$('#dropdown-button-type').text( this.innerHTML.substring(0, this.innerHTML.indexOf(' (')) + " " );

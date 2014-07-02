@@ -14,31 +14,36 @@
 @media all and (max-width: 415px), all and (max-device-width: 415px) {
 
 	.full-body {
-		background-size: 850px 700px;
+		background-size: 800px 700px;
 		min-height: 700px;
-		height: 700px
+		height: 700px;
 	}
 
 	html, body {
-		min-width: 768px;
+		min-width: 650px;
 	}
 
 	.main {
-		min-width: 768px;
+		min-width: 650px;
+	}
+
+	.privacy-line {
+		margin-left: -50px;
 	}
 
 	.tagline img {
 		/*width: 70%;
 		height: 75%;*/
 		width: 270px;
-		margin-top: 30px;
+		margin-top: 44px;
+		margin-left: 40px;
 	}
 	.graybar-line {
-		margin-left: 285px;
+		margin-left: 155px;
 	}
 
 	.graybar-subline {
-		margin-left: 590px;
+		margin-left: 457px;
 	}
 
 	.container {
@@ -47,7 +52,7 @@
 	}
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 	.full-body {
 		background-size: 850px 700px;
 		min-height: 700px;

@@ -2,7 +2,7 @@ $(document).ready( function () {
     var images = ['smart-images/Smart Quote-2.png', 'smart-images/Smart Quote-3.png'];
     var index = 1;
 
-    setInterval (rotateImage, 7000);
+    setInterval (rotateImage, 12000);
 
     function rotateImage () {
         $('#image-tagline').fadeOut('slow', function  () {

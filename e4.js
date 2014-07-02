@@ -79,14 +79,57 @@ exports.executeTransaction = function (request, response) {
 
 	var cardholder_name = request.body.cardholder_name;
 	var cc_number = request.body.cc_number;
-	var cc_expiry = request.body.cc_expiry;
-	var amount = request.body.amount;	
+	var cc_expiry = request.body.cc_expiry;	
+    var travelTypeId = request.body.travelTypeId;
+    var numberOfTravelers = request.body.numberOfTravelers;
+    var amount = '';
 
-    //Demo purposes
-    
+    if (travelTypeId == 1 || travelTypeId == 0) {
+        if (numberOfTravelers == 2)
+        {
+            amount = '48.02';
+        }
+        else if (numberOfTravelers == 4)
+        {
+            amount = '88.02';
+        }
+        else if (numberOfTravelers == 6)
+        {
+            amount = '128.02';
+        }
+        else if (numberOfTravelers == 8)
+        {
+            amount = '168.02';
+        }
+    }
+    else if (travelTypeId == 2)
+    {
+        if (numberOfTravelers = 2)
+        {
+            amount = '86.02';
+        }
+        else if (numberOfTravelers = 4)
+        {
+            amount = '166.02';
+        }
+        else if (numberOfTravelers = 6)
+        {
+            amount = '246.02';
+        }
+        else if (numberOfTravelers = 8)
+        {
+            amount = '326.02';
+        }
+        
+    }
 
-    var gatewayId = 'B44629-01';
-    var password = '9l1klnn3';
+    //Demo
+    var gatewayId = 'AF4794-01';
+    var password = 'mjh2d30l';
+
+    //Production
+    // var gatewayId = 'B44629-01';
+    // var password = 'e79b8duh';
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
@@ -97,10 +140,17 @@ exports.executeTransaction = function (request, response) {
                 'gateway_id'                    : gatewayId,
                 'password'						: password
 		});
+
 	//Get the hash needed in order to login and execute the transaction
 	//getHash(body);
 
-	var request = requestify.request(' https://api.globalgatewaye4.firstdata.com/transaction/v11', {
+    // #demo
+    //https://api.demo.globalgatewaye4.firstdata.com/transaction
+
+    // #production
+    //https://api.globalgatewaye4.firstdata.com/transaction/v11
+
+	var request = requestify.request('https://api.demo.globalgatewaye4.firstdata.com/transaction', {
 		method: "POST",
 		body : body,
 		headers: {
