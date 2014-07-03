@@ -147,7 +147,7 @@ exports.executeTransaction = function (request, response) {
         
     }
 
-    var production = true;
+    var production = false;
 
     var gatewayId;
     var password;

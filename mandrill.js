@@ -29,8 +29,9 @@ exports.sendEmail = function sendEmail (request, response) {
 	var confirmationNumber = request.body.confirmationNumber;
 	var price = request.body.price;
 	var name = request.body.name;
+	var numberOfTravelers = request.body.numberOfTravelers;
 
-	var travelOverview = getTravelOverviewInfo(travelTypeId, details, confirmationNumber, price, name);
+	var travelOverview = getTravelOverviewInfo(travelTypeId, details, confirmationNumber, price, name, numberOfTravelers);
 
 	//Get an HTML document which is the body of the actual email
 	var html = getHTMLDocument(travelOverview);
@@ -100,7 +101,7 @@ exports.sendEmail = function sendEmail (request, response) {
 
 }
 
-function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price, name) {
+function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price, name, numberOfTravelers) {
 
 	if (travelTypeId == 0)  //One way to airport
 	{
@@ -113,7 +114,7 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 			"<p><b>Cruise to Airport Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
 			"<p><b>Reservation for: </b>" + name + "</p>" +
 			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
-			"<p><b>Total Cost (2 Passengers): </b>$" + price + "</p>"
+			"<p><b>Total Cost (" + numberOfTravelers + " Passengers): </b>$" + price + "</p>"
 	}
 	else if (travelTypeId == 1) //One way to Cruise
 	{
@@ -126,7 +127,7 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 			"<p><b>Airport to Cruise Date and Time: </b>" + flightDate + "," + flightTime + "</p>" +
 			"<p><b>Reservation for: </b>" + name + "</p>" +
 			"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
-			"<p><b>Total Cost: </b>$" + price + "</p>"
+			"<p><b>Total Cost (" + numberOfTravelers + " Passengers): </b>$" + price + "</p>"
 	}
 	else if (travelTypeId == 2) //Roundtrip
 	{ 
@@ -142,7 +143,7 @@ function getTravelOverviewInfo (travelTypeId, details, confirmationNumber, price
 				"<p><b>Cruise to Airport Date and Time: </b>" + cruiseDate + "," + cruiseTime + "</p>" +
 				"<p><b>Reservation for: </b>" + name + "</p>" +
 				"<p><b>Confirmation #: </b> " + confirmationNumber + "</p>" +
-				"<p><b>Total Cost: </b>$" + price + "</p>"
+				"<p><b>Total Cost (" + numberOfTravelers + " Passengers): </b>$" + price + "</p>"
 	}
 }
 

@@ -5,7 +5,7 @@ DataTable.enableVerbose(true);
 var MyModel;
 mongoose.plugin(DataTable.init);
 
-var production = true;
+var production = false;
 var dbURI;
 
 if (!production)
