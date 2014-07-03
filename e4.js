@@ -89,13 +89,25 @@ exports.executeTransaction = function (request, response) {
         {
             amount = '48.02';
         }
+        else if (numberOfTravelers == 3)
+        {
+            amount = '68.02';
+        }
         else if (numberOfTravelers == 4)
         {
             amount = '88.02';
         }
+        else if (numberOfTravelers == 5)
+        {
+            amount = '108.02';
+        }
         else if (numberOfTravelers == 6)
         {
             amount = '128.02';
+        }
+        else if (numberOfTravelers == 7)
+        {
+            amount = '148.02';
         }
         else if (numberOfTravelers == 8)
         {
@@ -104,19 +116,31 @@ exports.executeTransaction = function (request, response) {
     }
     else if (travelTypeId == 2)
     {
-        if (numberOfTravelers = 2)
+        if (numberOfTravelers == 2)
         {
             amount = '86.02';
         }
-        else if (numberOfTravelers = 4)
+        else if (numberOfTravelers == 3)
+        {
+            amount = '126.02';
+        }
+        else if (numberOfTravelers == 4)
         {
             amount = '166.02';
         }
-        else if (numberOfTravelers = 6)
+        else if (numberOfTravelers == 5)
+        {
+            amount = '206.02';
+        }
+        else if (numberOfTravelers == 6)
         {
             amount = '246.02';
         }
-        else if (numberOfTravelers = 8)
+        else if (numberOfTravelers == 7)
+        {
+            amount = '286.02';
+        }
+        else if (numberOfTravelers == 8)
         {
             amount = '326.02';
         }

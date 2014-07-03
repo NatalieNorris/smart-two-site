@@ -41,7 +41,9 @@ db.once('open', function callback ()
 			date 			 : String,
 			time 			 : String,			
 			confirmationCode : String,
-			numberOfTravelers: String
+			numberOfTravelers: String,
+			airline			 : String,
+			ship	     	 : String
 		}
 	});
 
@@ -114,39 +116,42 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 
 	console.log('The Travel Type Id is : ' + travelTypeId);
 	
-	if (travelTypeId == 1)
+	if (travelTypeId == 1)  //One way to airport
 	{
 		travelType = 'One Way to Airport';
 		console.log('Travel type is : ' + travelType);
 		//Get the date and time information from the json data.
 		var date = request.body.reservation.airportInfo.date;
 		var time = request.body.reservation.airportInfo.time;
+		var airline = request.body.reservation.airportInfo.airline;
 
 		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request);
+		reservation = getReservationDocument(date, time, travelType, request, airline, 'N/A');
 		//Add this confirmation code to the date and time
 		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 	}
-	else if (travelTypeId == 0)
+	else if (travelTypeId == 0)  //One way to cruise
 	{
 		travelType = 'One Way to Cruise';
 		console.log('Travel Type is : ' + travelType);
 		var date = request.body.reservation.cruiseInfo.date;
 		var time = request.body.reservation.cruiseInfo.time;
+		var cruiseShip = request.body.reservation.cruiseInfo.ship;
 
 		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request);
+		reservation = getReservationDocument(date, time, travelType, request, 'N/A', cruiseShip);
 		//Add this confirmation code to the date and time
 		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
 	}
-	else if (travelTypeId == 2)
+	else if (travelTypeId == 2) //Roundtrip
 	{
 		travelType = "One Way to Airport";
 		console.log('Travel Type is : ' + travelType);
 		var date = request.body.reservation.airportInfo.date;
 		var time = request.body.reservation.airportInfo.time;
+		var airline = request.body.reservation.airportInfo.airline;
 		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request);		
+		reservation = getReservationDocument(date, time, travelType, request, airline, 'N/A');		
 		//save to mongo
 		saveToMongo(reservation);	
 		//Add this confirmation code to the date and time
@@ -157,9 +162,10 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 
 		date = request.body.reservation.cruiseInfo.date;
 		time = request.body.reservation.cruiseInfo.time;
+		var cruiseShip = request.body.reservation.cruiseInfo.ship;
 
 		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request);		
+		reservation = getReservationDocument(date, time, travelType, request, 'N/A', cruiseShip);		
 		//Add this confirmation code to the date and time
 		travelTypeId = 1;
 		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
@@ -168,10 +174,14 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 	//save to mongo
 	saveToMongo(reservation);
 }
+
+
+
 //Returns a document made up of all the details needed for a reservation. ex: date, time, name etc.
-function getReservationDocument (date, time, type, request, specialRequest) {
+function getReservationDocument (date, time, type, request, airline, ship) {
 	//store a new reservation with all the specified details.
 	console.log('Special Request : ',  request.body.reservation.specialRequest);
+
 	var reservation = new reservations({ 
 		reservation :
 		{
@@ -183,9 +193,12 @@ function getReservationDocument (date, time, type, request, specialRequest) {
 			date 				: date,
 			time 				: time,
 			confirmationCode 	: request.body.reservation.confirmationCode,
-			numberOfTravelers   : request.body.reservation.numberOfTravelers
+			numberOfTravelers   : request.body.reservation.numberOfTravelers,
+			airline				: airline,
+			ship 				: ship
 		}
 	}); 
+
 	console.log(reservation);
 
 	return reservation;

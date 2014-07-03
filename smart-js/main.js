@@ -101,6 +101,19 @@ $(document).ready( function  () {
 
                 strNumOfTravelers = "TWO";
                 break;
+            case 3:
+                if (!roundTrip)
+                {
+                    price = 68.02;
+                    originalPrice = 85;
+                }
+                else {
+                    price = 126.02;
+                    originalPrice = 145;
+                }
+
+                strNumOfTravelers = "THREE";
+                break;
             case 4:
                 if (!roundTrip)
                 {
@@ -114,6 +127,19 @@ $(document).ready( function  () {
 
                 strNumOfTravelers = "FOUR";
                 break;
+            case 5:
+                if (!roundTrip)
+                {
+                    price = 108.02;
+                    originalPrice = 125;
+                }
+                else {
+                    price = 206.02;
+                    originalPrice = 235;
+                }
+
+                strNumOfTravelers = "FIVE";
+                break;
             case 6:
                 if (!roundTrip)
                 {
@@ -126,6 +152,19 @@ $(document).ready( function  () {
                 }
 
                 strNumOfTravelers = "SIX";
+                break;
+            case 7:
+                if (!roundTrip)
+                {
+                    price = 148.02;
+                    originalPrice = 175;
+                }
+                else {
+                    price = 286.02;
+                    originalPrice = 305;
+                }
+
+                strNumOfTravelers = "TWO";
                 break;
             case 8:
                 if (!roundTrip)

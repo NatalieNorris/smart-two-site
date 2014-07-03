@@ -122,7 +122,9 @@ $(document).ready( function  () {
                             emailInputBox.val(), 
                             travelTypeId,
                             requestCommentsInputBox.val(),
-                            numberOfTravelers);
+                            numberOfTravelers,
+                            airline,
+                            cruiseShip);
 
                             sendEmail(customerCode);
                         
@@ -302,7 +304,9 @@ $(document).ready( function  () {
             cruiseTime = queryString['cruiseTime'];
             travelTypeId = queryString['travelTypeId'];   
             amount = queryString['price'];   
-            numberOfTravelers = queryString['numOfTravelers']; 
+            numberOfTravelers = queryString['numOfTravelers'];
+            airline = queryString['airline'];
+            cruiseShip = queryString['cruiseShip']; 
 
             $('#price-tagline').empty();
             $('#price-tagline').append('<span style = "color: yellow">TOTAL PRICE FOR TWO:</span>');                
