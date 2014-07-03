@@ -118,64 +118,54 @@ exports.addReservationDocument = function addReservationDocument (request, respo
 	
 	if (travelTypeId == 1)  //One way to airport
 	{
-		travelType = 'One Way to Airport';
-		console.log('Travel type is : ' + travelType);
-		//Get the date and time information from the json data.
-		var date = request.body.reservation.airportInfo.date;
-		var time = request.body.reservation.airportInfo.time;
-		var airline = request.body.reservation.airportInfo.airline;
-
-		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request, airline, 'N/A');
-		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
+		reservation = setOneWayToAirportInfo(request, travelType, numberOfTravelers);
 	}
 	else if (travelTypeId == 0)  //One way to cruise
 	{
-		travelType = 'One Way to Cruise';
-		console.log('Travel Type is : ' + travelType);
-		var date = request.body.reservation.cruiseInfo.date;
-		var time = request.body.reservation.cruiseInfo.time;
-		var cruiseShip = request.body.reservation.cruiseInfo.ship;
-
-		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request, 'N/A', cruiseShip);
-		//Add this confirmation code to the date and time
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
+		reservation = setOneWayToCruiseInfo(request, travelType, numberOfTravelers);
 	}
 	else if (travelTypeId == 2) //Roundtrip
 	{
-		travelType = "One Way to Airport";
-		console.log('Travel Type is : ' + travelType);
-		var date = request.body.reservation.airportInfo.date;
-		var time = request.body.reservation.airportInfo.time;
-		var airline = request.body.reservation.airportInfo.airline;
-		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request, airline, 'N/A');		
-		//save to mongo
-		saveToMongo(reservation);	
-		//Add this confirmation code to the date and time
-		travelTypeId = 0;
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
-
-		travelType = "One Way to Cruise";
-
-		date = request.body.reservation.cruiseInfo.date;
-		time = request.body.reservation.cruiseInfo.time;
-		var cruiseShip = request.body.reservation.cruiseInfo.ship;
-
-		//Create a JSON document to be stored in mongo
-		reservation = getReservationDocument(date, time, travelType, request, 'N/A', cruiseShip);		
-		//Add this confirmation code to the date and time
-		travelTypeId = 1;
-		addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
+		reservation = setOneWayToAirportInfo(request, travelType, numberOfTravelers); 
+		saveToMongo(reservation);
+		reservation = setOneWayToCruiseInfo(request, travelType, numberOfTravelers);
 	}
 	
 	//save to mongo
 	saveToMongo(reservation);
 }
 
+function setOneWayToAirportInfo (request, travelType, numberOfTravelers) {
+	travelType = 'One Way to Airport';
+	//Get the date and time information from the json data.
+	var date = request.body.reservation.airportInfo.date;
+	var time = request.body.reservation.airportInfo.time;
+	var airline = request.body.reservation.airportInfo.airline;
 
+	//Create a JSON document to be stored in mongo
+	reservation = getReservationDocument(date, time, travelType, request, airline, 'N/A');
+	//Add this confirmation code to the date and time
+	var travelTypeId = 0;
+	addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers); 
+
+	return reservation;
+}
+
+function setOneWayToCruiseInfo (request, travelType, numberOfTravelers) {
+	travelType = "One Way to Cruise";
+
+	date = request.body.reservation.cruiseInfo.date;
+	time = request.body.reservation.cruiseInfo.time;
+	var cruiseShip = request.body.reservation.cruiseInfo.ship;
+
+	//Create a JSON document to be stored in mongo
+	reservation = getReservationDocument(date, time, travelType, request, 'N/A', cruiseShip);		
+	//Add this confirmation code to the date and time
+	var travelTypeId = 1;
+	addDateDocument(date, time, request.body.reservation.confirmationCode, travelTypeId, numberOfTravelers);
+
+	return reservation;
+}
 
 //Returns a document made up of all the details needed for a reservation. ex: date, time, name etc.
 function getReservationDocument (date, time, type, request, airline, ship) {
