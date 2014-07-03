@@ -5,9 +5,17 @@ DataTable.enableVerbose(true);
 var MyModel;
 mongoose.plugin(DataTable.init);
 
-//var dbURI = 'mongodb://54.01.10.162/sswr';
-var dbURI = 'mongodb://127.0.0.1/thomas';
-//var dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
+var production = true;
+var dbURI;
+
+if (!production)
+{
+	dbURI = 'mongodb://127.0.0.1/thomas';
+}
+else {
+	dbURI = 'mongodb://smarttwo:Daniel244@127.0.0.1:27017/thomas';
+}
+
 mongoose.connect(dbURI);
 
 var db = mongoose.connection;

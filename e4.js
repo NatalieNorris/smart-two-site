@@ -147,13 +147,21 @@ exports.executeTransaction = function (request, response) {
         
     }
 
-    //Demo
-    var gatewayId = 'AF4794-01';
-    var password = 'mjh2d30l';
+    var production = true;
 
-    //Production
-    // var gatewayId = 'B44629-01';
-    // var password = 'e79b8duh';
+    var gatewayId;
+    var password;
+
+    if (!production) //Demo
+    {
+        gatewayId = 'AF4794-01';
+        password = 'mjh2d30l';
+    }
+    else    //Production
+    {
+        var gatewayId = 'B44629-01';
+        var password = 'e79b8duh';
+    }
 
 	var body = JSON.stringify ({
 				'transaction_type'				: "00",
