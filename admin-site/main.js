@@ -45,8 +45,11 @@ $(document).ready(function () { //Begin ready function
     				{ "mData" : "reservation.specialRequest" },
     				{ "mData" : "reservation.confirmationCode" },
     				{ "mData" : "reservation.date" },
-    				{ "mData" : "reservation.time"},
-    				{ "mData" : "reservation.travelType"}
+    				{ "mData" : "reservation.time" },
+    				{ "mData" : "reservation.travelType" },
+                    { "mData" : "reservation.airline" },
+                    { "mData" : "reservation.ship" },
+                    { "mData" : "reservation.numberOfTravelers" }
     	],
     	"bDestroy"    : true
     });
