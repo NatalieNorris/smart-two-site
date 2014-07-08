@@ -87,11 +87,11 @@ exports.executeTransaction = function (request, response) {
     if (travelTypeId == 1 || travelTypeId == 0) {
         if (numberOfTravelers == 2)
         {
-            amount = '48.02';
+            amount = '58.02';
         }
         else if (numberOfTravelers == 3)
         {
-            amount = '68.02';
+            amount = '78.02';
         }
         else if (numberOfTravelers == 4)
         {
@@ -118,11 +118,11 @@ exports.executeTransaction = function (request, response) {
     {
         if (numberOfTravelers == 2)
         {
-            amount = '86.02';
+            amount = '106.02';
         }
         else if (numberOfTravelers == 3)
         {
-            amount = '126.02';
+            amount = '146.02';
         }
         else if (numberOfTravelers == 4)
         {
@@ -147,7 +147,7 @@ exports.executeTransaction = function (request, response) {
         
     }
 
-    var production = false;
+    var production = true;
 
     var gatewayId;
     var password;
@@ -176,13 +176,20 @@ exports.executeTransaction = function (request, response) {
 	//Get the hash needed in order to login and execute the transaction
 	//getHash(body);
 
-    // #demo
-    //https://api.demo.globalgatewaye4.firstdata.com/transaction
+    var apiURI;
 
-    // #production
-    //https://api.globalgatewaye4.firstdata.com/transaction/v11
+    if (!production)
+    {
+        // #demo
+        apiURI = "https://api.demo.globalgatewaye4.firstdata.com/transaction";
+    }
+    else
+    {
+        // #production
+        apiURI = "https://api.globalgatewaye4.firstdata.com/transaction/v11";
+    }
 
-	var request = requestify.request('https://api.demo.globalgatewaye4.firstdata.com/transaction', {
+	var request = requestify.request(apiURI, {
 		method: "POST",
 		body : body,
 		headers: {

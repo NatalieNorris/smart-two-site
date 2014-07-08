@@ -91,12 +91,12 @@ $(document).ready( function  () {
             case 2:
                 if (!roundTrip)
                 {
-                    price = 48.02;
-                    originalPrice = 55;
+                    price = 58.02;
+                    originalPrice = 65;
                 }
                 else {
-                    price = 86.02;
-                    originalPrice = 95;
+                    price = 106.02;
+                    originalPrice = 115;
                 }
 
                 strNumOfTravelers = "TWO";
@@ -104,12 +104,12 @@ $(document).ready( function  () {
             case 3:
                 if (!roundTrip)
                 {
-                    price = 68.02;
+                    price = 78.02;
                     originalPrice = 85;
                 }
                 else {
-                    price = 126.02;
-                    originalPrice = 145;
+                    price = 146.02;
+                    originalPrice = 165;
                 }
 
                 strNumOfTravelers = "THREE";
