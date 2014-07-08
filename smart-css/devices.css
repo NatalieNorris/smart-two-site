@@ -10,7 +10,7 @@
 /* # -- Different Width
 ================================================== */
 
-
+/*Smart Phones*/
 @media all and (max-width: 415px), all and (max-device-width: 415px) {
 
 	.full-body {
@@ -25,6 +25,25 @@
 
 	.main {
 		min-width: 650px;
+	}
+
+	#main-close-window {
+		margin-top: 20px;
+	}
+
+	#social-network {
+		margin-left: 530px;
+		margin-top: -50px;
+	}
+
+	#prices-pdf {
+		margin-left: 10px;
+		margin-top: 50px;
+	}
+
+	#pdf {
+		height: 700px;
+		width: 600px;
 	}
 
 	.privacy-line {
@@ -47,11 +66,9 @@
 	}
 
 	.container {
-		padding-left: 15px;
-		padding-right: 15px;
 	}
 }
-
+/*Tablet Devices*/
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 	.full-body {
 		background-size: 850px 700px;
@@ -67,6 +84,25 @@
 		min-width: 768px;
 	}
 
+	#social-network {
+		margin-left: 620px;
+		margin-top: -50px;
+	}
+
+	#main-close-window {
+		margin-top: 80px;
+	}
+
+	#prices-pdf {
+		margin-left: 9%;
+		margin-top: 15%;
+	}
+
+	#pdf {
+		height: 700px;
+		width: 700px;
+	}
+
 	.tagline img {
 		/*width: 70%;
 		height: 75%;*/
@@ -78,7 +114,7 @@
 	}
 
 	.graybar-subline {
-		margin-left: 590px;
+		margin-left: 587px;
 	}
 
 }

@@ -79,11 +79,14 @@ body {
 }
 
 .main {
-
 	max-width: 950px;
 	min-width: 950px;	
 	background-color: white;
-	
+
+	margin-right: auto !important;
+	margin-left: auto  !important;
+
+	overflow: hidden;
 }
 
 span.input-group-addon {
@@ -260,15 +263,29 @@ span.input-group-addon {
 	width: 120px;
 	text-align: center;
 	display: inline-block;
-	cursor : pointer;
+	cursor : pointer ;
+}
+
+#main-close-window {
+	margin-left: 45%;
+	margin-right: 45%;
+	margin-top: 5px;
+	position: absolute;
+	width: 200px;
+	color: white;
+	cursor: pointer;
 }
 
 #prices-pdf {
 	opacity: 1;
 	margin-left: 19.3%;
-	height: 75%;
-	width: 75%;
+	margin-right: 20%;
 	margin-top: 2%;
+}
+
+#pdf {
+	height: 700px;
+	width: 100%;
 }
 
 #reservationBar h3
@@ -559,7 +576,7 @@ hr.bottom {
 }
 
 .graybar-line {
-	margin-left: 445px;
+	margin-left: 455px;
 	font-family: 'Arial', Arial;
 	color: white;
 }
