@@ -51,6 +51,7 @@ $(document).ready( function  () {
 
     setErrorMessages();
     editMainScreen();
+    $('#pdf-overlay').hide();
 
     $('.dropdown-toggle').dropdown();
 
@@ -181,6 +182,14 @@ $(document).ready( function  () {
                 break;
         }
     }
+
+    $('#pdf-overlay').click(function () {
+        $('#pdf-overlay').hide();
+    })
+
+    $('#fast-rates').click(function () {
+        $('#pdf-overlay').show();  
+    })
 
     function reloadReservation (reservation) {
         changeTravelType(reservation.travelType); 
