@@ -29,7 +29,13 @@
     	<!-- Include all compiled plugins (below), or include individual files as needed -->    	
   		
     </head>
-    <body>    	
+    <body>  
+    	<div id = 'pdf-overlay'>
+    		<div id = "main-close-window">Close Window</div>
+    		<div id = "prices-pdf">    			
+    			<embed src="pdf/prices.pdf" id = "pdf"> 
+    		</div>
+    	</div>  	
     	<div class = "container-fluid main" >
     		<div id = "dim"></div>
     		<div class = "row">
@@ -191,6 +197,7 @@
   		<script src="smart-js/customer-info-main.js"></script>
   		<script src="smart-js/rotating-quote.js"></script>  	
   		<script src="smart-js/placeholder-fix.js"></script>  	
+  		<script src="smart-js/pdf-overlay.js"></script>
   		
   </body>
 
